@@ -1,20 +1,21 @@
-import './_shared/styles/globals.css';
+import '../_shared/styles/globals.css';
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+
 
 export const metadata = {
     title: "My App",
     description: "This is a single-page application built with Next.js",
 };
 
-export default function RootLayout({ children }) {
-
+export default async function RootLayout({children, params}) {
+    const {locale} = await params?.locale || 'en';
     return (
-        <html lang="en">
+        <html lang={locale}>
         <body className="bg-primary-darkest ">
-        <Header />
+        <Header/>
         <main>{children}</main>
-        <Footer />
+        <Footer/>
         </body>
         </html>
     );
