@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      height: {
+        "0.25": "1px", // Dodaj niestandardową wysokość
+      },
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
       },
