@@ -1,24 +1,26 @@
 "use client";
 
-import { Typewriter } from "react-simple-typewriter";
+import {Typewriter} from "react-simple-typewriter";
 
 export default function IntroSection() {
     return (
-        <div className="flex items-center justify-center bg-primary-darkest">
-            <div className="mx-auto text-white flex items-center w-2/3">
-                <div className="w-2/3 p-4">
-                    <h1 className="text-4xl font-bold mb-4">Hello</h1>
-                    <h2 className="text-3xl font-bold mb-4">
-                        I am <span className="text-primary-light font-bold">Benedykt</span>,
-                    </h2>
-                    <h3 className="text-2xl font-medium">
-                        <span className="text-primary-white font-bold">
+        <div className="flex items-center justify-center bg-primary-darkest min-h-[300px]">
+            <div className="text-primary-white flex justify-center items-center w-1/2">
+                <div className="w-full flex flex-col items-center justify-center">
+                    <div>
+                        <h1 className="text-4xl font-bold mb-4 min-w-[350px]">Hello</h1>
+                        <h2 className="text-3xl font-bold mb-4 min-w-[350px]">
+                            I am <span className="text-primary-light font-bold">Benedykt</span>,
+                        </h2>
+                    </div>
+                    <h3 className="text-2xl font-medium min-w-[350px]">
+                        <span className="text-primary-white font-bold ">
                             <Typewriter
                                 words={["Software Engineer ", "Backend Developer ", "Fullstack Developer "]}
                                 loop={0}
                                 cursor
                                 cursorStyle={
-                                    <span style={{ fontWeight: "normal", fontSize: "inherit" }}>|</span>
+                                    <span style={{fontWeight: "normal", fontSize: "inherit"}}>|</span>
                                 }
                                 cursorBlinking={true}
                                 cursorClassName="font-light"
@@ -29,11 +31,15 @@ export default function IntroSection() {
                         </span>
                     </h3>
                 </div>
-                <div className="mt-8">
+
+            </div>
+            <div className="text-white flex justify-center w-1/2 min-h-[300px]">
+                <div className="relative flex justify-center items-top mt-0">
+                    <img src="/elipse.svg" alt="elipse" className=" scale-[0.80] absolute bottom-0 border-primary-light "/>
                     <img
                         src="/me-image.png"
                         alt="Benedykt"
-                        className="w-3/4 max-w-md rounded-lg shadow-lg"
+                        className="scale-75 mt-0 mr-1"
                     />
                 </div>
             </div>
