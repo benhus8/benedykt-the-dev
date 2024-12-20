@@ -12,7 +12,7 @@ export default async function RootLayout({children, params}) {
     const {locale} = await params?.locale || 'en';
     return (
         <html lang={locale}>
-        <body className="bg-primary-darkest min-h-screen px-20 pt-2">
+        <body className="bg-primary-darkest min-h-screen">
         <Header/>
         <main className="bg-primary-darkest">{children}</main>
         </body>
