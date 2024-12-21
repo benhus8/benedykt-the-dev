@@ -16,12 +16,13 @@ export function Card({
                      }) {
     return (
         <motion.div
-            className={`absolute w-[275px] h-[400px] rounded-md bg-${bgColor} shadow-md `}
+            className={`absolute w-[275px] h-[400px] rounded-md bg-${bgColor} shadow-md cursor-grab active:cursor-grabbing`}
             style={{
                 transform: isTop
                     ? "translateX(0) translateY(0)"
                     : "translateX(40px)",
                 transition: "transform 0.5s ease",
+
             }}
             drag={isTop ? "x" : false}
             dragConstraints={{ left: 0, right: 0 }}

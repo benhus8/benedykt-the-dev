@@ -1,4 +1,5 @@
 import CardSlider, {Card} from "@/components/animated/CardSlider";
+import Transition from "@/components/animated/Transition";
 
 function AsymmetricEnding() {
     return (
@@ -29,13 +30,19 @@ export default function StackSection() {
         <div>
             <div className="w-full min-h-[300px] bg-primary-dark mt-10 flex flex-col sm:flex-row justify-between items-center p-10">
                 <div className="pl-10">
-                    <CardSlider/>
+                    <Transition delay={0.5}>
+                        <CardSlider/>
+                    </Transition>
                 </div>
                 <div className="">
-                    <CardSlider/>
+                    <Transition delay={0.75}>
+                        <CardSlider/>
+                    </Transition>
                 </div>
                 <div className=" pr-20">
-                    <CardSlider/>
+                    <Transition delay={1}>
+                        <CardSlider/>
+                    </Transition>
                 </div>
             </div>
             <AsymmetricEnding/>
