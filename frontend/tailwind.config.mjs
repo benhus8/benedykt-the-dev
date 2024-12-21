@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       height: {
-        "0.25": "1px", // Dodaj niestandardową wysokość
+        "0.25": "1px",
       },
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
