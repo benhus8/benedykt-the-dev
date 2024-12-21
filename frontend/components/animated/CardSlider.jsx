@@ -16,9 +16,7 @@ export function Card({
                      }) {
     return (
         <motion.div
-            className={`absolute w-[275px] h-[400px] rounded-md bg-${bgColor} shadow-md ${
-                isTop ? "z-20" : isBehind ? "z-10" : "z-5"
-            }`}
+            className={`absolute w-[275px] h-[400px] rounded-md bg-${bgColor} shadow-md `}
             style={{
                 transform: isTop
                     ? "translateX(0) translateY(0)"
