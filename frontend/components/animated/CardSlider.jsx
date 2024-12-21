@@ -1,7 +1,6 @@
 "use client";
 
 import {motion} from "framer-motion";
-import "swiper/css";
 import {useState} from "react";
 
 
@@ -30,7 +29,12 @@ export function Card({
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={onDragEnd}
             whileDrag={{ scale: 1.05 }}
-            animate={isTop ? { x: 0, y: 0 } : { x: 40, y: 0 }}
+            animate={{
+                x: isTop ? 0 : 40,
+                y: 0,
+                zIndex: isTop ? 20 : isBehind ? 10 : 5,
+                scale: isTop ? 1 : 0.95,
+            }}
         >
             <div className="p-4">
                 <div
