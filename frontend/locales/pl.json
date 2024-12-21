@@ -1,0 +1,15 @@
+{
+  "Home": {
+    "Hero": {
+      "Title": "Next.js Internalization Demo",
+      "Subtitle": "To jest polskie demo gdzie uzywam langów",
+      "CallToAction": "Read about us"
+    }
+  },
+  "Header": {
+    "about-me": "O mnie",
+    "stack": "Technologie",
+    "experience": "Doświadczenie",
+    "contact-me": "Kontakt"
+  }
+}

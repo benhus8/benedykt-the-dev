@@ -2,7 +2,7 @@
 
 ```plaintext
 /app
-  `/layout
+  `/layout (headers, footers, navigations bars)
     LayoutWithAnimation.jsx
   /components
     /animated
@@ -10,7 +10,7 @@
       PageTransition.jsx
     /static
       StaticContent.jsx
-  /pages
+  /pages (concrete pages of website)
     index.jsx
     about.jsx
   /shared
@@ -21,3 +21,5 @@
     /styles
       globals.css
 ```
+
+Locales did with this tutorial: https://hygraph.com/blog/nextjs-internationalization
