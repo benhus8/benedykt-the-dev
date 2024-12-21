@@ -27,12 +27,18 @@ const cards = [
 export default function StackSection() {
     return (
         <div>
-            <div className="w-full min-h-[300px] bg-primary-dark mt-10">
-                <div className="pt-0.5">
-                    <CardSlider />
+            <div className="w-full min-h-[300px] bg-primary-dark mt-10 flex flex-col sm:flex-row justify-between items-center p-10">
+                <div className="pl-10">
+                    <CardSlider/>
+                </div>
+                <div className="">
+                    <CardSlider/>
+                </div>
+                <div className=" pr-20">
+                    <CardSlider/>
                 </div>
             </div>
-            <AsymmetricEnding />
+            <AsymmetricEnding/>
         </div>
     )
 }
