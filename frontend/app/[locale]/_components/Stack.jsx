@@ -36,7 +36,7 @@ const languagesStack = [
       "Python is popular for its simplicity and wide range of libraries.",
   },
   {
-    name: "JS",
+    name: "J S",
     bgColor: "secondary-grayLight",
     textColor: "primary-darkest",
     shortDescription: "JavaScript for web development",
