@@ -10,9 +10,19 @@ import {
 } from "react-icons/fa";
 import AnimatedLine from "@/components/animated/AnimatedLine";
 
-function NavItem({ text }) {
+function NavItem({ text, targetId }) {
+  const handleClick = () => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <h1 className="font-light text-lg text-primary-white hover:text-primary-light cursor-pointer transition-all duration-300">
+    <h1
+      onClick={handleClick}
+      className="font-light text-lg text-primary-white hover:text-primary-light cursor-pointer transition-all duration-300"
+    >
       {text}
     </h1>
   );
@@ -29,14 +39,14 @@ export default function Header() {
   }, []);
 
   return (
-    <header>
+    <header id="about-me">
       <div className="p-4 flex justify-center">
         <nav className="w-1/2">
           <div className="flex justify-between mr-2 ml-2">
-            <NavItem text={"About me"} />
-            <NavItem text={"Stack"} />
-            <NavItem text={"Experience"} />
-            <NavItem text={"Contact   me"} />
+            <NavItem text={"About me"} targetId="about-me" />
+            <NavItem text={"Stack"} targetId="stack" />
+            <NavItem text={"Experience"} targetId="experience" />
+            <NavItem text={"Contact me"} targetId="contact-me" />
           </div>
           <AnimatedLine className="mb-0 mt-1 left-0 h-0.25 bg-primary-white rounded-lg" />
         </nav>
@@ -45,16 +55,32 @@ export default function Header() {
       <AnimatePresence>
         {isScrolled && (
           <motion.div
-            className="fixed top-1/2 right-1 transform -translate-y-1/2 flex flex-col gap-4 bg-primary-darkest p-2 rounded-lg shadow-lg z-50"
+            className="fixed top-1/2 right-1 transform -translate-y-1/2 flex flex-col gap-4 bg-primary-darkest p-2 rounded-md shadow-lg z-50"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 100, opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <FloatingIcon icon={<FaUser />} label={"About me"} />
-            <FloatingIcon icon={<FaStackOverflow />} label={"Stack"} />
-            <FloatingIcon icon={<FaBriefcase />} label={"Experience"} />
-            <FloatingIcon icon={<FaEnvelope />} label={"Contact me"} />
+            <FloatingIcon
+              icon={<FaUser />}
+              label={"About me"}
+              targetId="about-me"
+            />
+            <FloatingIcon
+              icon={<FaStackOverflow />}
+              label={"Stack"}
+              targetId="stack"
+            />
+            <FloatingIcon
+              icon={<FaBriefcase />}
+              label={"Experience"}
+              targetId="experience"
+            />
+            <FloatingIcon
+              icon={<FaEnvelope />}
+              label={"Contact me"}
+              targetId="contact-me"
+            />
           </motion.div>
         )}
       </AnimatePresence>
@@ -62,34 +88,35 @@ export default function Header() {
   );
 }
 
-function FloatingIcon({ icon, label }) {
-  const parentVariants = {
-    hidden: {},
-    visible: {},
-  };
-
+function FloatingIcon({ icon, label, targetId }) {
   const tooltipVariants = {
     hidden: { opacity: 0, x: 10 },
     visible: { opacity: 1, x: 0 },
+  };
+
+  const handleClick = () => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
     <motion.div
       className="relative cursor-pointer flex items-center justify-center"
       whileTap={{ scale: 0.9 }}
-      initial="hidden"
-      whileHover="visible"
-      variants={parentVariants} // Rodzic nie animuje tooltipa
     >
-      <motion.div className="group relative">
+      <motion.div
+        className="relative"
+        variants={tooltipVariants}
+        whileHover="visible"
+        onClick={handleClick}
+      >
         <div className="text-primary-white text-2xl scale-75">{icon}</div>
         {/* Tooltip */}
         <motion.span
-          className="absolute right-10 top-1/2 bg-primary-darkest text-primary-white text-sm px-2 py-1 rounded-lg shadow-lg"
           variants={tooltipVariants}
-          initial="hidden"
-          animate="hidden" // Domyślnie ukryty
-          whileHover="visible" // Widoczny na hover
+          className="absolute right-10 top-0 whitespace-nowrap h-auto bg-primary-darkest text-primary-white text-sm px-2 py-1 rounded-md shadow-lg opacity-0"
         >
           {label}
         </motion.span>
