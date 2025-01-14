@@ -26,7 +26,7 @@ export default function IntroSection() {
                     <div>
                         <h1 className="text-5xl font-bold min-w-[600px]">Hello</h1>
                         <h2 className="text-5xl font-bold min-w-[600px]">
-                            I am <span className="text-primary-light font-bold">Benedykt</span>,
+                            I am <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-white to-primary-light font-bold">Benedykt</span>,
                         </h2>
                     </div>
                     <h3 className="text-5xl font-medium min-w-[600px]">
@@ -48,28 +48,33 @@ export default function IntroSection() {
                     </h3>
                 </div>
             </div>
-            <div className="text-white flex  items-center justify-center w-1/2 min-h-[300px]">
-                <div className="relative flex  mt-0">
-                    <img src="/elipse.svg" alt="elipse" className=" scale-[0.80] absolute bottom-0 border-primary-light "/>
+            <div className="text-white flex flex-col items-center justify-center w-1/2 min-h-[300px]">
+                <div className="border-primary-light border-2 border-2 rounded-xl px-1">
                     <img
-                        src="/me-image.png"
-                        alt="Benedykt"
-                        className="scale-75"
+                        src="/pretty_ben.png"
+                        alt="Me"
+                        className="max-w-[200px]"
                     />
-                    {icons.map((icon, index) => (
-                        <AnimatedIcon
-                            key={index}
-                            src={icon.src}
-                            alt={icon.alt}
-                            initialX={icon.initialX}
-                            initialY={icon.initialY}
-                            endX={icon.endX}
-                            endY={icon.endY}
-                            delay={index * 0.3}
-                        />
-                    ))}
                 </div>
+                <div className="flex justify-between">
+                    <a href="https://www.linkedin.com/in/benedykt-huszcza-478b69289/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/linkdin.svg"
+                            alt="Linkedin"
+                            className="w-[30px] h-[30px] mx-5 mt-2"
+                        />
+                    </a>
+                    <a href="https://github.com/benhus8" target="_blank"
+                       rel="noopener noreferrer">
+                        <img
+                            src="/github.svg"
+                            alt="GitHub"
+                            className="w-[30px] h-[30px] mx-5 mt-2"
+                        />
+                    </a>
+                </div>
+
             </div>
         </div>
-    );
+);
 }
