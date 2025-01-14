@@ -1,6 +1,6 @@
 import Transition from "@/components/animated/Transition";
 import { useTranslations } from 'next-intl';
-import AboutMe from "./_components/AboutMe";
+import Me from "./_components/Me";
 import StackSection from "@/app/[locale]/_components/Stack";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <Transition>
             <div className="px-20 pt-2">
-                <AboutMe />
+                <Me />
             </div>
             <StackSection />
         </Transition>
