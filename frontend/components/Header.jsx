@@ -1,16 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaUser,
-  FaStackOverflow,
-  FaBriefcase,
-  FaEnvelope,
-} from "react-icons/fa";
-import AnimatedLine from "@/components/animated/AnimatedLine";
 
-function NavItem({ text, targetId }) {
+import {useEffect, useState} from "react";
+function NavItem({ text, targetId, bold=false }) {
   const handleClick = () => {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
@@ -21,106 +13,48 @@ function NavItem({ text, targetId }) {
   return (
     <h1
       onClick={handleClick}
-      className="font-light text-lg text-primary-white hover:text-primary-light cursor-pointer transition-all duration-300"
+      className={`${ bold ? 'font-bold': 'font-light'} text-lg text-primary-white hover:text-primary-light cursor-pointer transition-all duration-300`}
     >
       {text}
     </h1>
   );
 }
 export default function Header() {
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100); // Zmiana na floating menu po przewinięciu 100px
+      setIsScrolled(window.scrollY > 100);  // Zmieniamy wartość 100 na dowolną wartość, po której ma się pojawić tło
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header id="about-me">
-      <div className="p-4 flex justify-center">
-        <nav className="w-1/2">
-          <div className="flex justify-between mr-2 ml-2">
-            <NavItem text={"About me"} targetId="about-me" />
-            <NavItem text={"Stack"} targetId="stack" />
-            <NavItem text={"Experience"} targetId="experience" />
-            <NavItem text={"Contact me"} targetId="contact-me" />
-          </div>
-          <AnimatedLine className="mb-0 mt-1 left-0 h-0.25 bg-primary-white rounded-lg" />
-        </nav>
-      </div>
-
-      <AnimatePresence>
-        {isScrolled && (
-          <motion.div
-            className="fixed top-1/2 right-1 transform -translate-y-1/2 flex flex-col gap-4 bg-primary-darkest p-2 rounded-md shadow-lg z-50"
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 100, opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <FloatingIcon
-              icon={<FaUser />}
-              label={"About me"}
-              targetId="about-me"
-            />
-            <FloatingIcon
-              icon={<FaStackOverflow />}
-              label={"Stack"}
-              targetId="stack"
-            />
-            <FloatingIcon
-              icon={<FaBriefcase />}
-              label={"Experience"}
-              targetId="experience"
-            />
-            <FloatingIcon
-              icon={<FaEnvelope />}
-              label={"Contact me"}
-              targetId="contact-me"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
-  );
-}
-
-function FloatingIcon({ icon, label, targetId }) {
-  const tooltipVariants = {
-    hidden: { opacity: 0, x: 10 },
-    visible: { opacity: 1, x: 0 },
-  };
-
-  const handleClick = () => {
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  return (
-    <motion.div
-      className="relative cursor-pointer flex items-center justify-center"
-      whileTap={{ scale: 0.9 }}
-    >
-      <motion.div
-        className="relative"
-        variants={tooltipVariants}
-        whileHover="visible"
-        onClick={handleClick}
+      <header
+          id="about-me"
+          className={`transition-all duration-500 ease-in-out fixed w-full z-20 ${
+              isScrolled ? ' bg-opacity-80 backdrop-blur-lg' : 'bg-transparent'
+          }`}
       >
-        <div className="text-primary-white text-2xl scale-75">{icon}</div>
-        {/* Tooltip */}
-        <motion.span
-          variants={tooltipVariants}
-          className="absolute right-10 top-0 whitespace-nowrap h-auto bg-primary-darkest text-primary-white text-sm px-2 py-1 rounded-md shadow-lg opacity-0"
-        >
-          {label}
-        </motion.span>
-      </motion.div>
-    </motion.div>
+        <div className="py-5 px-32 flex justify-between">
+          <div>
+            <NavItem text={"benedykt-huszcza.dev"} targetId="about-me" bold/>
+          </div>
+
+          <nav className="w-1/2 mr">
+            <div className="flex space-x-20 justify-end">
+              <NavItem text={"Skills"} targetId="stack"/>
+              <NavItem text={"Projects"} targetId="experience"/>
+              <NavItem text={"Career"} targetId="contact-me"/>
+              <NavItem text={"Contact me"} targetId="contact-me"/>
+            </div>
+          </nav>
+
+        </div>
+
+      </header>
   );
 }
+
