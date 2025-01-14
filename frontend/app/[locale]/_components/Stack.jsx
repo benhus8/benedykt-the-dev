@@ -55,25 +55,26 @@ const languagesStack = [
 
 export default function StackSection() {
   return (
-    <div>
-      <div className="w-full min-h-[300px] bg-primary-dark mt-10 flex flex-col sm:flex-row justify-between items-center p-10">
-        <div className="pl-10">
-          <Transition delay={0.5}>
-            <CardSlider cards={languagesStack} tooltip={true} />
-          </Transition>
+      <div className="relative z-10">
+        <div className="w-full min-h-[300px] bg-primary-dark mt-10 flex flex-col sm:flex-row justify-between items-center p-10">
+          <div className="pl-10">
+            <Transition delay={0.5}>
+              <CardSlider cards={languagesStack} tooltip={true} />
+            </Transition>
+          </div>
+          <div className="">
+            <Transition delay={0.75}>
+              <CardSlider cards={languagesStack} />
+            </Transition>
+          </div>
+          <div className="pr-20">
+            <Transition delay={1}>
+              <CardSlider cards={languagesStack} />
+            </Transition>
+          </div>
         </div>
-        <div className="">
-          <Transition delay={0.75}>
-            <CardSlider cards={languagesStack} />
-          </Transition>
-        </div>
-        <div className=" pr-20">
-          <Transition delay={1}>
-            <CardSlider cards={languagesStack} />
-          </Transition>
-        </div>
+        <AsymmetricEnding />
+
       </div>
-      <AsymmetricEnding />
-    </div>
   );
 }
