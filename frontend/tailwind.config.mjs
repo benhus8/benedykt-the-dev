@@ -48,6 +48,7 @@ export default {
           lightest: "#2FA98C",
           gray: "#707D7D",
           grayLight: "#AACBC4",
+          transparentCard: "#032221",
         },
       },
     },
