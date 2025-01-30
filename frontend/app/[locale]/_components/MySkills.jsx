@@ -36,7 +36,7 @@ export const MySkills = () => {
         </p>
         <p className="text-white text-md px-32 text-center break-words mt-2 mb-5">
           {" "}
-          I really like experiment and inwest my free time to extend my
+          I really like experiment and invest my free time to extend my
           experience and knowledge about computer science, this is some of my
           area of interest ans skills
         </p>
