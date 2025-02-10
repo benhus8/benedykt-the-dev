@@ -3,6 +3,7 @@ const plugin = require("tailwindcss/plugin");
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  mode: "jit",
   theme: {
     extend: {
       height: {
@@ -38,6 +39,8 @@ export default {
           base: "#2CC295",
           light: "#00DF81",
           white: "#F1F7F6",
+          blue: "#A5EFFF",
+          darkerBlue: "#37a0b3",
         },
         // Secondary Colors
         secondary: {
@@ -53,4 +56,15 @@ export default {
       },
     },
   },
+  plugins: [],
+  safelist: [
+    {
+      pattern:
+        /(bg|text|border)-primary-(darkest|dark|base|light|white|blue|darkerBlue)/,
+    },
+    {
+      pattern:
+        /(bg|text|border)-secondary-(darkest|dark|base|light|lightest|gray|grayLight|transparentCard)/,
+    },
+  ],
 };
