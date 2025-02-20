@@ -35,7 +35,7 @@ export const MyProjects = () => {
           </div>
         </div>
       </div>
-      '{/* GLOW */}
+      {/* GLOW */}
       <div className="absolute inset-0 flex items-center justify-center -z-10 mt-[250px]">
         <div className="w-80 h-52 bg-green-500 rounded-full blur-2xl opacity-20"></div>
       </div>
