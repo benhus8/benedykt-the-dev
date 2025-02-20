@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export const Contact = () => {
 
   return (
-      <div className="relative bg-primary-darkest min-h-[300px] z-10">
+      <div className="relative bg-primary-darkest min-h-[350px] z-10 overflow-hidden">
         <div className="w-full flex flex-col justify-center items-center py-5 mt-5 mb-10" >
           <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl">
             Let's talk
