@@ -101,17 +101,15 @@ const CareerChapter = (props) => {
         <div className="flex flex-row mt-3">
           <div className="h-full">
             <div className="flex flex-row">
-              <div
-                className={`w-3.5 h-3.5 bg-${props.color} rounded-full relative shadow-[0_0_10px_4px] shadow-${props.color} mt-3`}
-              ></div>
+             < BlinkingLight color={props.color} />
               <p className="text-xl font-semiBold text-primary-white ml-2">
                 Technologies
               </p>
             </div>
 
             {props?.technologies?.map((tech) => (
-              <>
-                <div className="flex flex-row ml-1.5">
+                <>
+                  <div className="flex flex-row ml-1.5">
                   <div className="w-[1px] h-[28px] bg-secondary-grayLight "></div>
                   <p
                     className={`text-md font-semiBold text-${props.secondary} ml-4`}
@@ -129,9 +127,7 @@ const CareerChapter = (props) => {
           <div className="flex flex-row">
             <div className="h-full">
               <div className="flex flex-row">
-                <div
-                  className={`w-3.5 h-3.5 bg-${props.color} rounded-full relative shadow-[0_0_10px_4px] shadow-${props.color} mt-3`}
-                ></div>
+                < BlinkingLight color={props.color} />
                 <p className="text-xl font-semiBold text-primary-white ml-2">
                   Tools
                 </p>
@@ -242,5 +238,23 @@ const ToolList = ({ tools, secondary }) => {
         </button>
       )}
     </div>
+  );
+};
+
+const BlinkingLight = ({ color }) => {
+  const randomDelay = Math.random() * (20 - 10) + 10;
+
+  return (
+      <motion.div
+          className={`w-3.5 h-3.5 bg-${color} rounded-full relative shadow-[0_0_10px_4px] shadow-${color} mt-3`}
+          animate={{ opacity: [1, 0.2, 1] }}
+          transition={{
+            duration: 1,
+            repeat: Infinity,
+            repeatType: "mirror",
+            repeatDelay: randomDelay,
+            ease: "easeInOut",
+          }}
+      ></motion.div>
   );
 };
