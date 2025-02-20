@@ -15,6 +15,7 @@ export default async function RootLayout({children, params}) {
         <body className="bg-primary-darkest min-h-screen">
         <Header/>
         <main className="bg-primary-darkest pt-24">{children}</main>
+        <Footer />
         </body>
         </html>
     );
