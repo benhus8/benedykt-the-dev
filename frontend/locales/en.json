@@ -13,6 +13,28 @@
     "i_am": "I am ",
     "name": "Benedykt"
   },
+  "mySkills": {
+    "title": "My skills",
+    "intro": "I really like experimenting and investing my free time to extend my knowledge about computer science. Here are some of my areas of interest and skills.",
+    "skills": {
+      "backend": {
+        "name": "Backend",
+        "description": "I have worked as a backend developer and really enjoy working with Java and Python."
+      },
+      "frontend": {
+        "name": "Frontend",
+        "description": "I have experience working with React and SSR Next.js. I also enjoy designing websites."
+      },
+      "ai": {
+        "name": "AI",
+        "description": "I am interested in artificial intelligence and am developing my skills in this field."
+      },
+      "devOps": {
+        "name": "DevOps",
+        "description": "I have experience working with DevOps tools and enjoy optimizing software deployment processes."
+      }
+    }
+  },
   "Header": {
     "about-me": "About me",
     "stack": "Stack",

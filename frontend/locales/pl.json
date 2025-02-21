@@ -13,10 +13,32 @@
     "i_am": "Jestem ",
     "name": "Benedykt"
   },
-  "Header": {
-    "about-me": "About me",
-    "stack": "Stack",
-    "experience": "Experience",
-    "contact-me": "Contact me"
+  "mySkills": {
+    "title": "Moje umiejętności",
+    "intro": "Bardzo lubię eksperymentować i inwestować swój wolny czas w rozwijanie wiedzy o informatyce. Oto niektóre z moich obszarów zainteresowań i umiejętności.",
+    "skills": {
+      "backend": {
+        "name": "Backend",
+        "description": "Pracowałem jako programista backendowy i naprawdę lubię pracować w Javie i Pythonie."
+      },
+      "frontend": {
+        "name": "Frontend",
+        "description": "Miałem przyjemność pracować z Reactem i Next.js. Lubię również projektować strony internetowe."
+      },
+      "ai": {
+        "name": "AI",
+        "description": "Interesuję się sztuczną inteligencją i rozwijam swoje umiejętności w tej dziedzinie."
+      },
+      "devOps": {
+        "name": "DevOps",
+        "description": "Mam doświadczenie w pracy z narzędziami DevOps i lubię optymalizować procesy wdrażania oprogramowania."
+      }
+    },
+    "Header": {
+      "about-me": "About me",
+      "stack": "Stack",
+      "experience": "Experience",
+      "contact-me": "Contact me"
+    }
   }
 }
