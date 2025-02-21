@@ -1,10 +1,17 @@
 {
-  "Home": {
-    "Hero": {
-      "Title": "Next.js Internalization Demo",
-      "Subtitle": "This demo uses Next.js and the next-intl package to create a multi-language website. We later also explore how it works with Hygraph.",
-      "CallToAction": "Read about us"
+  "menu": {
+    "items": {
+      "skills": "Skills",
+      "projects": "Projects",
+      "career": "Career",
+      "contact": "Contact",
+      "blog": "Blog"
     }
+  },
+  "me": {
+    "hello": "Hello",
+    "i_am": "I am ",
+    "name": "Benedykt"
   },
   "Header": {
     "about-me": "About me",

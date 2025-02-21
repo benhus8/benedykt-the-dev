@@ -1,15 +1,22 @@
 {
-  "Home": {
-    "Hero": {
-      "Title": "Next.js Internalization Demo",
-      "Subtitle": "To jest polskie demo gdzie uzywam langów",
-      "CallToAction": "Read about us"
+  "menu": {
+    "items": {
+      "skills": "Umiejętności",
+      "projects": "Projekty",
+      "career": "Kariera",
+      "contact": "Kontakt",
+      "blog": "Blog"
     }
   },
+  "me": {
+    "hello": "Cześć",
+    "i_am": "Jestem ",
+    "name": "Benedykt"
+  },
   "Header": {
-    "about-me": "O mnie",
-    "stack": "Technologie",
-    "experience": "Doświadczenie",
-    "contact-me": "Kontakt"
+    "about-me": "About me",
+    "stack": "Stack",
+    "experience": "Experience",
+    "contact-me": "Contact me"
   }
 }
