@@ -2,14 +2,14 @@
 
 export const Career = () => {
   return (
-    <div className="relative w-full bg-black min-h-[475px] z-10 mt-10 ">
+    <div className="relative w-full bg-black min-h-[475px] z-10 mt-10">
       <div className="w-full flex flex-col justify-center items-center pt-5">
         <p className="pt-5 text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl">
           My Career
         </p>
       </div>
 
-      <div className="w-full px-[20px] sm:px-[350px] pb-10">
+      <div className="w-full px-4 sm:px-8 md:px-32 lg:px-48 pb-10">
         {chapters.map((chapter, i) => (
           <CareerChapter
             key={i}
@@ -28,7 +28,6 @@ export const Career = () => {
     </div>
   );
 };
-
 export const chapters = [
   {
     color: "primary-light",
@@ -80,16 +79,17 @@ export const chapters = [
 
 const CareerChapter = (props) => {
   return (
-    <div className="flex flex-col sm:flex-row  items-center sm:items-start text-primary-white">
+    <div className="flex flex-col sm:flex-row  items-center sm:items-start text-primary-white px-4 sm:px-0">
       <div>
-        <div>
-          <p className="text-2xl font-bold flex flex-col justify-end items-center">
+        <div className="flex flex-row sm:flex-col justify-center items-center mt-6 sm:mt-0">
+          <p className="text-4xl sm:text-2xl font-bold flex flex-col justify-end items-center ">
             {props.year}
           </p>
-          <p className="text-7xl font-bold">{props.month}</p>
+          <span className="sm:hidden text-4xl font-semiBold">{`\u00A0/\u00A0`}</span>
+          <p className="text-4xl sm:text-7xl font-bold">{props.month}</p>
         </div>
       </div>
-      <div className="w-full sm:ml-32 h-full">
+      <div className="w-full md:ml-16 lg:ml-32 h-full">
         <hr
           className={`border-t border-${props.color} w-full h-[1.5px] mt-8`}
         />
@@ -101,15 +101,15 @@ const CareerChapter = (props) => {
         <div className="flex flex-row mt-3">
           <div className="h-full">
             <div className="flex flex-row">
-             < BlinkingLight color={props.color} />
+              <BlinkingLight color={props.color} />
               <p className="text-xl font-semiBold text-primary-white ml-2">
                 Technologies
               </p>
             </div>
 
             {props?.technologies?.map((tech) => (
-                <>
-                  <div className="flex flex-row ml-1.5">
+              <>
+                <div className="flex flex-row ml-1.5">
                   <div className="w-[1px] h-[28px] bg-secondary-grayLight "></div>
                   <p
                     className={`text-md font-semiBold text-${props.secondary} ml-4`}
@@ -127,7 +127,7 @@ const CareerChapter = (props) => {
           <div className="flex flex-row">
             <div className="h-full">
               <div className="flex flex-row">
-                < BlinkingLight color={props.color} />
+                <BlinkingLight color={props.color} />
                 <p className="text-xl font-semiBold text-primary-white ml-2">
                   Tools
                 </p>
@@ -245,16 +245,16 @@ const BlinkingLight = ({ color }) => {
   const randomDelay = Math.random() * (20 - 10) + 10;
 
   return (
-      <motion.div
-          className={`w-3.5 h-3.5 bg-${color} rounded-full relative shadow-[0_0_10px_4px] shadow-${color} mt-3`}
-          animate={{ opacity: [1, 0.2, 1] }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-            repeatType: "mirror",
-            repeatDelay: randomDelay,
-            ease: "easeInOut",
-          }}
-      ></motion.div>
+    <motion.div
+      className={`w-3.5 h-3.5 bg-${color} rounded-full relative shadow-[0_0_10px_4px] shadow-${color} mt-3`}
+      animate={{ opacity: [1, 0.2, 1] }}
+      transition={{
+        duration: 1,
+        repeat: Infinity,
+        repeatType: "mirror",
+        repeatDelay: randomDelay,
+        ease: "easeInOut",
+      }}
+    ></motion.div>
   );
 };
