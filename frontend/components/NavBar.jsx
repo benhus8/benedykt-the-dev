@@ -4,8 +4,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Sling as Hamburger } from "hamburger-react";
 
-const NavItem = ({ text, targetId, onClick, bold }) => {
+const NavItem = ({ text, targetId, onClick, bold, toTop }) => {
   const handleClick = () => {
+    if (toTop) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -17,8 +20,7 @@ const NavItem = ({ text, targetId, onClick, bold }) => {
     <span
       onClick={handleClick}
       className={`
-        cursor-pointer text-lg text-primary-white hover:text-primary-light transition-all duration-300 whitespace-nowrap
-      ${bold ? " font-semibold " : ""}`}
+        cursor-pointer text-lg text-primary-white hover:text-primary-light transition-all duration-300 whitespace-nowrap ${bold ? " font-semibold " : ""}`}
     >
       {text}
     </span>
@@ -88,14 +90,15 @@ export default function NavBar() {
 
   return (
     <header
-      className={`transition-all duration-500 ease-in-out fixed w-full z-20 ${
-        isScrolled ? "bg-opacity-80 backdrop-blur-lg" : "bg-transparent"
-      }`}
+      className={`transition-all duration-500 ease-in-out fixed w-full z-20 bg-opacity-80 backdrop-blur-lg`}
     >
-      <div className="py-5 px-10 md:px-20 flex flex-col lg:flex-row justify-between items-center ">
+      <div
+        id="top"
+        className="py-5 px-10 md:px-20 flex flex-col lg:flex-row lg:justify-between items-center"
+      >
         <div className={`w-full flex flex-row justify-between items-center `}>
-          <div className="z-20 ">
-            <NavItem text={"benedykt.huszcza.dev"} targetId="about-me" bold />
+          <div className="z-20">
+            <NavItem text={"benedykt.huszcza.dev"} toTop bold />
           </div>
 
           <div className="lg:hidden z-20">
@@ -113,32 +116,32 @@ export default function NavBar() {
             isOpen ? "block" : "hidden"
           } lg:flex lg:items-center lg:w-auto w-full`}
         >
-          <ul className="lg:flex lg:space-x-8 space-y-5 lg:space-y-0 flex flex-col lg:flex-row items-center mt-8">
+          <ul className="lg:flex lg:space-x-8 space-y-5 lg:space-y-0 flex flex-col lg:flex-row items-center mt-8 lg:mt-0">
             <li>
               <NavItem
                 text={"Skills"}
-                targetId="stack"
+                targetId="skills"
                 onClick={() => setIsOpen(false)}
               />
             </li>
             <li>
               <NavItem
                 text={"Projects"}
-                targetId="experience"
+                targetId="projects"
                 onClick={() => setIsOpen(false)}
               />
             </li>
             <li>
               <NavItem
                 text={"Career"}
-                targetId="contact-me"
+                targetId="career"
                 onClick={() => setIsOpen(false)}
               />
             </li>
             <li>
               <NavItem
-                text={"Contact me"}
-                targetId="contact-me"
+                text={"Contact"}
+                targetId="contact"
                 onClick={() => setIsOpen(false)}
               />
             </li>
