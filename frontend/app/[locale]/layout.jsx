@@ -13,7 +13,7 @@ export default async function RootLayout({ children, params }) {
     <html lang={locale}>
       <body className="bg-primary-darkest min-h-screen">
         <NavBar />
-        <main className="bg-primary-darkest pt-24">{children}</main>
+        <main className="bg-primary-darkest pt-20 lg:pt-24">{children}</main>
         <Footer />
       </body>
     </html>

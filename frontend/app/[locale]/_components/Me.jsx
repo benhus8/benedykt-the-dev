@@ -3,7 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 export default function IntroSection() {
   return (
-    <div className="relative flex flex-col md:flex-row bg-primary-darkest min-h-[300px] px-4 py-8">
+    <div className="relative flex flex-col md:flex-row bg-primary-darkest min-h-[300px] px-4 py-1 md:py-8">
       <div className="text-primary-white flex w-full md:w-1/2">
         <div className="w-full flex flex-col items-center md:items-end justify-center">
           <div>
