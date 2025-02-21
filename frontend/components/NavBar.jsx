@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Sling as Hamburger } from "hamburger-react";
 
-const NavItem = ({ text, targetId, onClick }) => {
+const NavItem = ({ text, targetId, onClick, bold }) => {
   const handleClick = () => {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
@@ -16,7 +16,9 @@ const NavItem = ({ text, targetId, onClick }) => {
   return (
     <span
       onClick={handleClick}
-      className="cursor-pointer text-lg text-primary-white hover:text-primary-light transition-all duration-300"
+      className={`
+        cursor-pointer text-lg text-primary-white hover:text-primary-light transition-all duration-300 whitespace-nowrap
+      ${bold ? " font-semibold " : ""}`}
     >
       {text}
     </span>
@@ -90,21 +92,28 @@ export default function NavBar() {
         isScrolled ? "bg-opacity-80 backdrop-blur-lg" : "bg-transparent"
       }`}
     >
-      <div className="py-5 px-10 md:px-20 flex flex-row justify-between items-center ">
-        <div className="z-20">
-          <NavItem text={"benedykt.huszcza.dev"} targetId="about-me" bold />
-        </div>
+      <div className="py-5 px-10 md:px-20 flex flex-col lg:flex-row justify-between items-center ">
+        <div className={`w-full flex flex-row justify-between items-center `}>
+          <div className="z-20 ">
+            <NavItem text={"benedykt.huszcza.dev"} targetId="about-me" bold />
+          </div>
 
-        <div className="lg:hidden z-20">
-          <Hamburger toggled={isOpen} toggle={setIsOpen} color="#FFFFFF" />
+          <div className="lg:hidden z-20">
+            <Hamburger toggled={isOpen} toggle={setIsOpen} color="#FFFFFF" />
+          </div>
         </div>
+        {isOpen ? (
+          <hr
+            className={`border-t w-full border-primary-light h-[1.5px] z-20 mt-2 lg:hidden`}
+          />
+        ) : null}
 
         <nav
           className={`z-20 ${
             isOpen ? "block" : "hidden"
           } lg:flex lg:items-center lg:w-auto w-full`}
         >
-          <ul className="lg:flex lg:space-x-8 space-y-5 lg:space-y-0 flex flex-col lg:flex-row items-center ">
+          <ul className="lg:flex lg:space-x-8 space-y-5 lg:space-y-0 flex flex-col lg:flex-row items-center mt-8">
             <li>
               <NavItem
                 text={"Skills"}
@@ -140,7 +149,7 @@ export default function NavBar() {
         </nav>
         {isOpen && (
           <div
-            className="fixed inset-0 bg-black  z-10"
+            className="fixed bottom-0 top-0 right-0 left-0 bg-black z-10 overflow-auto"
             onClick={() => setIsOpen(false)}
           ></div>
         )}
