@@ -5,8 +5,12 @@ import { useRouter } from "next/navigation";
 import { Sling as Hamburger } from "hamburger-react";
 import { motion } from "framer-motion";
 
-const NavItem = ({ text, targetId, onClick, bold, toTop }) => {
+const NavItem = ({ text, targetId, onClick, bold, toTop, link }) => {
   const handleClick = () => {
+    if (link) {
+      window.open(link, "_blank");
+      return;
+    }
     if (toTop) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -178,6 +182,13 @@ export default function NavBar() {
               <NavItem
                 text={"Contact"}
                 targetId="contact"
+                onClick={() => setIsOpen(false)}
+              />
+            </motion.li>
+            <motion.li variants={itemVariants}>
+              <NavItem
+                text={"Blog"}
+                link="https://blog.huszcza.dev"
                 onClick={() => setIsOpen(false)}
               />
             </motion.li>
