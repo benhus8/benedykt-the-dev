@@ -90,7 +90,7 @@ export default function NavBar() {
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 200,
+        stiffness: 300,
         damping: 25,
         staggerChildren: 0.07,
         when: "beforeChildren",
@@ -177,7 +177,7 @@ export default function NavBar() {
         </nav>
         {isOpen && (
           <div
-            className="fixed bottom-0 top-0 right-0 left-0 bg-black z-10 overflow-auto"
+            className="fixed top-0 left-0 w-[100vw] h-[100vh] bg-black z-19 overflow-hidden"
             onClick={() => setIsOpen(false)}
           ></div>
         )}
