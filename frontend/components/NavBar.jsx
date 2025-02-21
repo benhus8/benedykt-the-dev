@@ -80,6 +80,17 @@ const LanguageSwitcher = () => {
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const listVariants = {
     hidden: {
       opacity: 0,
@@ -138,8 +149,8 @@ export default function NavBar() {
         >
           <motion.ul
             className="lg:flex lg:space-x-8 space-y-5 lg:space-y-0 flex flex-col lg:flex-row items-center mt-8 lg:mt-0"
-            initial={isOpen ? "hidden" : "visible"}
-            animate={isOpen ? "visible" : "hidden"}
+            initial={isDesktop ? "visible" : isOpen ? "hidden" : "visible"}
+            animate={isDesktop ? "visible" : isOpen ? "visible" : "hidden"}
             variants={listVariants}
           >
             <motion.li variants={itemVariants}>
