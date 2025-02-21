@@ -1,6 +1,7 @@
 "use client";
-
+import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 
 export const MyProjects = () => {
   const t = useTranslations("myProjects");
@@ -18,12 +19,22 @@ export const MyProjects = () => {
             <ProjectCard
               title={t("projects.genAI.title")}
               image="gen_ai_project.png"
+              technologies={[
+                "python",
+                "fastapi",
+                "react",
+                "docker",
+                "aws",
+                "postgresql",
+                "swagger",
+              ]}
             />
           </div>
           <div className="md:col-span-3 mx-2 my-2">
             <ProjectCard
               title={t("projects.resume.title")}
               image="ideas_projct.png"
+              technologies={["nextjs", "tailwindcss", "docker"]}
             />
           </div>
         </div>
@@ -32,12 +43,20 @@ export const MyProjects = () => {
             <ProjectCard
               title={t("projects.vesselRecognition.title")}
               image="vessel_project.png"
+              technologies={["python", "pytorch"]}
             />
           </div>
           <div className="md:col-span-3 mx-2 my-2">
             <ProjectCard
               title={t("projects.speedDating.title")}
               image="speed_dating_project.png"
+              technologies={[
+                "python",
+                "django",
+                "nextjs",
+                "tailwindcss",
+                "docker",
+              ]}
             />
           </div>
         </div>
@@ -52,9 +71,9 @@ export const MyProjects = () => {
 
 const ProjectCard = (props) => {
   return (
-    <div className="relative h-[300px] px-8 pt-5 bg-secondary-transparentCard/40 rounded-lg overflow-hidden  transition-all ease-in hover:bg-[rgba(0,0,0,0.5)] hover:opacity-90">
+    <div className="relative h-[300px] px-8 pt-5 bg-secondary-transparentCard/40 rounded-lg overflow-hidden transition-all ease-in hover:bg-[rgba(0,0,0,0.5)] hover:opacity-90">
       <div className="w-full flex flex-row justify-between">
-        <p className="font-bold text-primary-white relative w-3/4  lg:text-lg">
+        <p className="font-bold text-primary-white relative w-4/5 lg:text-lg">
           {props.title}
         </p>
         <img
@@ -63,12 +82,17 @@ const ProjectCard = (props) => {
           className="w-[16px] h-[16px] mt-2"
         />
       </div>
-      <div>
-        <img
-          src="/stack/fastapi.svg"
-          alt="Glow"
-          className="w-[20px] h-[20px] mt-2"
-        />
+
+      <div className="flex flex-wrap gap-2 mt-2">
+        {props.technologies.map((tech, index) => (
+          <Tooltip key={index} tech={tech}>
+            <img
+              src={`/stack/${tech}.svg`}
+              alt={tech}
+              className="w-[20px] h-[20px] transition-transform hover:scale-110"
+            />
+          </Tooltip>
+        ))}
       </div>
 
       <img
@@ -79,3 +103,30 @@ const ProjectCard = (props) => {
     </div>
   );
 };
+
+const Tooltip = ({ tech, children }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="relative flex items-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {children}
+      {isHovered && (
+        <motion.div
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 5 }}
+          transition={{ duration: 0.2 }}
+          className="absolute z-50 w-32 bg-black text-white text-xs rounded-lg p-2 opacity-90 shadow-lg bottom-full mb-1 left-1/2 transform -translate-x-1/2"
+        >
+          {tech.toUpperCase()}
+        </motion.div>
+      )}
+    </div>
+  );
+};
+
+export default ProjectCard;
