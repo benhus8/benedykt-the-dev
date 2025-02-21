@@ -1,25 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Sling as Hamburger } from "hamburger-react";
 
-function NavItem({ text, targetId, bold = false }) {
+const NavItem = ({ text, targetId, onClick }) => {
   const handleClick = () => {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    if (onClick) onClick();
   };
 
   return (
-    <h1
+    <span
       onClick={handleClick}
-      className={`${bold ? "font-bold" : "font-light"} text-lg text-primary-white hover:text-primary-light cursor-pointer transition-all duration-300`}
+      className="cursor-pointer text-lg text-primary-white hover:text-primary-light transition-all duration-300"
     >
       {text}
-    </h1>
+    </span>
   );
-}
+};
 
 const LanguageSwitcher = () => {
   const router = useRouter();
@@ -72,6 +74,7 @@ const LanguageSwitcher = () => {
 
 export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,25 +86,64 @@ export default function NavBar() {
 
   return (
     <header
-      id="about-me"
       className={`transition-all duration-500 ease-in-out fixed w-full z-20 ${
-        isScrolled ? " bg-opacity-80 backdrop-blur-lg" : "bg-transparent"
+        isScrolled ? "bg-opacity-80 backdrop-blur-lg" : "bg-transparent"
       }`}
     >
-      <div className="py-5 px-20 flex justify-between whitespace-nowrap">
-        <div>
+      <div className="py-5 px-10 md:px-20 flex flex-row justify-between items-center ">
+        <div className="z-20">
           <NavItem text={"benedykt.huszcza.dev"} targetId="about-me" bold />
         </div>
 
-        <nav className="w-1/2 mr">
-          <div className="flex space-x-20 justify-end">
-            <NavItem text={"Skills"} targetId="stack" />
-            <NavItem text={"Projects"} targetId="experience" />
-            <NavItem text={"Career"} targetId="contact-me" />
-            <NavItem text={"Contact me"} targetId="contact-me" />
-            <LanguageSwitcher />
-          </div>
+        <div className="lg:hidden z-20">
+          <Hamburger toggled={isOpen} toggle={setIsOpen} color="#FFFFFF" />
+        </div>
+
+        <nav
+          className={`z-20 ${
+            isOpen ? "block" : "hidden"
+          } lg:flex lg:items-center lg:w-auto w-full`}
+        >
+          <ul className="lg:flex lg:space-x-8 space-y-5 lg:space-y-0 flex flex-col lg:flex-row items-center ">
+            <li>
+              <NavItem
+                text={"Skills"}
+                targetId="stack"
+                onClick={() => setIsOpen(false)}
+              />
+            </li>
+            <li>
+              <NavItem
+                text={"Projects"}
+                targetId="experience"
+                onClick={() => setIsOpen(false)}
+              />
+            </li>
+            <li>
+              <NavItem
+                text={"Career"}
+                targetId="contact-me"
+                onClick={() => setIsOpen(false)}
+              />
+            </li>
+            <li>
+              <NavItem
+                text={"Contact me"}
+                targetId="contact-me"
+                onClick={() => setIsOpen(false)}
+              />
+            </li>
+            <li>
+              <LanguageSwitcher />
+            </li>
+          </ul>
         </nav>
+        {isOpen && (
+          <div
+            className="fixed inset-0 bg-black  z-10"
+            onClick={() => setIsOpen(false)}
+          ></div>
+        )}
       </div>
     </header>
   );
