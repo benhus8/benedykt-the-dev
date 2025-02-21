@@ -67,5 +67,20 @@
     "social_media": "Lub napisz do mnie na mediach społecznościowych",
     "button": "Napisz!",
     "copied": "📋 E-mail skopiowany do schowka!"
+  },
+  "footer": {
+    "social_media": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "brand": "benedykt.huszcza.dev",
+    "menu": {
+      "skills": "Umiejętności",
+      "projects": "Projekty",
+      "career": "Kariera",
+      "contact": "Kontakt",
+      "blog": "Blog"
+    },
+    "credits": "Projekt i wykonanie: Benedykt Huszcza @"
   }
 }

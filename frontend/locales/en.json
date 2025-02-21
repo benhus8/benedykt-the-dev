@@ -66,7 +66,22 @@
       "suffix": "@gmail.com"
     },
     "social_media": "Or message me on social media",
-    "button": "Contact!",
+    "button": "Send!",
     "copied": "📋 E-mail copied to clipboard!"
+  },
+  "footer": {
+    "social_media": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "brand": "benedykt.huszcza.dev",
+    "menu": {
+      "skills": "Skills",
+      "projects": "Projects",
+      "career": "Career",
+      "contact": "Contact",
+      "blog": "Blog"
+    },
+    "credits": "Designed and created by Benedykt Huszcza @"
   }
   }
