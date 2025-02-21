@@ -8,26 +8,26 @@ export const MyProjects = () => {
           My projects
         </p>
       </div>
-      <div className="px-[350px] pt-10 ">
-        <div className="grid grid-cols-7 space-x-4">
-          <div className="col-span-4">
+      <div className="w-full pt-10  px-2 md:px-24 lg:px-48">
+        <div className="grid grid-cols-1 md:grid-cols-7 space-x-4">
+          <div className="col-span-2 md:col-span-4">
             <ProjectCard
               title="Generatig Adv Banners with GenAI"
               image="gen_ai_project.png"
             />
           </div>
-          <div className="col-span-3">
+          <div className="md:col-span-3">
             <ProjectCard title="Some new ideas" image="ideas_projct.png" />
           </div>
         </div>
-        <div className="grid grid-cols-5 space-x-4 mt-5">
-          <div className="col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-5 space-x-4 mt-5">
+          <div className="md:col-span-2">
             <ProjectCard
               title="Vessel recognition"
               image="vessel_project.png"
             />
           </div>
-          <div className="col-span-3">
+          <div className="md:col-span-3">
             <ProjectCard
               title="Speed Dating matching app "
               image="speed_dating_project.png"
@@ -47,7 +47,7 @@ const ProjectCard = (props) => {
   return (
     <div className="relative h-[300px] px-8 pt-5 bg-secondary-transparentCard/40 rounded-lg overflow-hidden  transition-all ease-in hover:bg-[rgba(0,0,0,0.5)] hover:opacity-90">
       <div className="w-full flex flex-row justify-between">
-        <p className="font-bold text-primary-white relative w-3/4 text-lg">
+        <p className="font-bold text-primary-white relative w-3/4  lg:text-lg">
           {props.title}
         </p>
         <img
