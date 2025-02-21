@@ -63,7 +63,7 @@ export default function IntroSection() {
             <img
               src="/linkdin.svg"
               alt="Linkedin"
-              className="w-[25px] h-[25px] md:w-[30px] md:h-[30px] mx-3 md:mx-5 mt-2 shadow-2xl shadow-primary-darkest"
+              className="w-[23px] h-[23px] md:w-[28px] md:h-[28px] mx-3 md:mx-5 mt-2 shadow-2xl shadow-primary-darkest"
             />
           </a>
           <a
@@ -74,7 +74,7 @@ export default function IntroSection() {
             <img
               src="/github.svg"
               alt="GitHub"
-              className="w-[25px] h-[25px] md:w-[30px] md:h-[30px] mx-3 md:mx-5 mt-2 shadow-2xl shadow-primary-darkest"
+              className="w-[25px] h-[25px] md:w-[28px] md:h-[28px] mx-3 md:mx-5 mt-2 shadow-2xl shadow-primary-darkest"
             />
           </a>
         </div>

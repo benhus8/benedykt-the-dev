@@ -22,7 +22,7 @@ export const MyProjects = () => {
           </div>
           <div className="md:col-span-3 mx-2 my-2">
             <ProjectCard
-              title={t("projects.newIdeas.title")}
+              title={t("projects.resume.title")}
               image="ideas_projct.png"
             />
           </div>
