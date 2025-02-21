@@ -1,19 +1,22 @@
 "use client";
 import { Typewriter } from "react-simple-typewriter";
+import { useTranslations } from "next-intl";
 
 export default function IntroSection() {
+  const t = useTranslations("me");
+
   return (
     <div className="relative flex flex-col md:flex-row bg-primary-darkest min-h-[300px] px-4 py-1 md:py-8">
       <div className="text-primary-white flex w-full md:w-1/2">
         <div className="w-full flex flex-col items-center md:items-end justify-center">
           <div>
             <h1 className="text-4xl lg:text-5xl font-bold min-w-[280px] md:min-w-[600px] text-center md:text-right lg:text-left lg:pl-20">
-              Hello
+              {t("hello")}
             </h1>
             <h2 className="text-4xl lg:text-5xl font-bold min-w-[280px] md:min-w-[600px] text-center md:text-right lg:text-left lg:pl-20">
-              I am{" "}
+              {t("i_am")}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-white to-primary-light font-bold">
-                Benedykt
+                {t("name")}
               </span>
               ,
             </h2>
