@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Sling as Hamburger } from "hamburger-react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const NavItem = ({ text, targetId, onClick, bold, toTop, link }) => {
   const handleClick = () => {
@@ -82,9 +83,16 @@ const LanguageSwitcher = () => {
 };
 
 export default function NavBar() {
+  const t = useTranslations("menu");
   const [isOpen, setIsOpen] = useState(false);
-
   const [isDesktop, setIsDesktop] = useState(false);
+  const items = [
+    { id: "skills", name: t("items.skills") },
+    { id: "projects", name: t("items.projects") },
+    { id: "career", name: t("items.career") },
+    { id: "contact", name: t("items.contact") },
+    { id: "blog", link: "https://blog.huszcza.dev", name: t("items.blog") },
+  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -157,41 +165,16 @@ export default function NavBar() {
             animate={isDesktop ? "visible" : isOpen ? "visible" : "hidden"}
             variants={listVariants}
           >
-            <motion.li variants={itemVariants}>
-              <NavItem
-                text={"Skills"}
-                targetId="skills"
-                onClick={() => setIsOpen(false)}
-              />
-            </motion.li>
-            <motion.li variants={itemVariants}>
-              <NavItem
-                text={"Projects"}
-                targetId="projects"
-                onClick={() => setIsOpen(false)}
-              />
-            </motion.li>
-            <motion.li variants={itemVariants}>
-              <NavItem
-                text={"Career"}
-                targetId="career"
-                onClick={() => setIsOpen(false)}
-              />
-            </motion.li>
-            <motion.li variants={itemVariants}>
-              <NavItem
-                text={"Contact"}
-                targetId="contact"
-                onClick={() => setIsOpen(false)}
-              />
-            </motion.li>
-            <motion.li variants={itemVariants}>
-              <NavItem
-                text={"Blog"}
-                link="https://blog.huszcza.dev"
-                onClick={() => setIsOpen(false)}
-              />
-            </motion.li>
+            {items.map((item, index) => (
+              <motion.li key={index} variants={itemVariants}>
+                <NavItem
+                  text={item.name}
+                  targetId={item.id}
+                  link={item.link}
+                  onClick={() => setIsOpen(false)}
+                />
+              </motion.li>
+            ))}
             <motion.li variants={itemVariants}>
               <LanguageSwitcher />
             </motion.li>
