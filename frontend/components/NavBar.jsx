@@ -77,16 +77,7 @@ const LanguageSwitcher = () => {
 };
 
 export default function NavBar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <header
@@ -98,7 +89,12 @@ export default function NavBar() {
       >
         <div className={`w-full flex flex-row justify-between items-center `}>
           <div className="z-20">
-            <NavItem text={"benedykt.huszcza.dev"} toTop bold />
+            <NavItem
+              text={"benedykt.huszcza.dev"}
+              toTop={true}
+              bold
+              onClick={() => setIsOpen(false)}
+            />
           </div>
 
           <div className="lg:hidden z-20">
