@@ -120,7 +120,7 @@ export default function NavBar() {
     >
       <div
         id="top"
-        className="py-5 px-10 md:px-20 flex flex-col lg:flex-row lg:justify-between items-center"
+        className="py-1 md:py-5 px-5 md:px-20 flex flex-col lg:flex-row lg:justify-between items-center"
       >
         <div className={`w-full flex flex-row justify-between items-center `}>
           <div className="z-20">
