@@ -33,12 +33,23 @@
         "name": "DevOps",
         "description": "Mam doświadczenie w pracy z narzędziami DevOps i lubię optymalizować procesy wdrażania oprogramowania."
       }
-    },
-    "Header": {
-      "about-me": "About me",
-      "stack": "Stack",
-      "experience": "Experience",
-      "contact-me": "Contact me"
     }
-  }
+  },
+    "myProjects": {
+        "title": "Moje projekty",
+        "projects": {
+          "genAI": {
+            "title": "Generowanie banerów reklamowych z GenAI"
+          },
+          "newIdeas": {
+            "title": "Nowe pomysły"
+          },
+          "vesselRecognition": {
+            "title": "Rozpoznawanie statków"
+          },
+          "speedDating": {
+            "title": "Aplikacja do dopasowywania na szybkie randki"
+          }
+      }
+    }
 }

@@ -35,10 +35,21 @@
       }
     }
   },
-  "Header": {
-    "about-me": "About me",
-    "stack": "Stack",
-    "experience": "Experience",
-    "contact-me": "Contact me"
+  "myProjects": {
+    "title": "My projects",
+    "projects": {
+      "genAI": {
+        "title": "Generating Adv Banners with GenAI"
+      },
+      "newIdeas": {
+        "title": "Some new ideas"
+      },
+      "vesselRecognition": {
+        "title": "Vessel recognition"
+      },
+      "speedDating": {
+        "title": "Speed Dating matching app"
+      }
+    }
   }
 }
