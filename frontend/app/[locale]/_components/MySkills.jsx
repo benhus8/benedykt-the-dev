@@ -34,7 +34,7 @@ export const MySkills = () => {
         <p className="pt-5 text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl">
           My skills
         </p>
-        <p className="text-white text-md px-32 text-center break-words mt-2 mb-5">
+        <p className="text-white text-md px-8 md:px-20 lg:px-32 text-center break-words mt-2 mb-5">
           {" "}
           I really like experiment and invest my free time to extend my
           experience and knowledge about computer science, this is some of my
