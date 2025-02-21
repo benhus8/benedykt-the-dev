@@ -56,5 +56,17 @@
     "title": "Career",
     "tech": "Technologies",
     "tools": "Tools"
+  },
+
+  "contact": {
+    "title": "Let's talk",
+    "subtitle": "Want to discuss something or get in touch? Feel free to contact me",
+    "email": {
+      "prefix": "benedykt.huszcza",
+      "suffix": "@gmail.com"
+    },
+    "social_media": "Or message me on social media",
+    "button": "Contact!",
+    "copied": "📋 E-mail copied to clipboard!"
   }
   }

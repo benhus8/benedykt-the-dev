@@ -56,5 +56,16 @@
     "title": "Kariera",
     "tech": "Technologie",
     "tools": "Narzędzia"
+  },
+  "contact": {
+    "title": "Porozmawiajmy",
+    "subtitle": "Chcesz omówić coś lub się skontaktować? Zapraszam do kontaktu",
+    "email": {
+      "prefix": "benedykt.huszcza",
+      "suffix": "@gmail.com"
+    },
+    "social_media": "Lub napisz do mnie na mediach społecznościowych",
+    "button": "Napisz!",
+    "copied": "📋 E-mail skopiowany do schowka!"
   }
 }
