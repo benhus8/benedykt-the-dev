@@ -51,5 +51,10 @@
         "title": "Speed Dating matching app"
       }
     }
+  },
+  "career": {
+    "title": "Career",
+    "tech": "Technologies",
+    "tools": "Tools"
   }
-}
+  }

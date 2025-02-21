@@ -1,11 +1,17 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+
 export const Career = () => {
+  const t = useTranslations("career");
   return (
     <div className="relative w-full bg-black min-h-[475px] z-10 mt-10">
       <div className="w-full flex flex-col justify-center items-center pt-5">
         <p className="pt-5 text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl">
-          My Career
+          {t("title")}
         </p>
       </div>
 
@@ -22,6 +28,7 @@ export const Career = () => {
             company={chapter.company}
             color={chapter.color}
             secondary={chapter.secondary}
+            t={t}
           />
         ))}
       </div>
@@ -78,6 +85,8 @@ export const chapters = [
 ];
 
 const CareerChapter = (props) => {
+  const t = props.t;
+
   return (
     <div className="flex flex-col sm:flex-row  items-center sm:items-start text-primary-white px-4 sm:px-0">
       <div>
@@ -96,14 +105,14 @@ const CareerChapter = (props) => {
         <p className="font-semiBold text-2xl">{props.position}</p>
         <p className={` text-lg text-${props.secondary}`}>{props.company}</p>
       </div>
-      {/*this is section form mapping*/}
+      {/*mapping section*/}
       <div className="flex flex-col">
         <div className="flex flex-row mt-3">
           <div className="h-full">
             <div className="flex flex-row">
               <BlinkingLight color={props.color} />
               <p className="text-xl font-semiBold text-primary-white ml-2">
-                Technologies
+                {t("tech")}
               </p>
             </div>
 
@@ -129,7 +138,7 @@ const CareerChapter = (props) => {
               <div className="flex flex-row">
                 <BlinkingLight color={props.color} />
                 <p className="text-xl font-semiBold text-primary-white ml-2">
-                  Tools
+                  {t("tools")}
                 </p>
               </div>
               <ToolList tools={props.tools} secondary={props.secondary} />
@@ -140,9 +149,6 @@ const CareerChapter = (props) => {
     </div>
   );
 };
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 
 const TechToolList = ({ tech }) => {
   const [expanded, setExpanded] = useState(false);
@@ -190,8 +196,6 @@ const TechToolList = ({ tech }) => {
     </div>
   );
 };
-
-import { motion } from "framer-motion";
 
 const ToolList = ({ tools, secondary }) => {
   const [expanded, setExpanded] = useState(false);

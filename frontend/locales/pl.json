@@ -14,7 +14,7 @@
     "name": "Benedykt"
   },
   "mySkills": {
-    "title": "Moje umiejętności",
+    "title": "Umiejętności",
     "intro": "Bardzo lubię eksperymentować i inwestować swój wolny czas w rozwijanie wiedzy o informatyce. Oto niektóre z moich obszarów zainteresowań i umiejętności.",
     "skills": {
       "backend": {
@@ -36,7 +36,7 @@
     }
   },
     "myProjects": {
-        "title": "Moje projekty",
+        "title": "Projekty",
         "projects": {
           "genAI": {
             "title": "Generowanie banerów reklamowych z GenAI"
@@ -51,5 +51,10 @@
             "title": "Aplikacja do dopasowywania na szybkie randki"
           }
       }
-    }
+    },
+  "career": {
+    "title": "Kariera",
+    "tech": "Technologie",
+    "tools": "Narzędzia"
+  }
 }
