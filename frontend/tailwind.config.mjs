@@ -32,7 +32,6 @@ export default {
         "2xl": "30px",
       },
       colors: {
-        // Primary Colors
         primary: {
           darkest: "#010d0d",
           dark: "#03624C",
@@ -42,7 +41,6 @@ export default {
           blue: "#A5EFFF",
           darkerBlue: "#37a0b3",
         },
-        // Secondary Colors
         secondary: {
           darkest: "#06302B",
           dark: "#0B453A",
