@@ -26,8 +26,8 @@ export const Contact = () => {
             </p>
           </div>
         </div>
-        <p className="text-primary-white font-semiBold text-lg mt-5">
-          {t("social_media")}
+        <p className="text-primary-white font-semiBold text-lg mt-5 text-center break-words">
+          {t("socialMedia")}
         </p>
         <button
           className="w-32 h-10 bg-gradient-to-r from-primary-light to-primary-white text-black font-bold text-lg rounded-lg px-4 mt-5 transition-transform duration-300 ease-out hover:scale-105"

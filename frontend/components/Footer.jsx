@@ -43,7 +43,7 @@ export default function Footer() {
         >
           <img
             src="/github.svg"
-            alt={t("social_media.github")}
+            alt={t("socialMedia.github")}
             className="w-[24px] h-[24px] mt-2 transition-transform duration-300 hover:scale-110"
           />
         </a>
@@ -54,7 +54,7 @@ export default function Footer() {
         >
           <img
             src="/linkdin.svg"
-            alt={t("social_media.linkedin")}
+            alt={t("socialMedia.linkedin")}
             className="w-[24px] h-[24px] mt-2 transition-transform duration-300 hover:scale-110"
           />
         </a>
