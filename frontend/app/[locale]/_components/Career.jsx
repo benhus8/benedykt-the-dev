@@ -15,7 +15,7 @@ export const Career = () => {
         </p>
       </div>
 
-      <div className="w-full px-4 sm:px-8 md:px-32 lg:px-48 pb-10">
+      <div className="w-full px-4 sm:px-8 md:px-32 lg:px-64 pb-10">
         {chapters.map((chapter, i) => (
           <CareerChapter
             key={i}
@@ -47,6 +47,10 @@ export const chapters = [
       {
         name: "Java",
         tools: ["SpringBoot", "Hibernate", "JPA", "Scheduler", "Feign"],
+      },
+      {
+        name: "Python",
+        tools: ["FastAPI", "Alembic", "Pydantic", "Dotenv"],
       },
       { name: "PostreSQL", tools: [] },
     ],
@@ -98,7 +102,7 @@ const CareerChapter = (props) => {
           <p className="text-4xl sm:text-7xl font-bold">{props.month}</p>
         </div>
       </div>
-      <div className="w-full md:ml-16 lg:ml-32 h-full">
+      <div className="w-full md:ml-4 lg:ml-8 h-full">
         <hr
           className={`border-t border-${props.color} w-full h-[1.5px] mt-8`}
         />
