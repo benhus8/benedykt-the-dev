@@ -69,12 +69,12 @@
       "prefix": "benedykt.huszcza",
       "suffix": "@gmail.com"
     },
-    "social_media": "Prefer to contact me via social media? Go ahead, reach out – I always enjoy connecting with people!",
+    "socialMedia": "Prefer to contact me via social media? Go ahead, reach out – I always enjoy connecting with people!",
     "button": "Send!",
     "copied": "📋 Email copied to clipboard!"
   },
   "footer": {
-    "social_media": {
+    "socialMedia": {
       "github": "GitHub",
       "linkedin": "LinkedIn"
     },
