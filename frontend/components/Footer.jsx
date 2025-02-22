@@ -67,7 +67,7 @@ export default function Footer() {
         <FooterItem text={t("menu.projects")} targetId={"projects"} />
         <FooterItem text={t("menu.career")} targetId={"career"} />
         <FooterItem text={t("menu.contact")} targetId={"contact"} />
-        <FooterItem text={t("menu.blog")} link="https://blog.huszcza.dev" />
+        {/*<FooterItem text={t("menu.blog")} link="https://blog.huszcza.dev" />*/}
       </div>
 
       <p className="text-sm font-light mt-4">
