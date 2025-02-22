@@ -1,47 +1,45 @@
 "use client";
 import { useState } from "react";
-
-export const skillsList = [
-  {
-    name: "Backend",
-    description:
-      "I have worked as backend developer bla bla blad adn really like work in JAva and \n" +
-      "Python bla bla bla",
-  },
-  {
-    name: "Frontend",
-    description:
-      "I have pleasure to work with React and the SSR Next.js i really like deign websites too",
-  },
-  {
-    name: "AI",
-    description:
-      "I have pleasure to work with React and the SSR Next.js i really like deign websites too",
-  },
-  {
-    name: "DevOps",
-    description:
-      "I have pleasure to work with React and the SSR Next.js i really like deign websites too asd asd asd asd asd asd asd asd assd assd  asdasd a asd asd asd asd asd asd asd asd ",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export const MySkills = () => {
   const [hoveredIndex, setHoveredIndex] = useState(0);
+  const t = useTranslations("mySkills");
+
+  const skillsList = [
+    {
+      id: "backend",
+      name: t("skills.backend.name"),
+      description: t("skills.backend.description"),
+    },
+    {
+      id: "frontend",
+      name: t("skills.frontend.name"),
+      description: t("skills.frontend.description"),
+    },
+    {
+      id: "ai",
+      name: t("skills.ai.name"),
+      description: t("skills.ai.description"),
+    },
+    {
+      id: "devops",
+      name: t("skills.devOps.name"),
+      description: t("skills.devOps.description"),
+    },
+  ];
 
   return (
-    <div className="relative bg-black min-h-[475px] z-10 mt-10">
+    <div className="relative bg-black min-h-[475px] z-10 mt-10 pb-10">
       <div className="w-full flex flex-col justify-center items-center pt-5">
         <p className="pt-5 text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl">
-          My skills
+          {t("title")}
         </p>
         <p className="text-white text-md px-8 md:px-20 lg:px-32 text-center break-words mt-2 mb-5">
-          {" "}
-          I really like experiment and invest my free time to extend my
-          experience and knowledge about computer science, this is some of my
-          area of interest ans skills
+          {t("intro")}
         </p>
       </div>
-      <div className="w-full grid grid-cols-1 gap-1justify-center items-center ">
+      <div className="w-full grid grid-cols-1 gap-1justify-center items-center mb-10">
         {skillsList.map((skill, i) => (
           <SkillRow
             key={i}

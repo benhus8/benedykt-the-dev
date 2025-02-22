@@ -1,15 +1,91 @@
 {
-  "Home": {
-    "Hero": {
-      "Title": "Next.js Internalization Demo",
-      "Subtitle": "This demo uses Next.js and the next-intl package to create a multi-language website. We later also explore how it works with Hygraph.",
-      "CallToAction": "Read about us"
+  "menu": {
+    "items": {
+      "skills": "Skills",
+      "projects": "Projects",
+      "career": "Career",
+      "contact": "Contact",
+      "blog": "Blog"
     }
   },
-  "Header": {
-    "about-me": "About me",
-    "stack": "Stack",
-    "experience": "Experience",
-    "contact-me": "Contact me"
+  "me": {
+    "hello": "Hello",
+    "i_am": "I am ",
+    "name": "Benedykt"
+  },
+  "mySkills": {
+    "title": "Skills",
+    "intro": "I am passionate about technology and love experimenting with new solutions. I invest my free time in expanding my IT knowledge because I believe continuous skill improvement is key to success in this dynamic industry. I am fascinated by creating modern applications and exploring the possibilities offered by programming and artificial intelligence. Here are some of the areas that inspire me the most and in which I constantly develop myself.",
+    "skills": {
+      "backend": {
+        "name": "Backend",
+        "description": "I love backend – it’s my passion, and this is where I feel most comfortable. In my work, I mainly used Java and Python for implementing server applications and services. I developed microservices using frameworks like Spring Boot and FastAPI, and for integrating services, I had the opportunity to use messaging systems like RabbitMQ. I always strive to write code that not only works but is also SOLID, well-thought-out, and clean."
+      },
+      "frontend": {
+        "name": "Frontend",
+        "description": "Although backend is my forte, I have had the opportunity to work with React and Next.js, and I really enjoyed it. I like experimenting with server-side rendering and new technologies in the React ecosystem. Creating modern interfaces is an exciting challenge for me, and optimizing frontend performance or adding a stunning view brings me great satisfaction. In my individual projects, I experiment with UI design using Figma. It was thanks to Figma that the design of this website, which you're currently viewing, was created."
+      },
+      "ai": {
+        "name": "AI",
+        "description": "Artificial intelligence truly excites me. For my engineering thesis, I created an advertising banner generation application with my team, utilizing GPT and DALL·E from OpenAI and AWS Bedrock. I am passionate about projects that combine the use of LLMs, backend, and frontend technologies because they allow me to merge my passions and create something truly remarkable. Currently, I am pursuing a master's degree in computer science with a specialization in artificial intelligence, and I believe that my studies will allow me to further explore this branch of IT."
+      },
+      "devOps": {
+        "name": "DevOps",
+        "description": "Optimizing software deployment processes brings me great satisfaction. I love working with Docker and creating scalable applications that run smoothly in production environments. I have experience with AWS (S3, Cognito, EC2), and I am fascinated by the potential of cloud computing. I want to continue expanding my knowledge and skills in cloud solutions because I believe it is the future of modern applications. I enjoy when everything runs smoothly and without downtime – that’s when I feel my work truly matters."
+      }
+    }
+  },
+  "myProjects": {
+    "title": "Projects",
+    "projects": {
+      "tooltip": "Learn more about the project",
+      "genAI": {
+        "title": "Ad Banner Generation with GenAI",
+        "link": "https://github.com/benhus8/benedykt-the-dev"
+      },
+      "resume": {
+        "title": "Techfolio",
+        "link": "https://github.com/benhus8/benedykt-the-dev"
+      },
+      "vesselRecognition": {
+        "title": "Blood Vessel Recognition in Retinal Images",
+        "link": "https://github.com/benhus8/benedykt-the-dev"
+      },
+      "speedDating": {
+        "title": "Speed Dating Event Organization App",
+        "link": "https://github.com/benhus8/benedykt-the-dev"
+      }
+    }
+  },
+  "career": {
+    "title": "Career",
+    "tech": "Technologies",
+    "tools": "Tools"
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "subtitle": "Do you have questions or want to discuss collaboration? Feel free to write to me – I'll gladly respond to your message.",
+    "email": {
+      "prefix": "benedykt.huszcza",
+      "suffix": "@gmail.com"
+    },
+    "social_media": "Prefer to contact me via social media? Go ahead, reach out – I always enjoy connecting with people!",
+    "button": "Send!",
+    "copied": "📋 Email copied to clipboard!"
+  },
+  "footer": {
+    "social_media": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "brand": "benedykt.huszcza.dev",
+    "menu": {
+      "skills": "Skills",
+      "projects": "Projects",
+      "career": "Career",
+      "contact": "Contact",
+      "blog": "Blog"
+    },
+    "credits": "Design and implementation by Benedykt Huszcza @"
   }
 }
