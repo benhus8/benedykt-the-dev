@@ -52,7 +52,7 @@
             "link": "https://github.com/benhus8/benedykt-the-dev"
           },
           "speedDating": {
-            "title": "Aplikacja do dopasowywania na szybkie randki",
+            "title": "Aplikacja do organizacji eventu speed datingowego",
             "link": "https://github.com/benhus8/benedykt-the-dev"
           }
       }
@@ -64,12 +64,12 @@
   },
   "contact": {
     "title": "Porozmawiajmy",
-    "subtitle": "Chcesz omówić coś lub się skontaktować? Zapraszam do kontaktu",
+    "subtitle": "Masz pytania lub chcesz porozmawiać o współpracy? Napisz do mnie – z przyjemnością odpowiem na Twoją wiadomość.",
     "email": {
       "prefix": "benedykt.huszcza",
       "suffix": "@gmail.com"
     },
-    "social_media": "Lub napisz do mnie na mediach społecznościowych",
+    "social_media": "Preferujesz kontakt przez media społecznościowe? Śmiało, napisz do mnie tam – zawsze chętnie odpowiadam!",
     "button": "Napisz!",
     "copied": "📋 E-mail skopiowany do schowka!"
   },
@@ -86,6 +86,6 @@
       "contact": "Kontakt",
       "blog": "Blog"
     },
-    "credits": "Projekt i wykonanie: Benedykt Huszcza @"
+    "credits": "Projekt i wykonanie Benedykt Huszcza @"
   }
 }
