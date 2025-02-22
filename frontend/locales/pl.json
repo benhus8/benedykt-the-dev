@@ -69,12 +69,12 @@
       "prefix": "benedykt.huszcza",
       "suffix": "@gmail.com"
     },
-    "social_media": "Preferujesz kontakt przez media społecznościowe? Śmiało, napisz do mnie tam – zawsze chętnie odpowiadam!",
+    "socialMedia": "Preferujesz kontakt przez media społecznościowe? Śmiało, napisz do mnie tam – zawsze chętnie odpowiadam!",
     "button": "Napisz!",
     "copied": "📋 E-mail skopiowany do schowka!"
   },
   "footer": {
-    "social_media": {
+    "socialMedia": {
       "github": "GitHub",
       "linkedin": "LinkedIn"
     },
