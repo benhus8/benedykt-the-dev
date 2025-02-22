@@ -2,6 +2,7 @@ import "../_shared/styles/globals.css";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import { NextIntlClientProvider } from "next-intl";
+import NotFoundPage from "@/app/[locale]/not-found";
 
 export const metadata = {
   title: "Benedykt Huszcza",
@@ -9,10 +10,19 @@ export const metadata = {
     "Portfolio of a Full-Stack Developer with a passion for backend, AI, and modern web technologies. Discover my projects and experience.",
 };
 
+export function NotFound() {
+  return <NotFoundPage />;
+}
+
 export default async function RootLayout({ children, params }) {
   const locale = params?.locale || "en";
 
-  const messages = (await import(`../../locales/${locale}.json`)).default;
+  let messages;
+  try {
+    messages = (await import(`../../locales/${locale}.json`)).default;
+  } catch (error) {
+    return NotFound();
+  }
 
   return (
     <html lang={locale}>
