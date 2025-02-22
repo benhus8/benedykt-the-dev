@@ -15,40 +15,45 @@
   },
   "mySkills": {
     "title": "Umiejętności",
-    "intro": "Bardzo lubię eksperymentować i inwestować swój wolny czas w rozwijanie wiedzy o informatyce. Oto niektóre z moich obszarów zainteresowań i umiejętności.",
+    "intro": "Jestem pasjonatem technologii i uwielbiam eksperymentować z nowymi rozwiązaniami. Inwestuję swój wolny czas w rozwijanie wiedzy o IT, bo wierzę, że nieustanne doskonalenie umiejętności jest kluczem do sukcesu w tej dynamicznej branży. Fascynuje mnie tworzenie nowoczesnych aplikacji oraz odkrywanie możliwości, jakie daje programowanie i sztuczna inteligencja. Oto niektóre z obszarów, które najbardziej mnie inspirują i w których stale się rozwijam.",
     "skills": {
       "backend": {
         "name": "Backend",
-        "description": "Pracowałem jako programista backendowy i naprawdę lubię pracować w Javie i Pythonie."
+        "description": "Uwielbiam backend – to moja pasja i to tutaj czuję się jak ryba w wodzie. W pracy do implementacji aplikacji serwerowych i serwisów  korzystałem głównie z Javy i Pythona. Tworzyłem mikroserwisy przy użyciu takich framerworków jak Spring Boot czy FastAPI, a do integracji usług miałem okazję korzystać z systemów kolejkowania np. RabbitMQ. Zawsze staram się pisać kod, który nie tylko działa, ale jest też SOLIDny, przemyślany i czysty."
       },
       "frontend": {
         "name": "Frontend",
-        "description": "Miałem przyjemność pracować z Reactem i Next.js. Lubię również projektować strony internetowe."
+        "description": "Choć backend to mój żywioł, miałem okazję pracować z Reactem i Next.js i naprawdę to polubiłem. Lubię eksperymentować z server-side renderingiem i nowymi technologiami w ekosystemie Reacta. Tworzenie nowoczesnych interfejsów to dla mnie pasjonujące wyzwanie, a optymalizacja wydajności frontendu lub dodanie niesamowitego widoku daje mi ogromną daje satysfakcję. W swoich indywidualnych projektach eksperymentuję z projektowaniem UI, korzystając z Figmy. To właśnie dzięki niej powstał design tej strony, którą właśnie oglądasz."
       },
       "ai": {
         "name": "AI",
-        "description": "Interesuję się sztuczną inteligencją i rozwijam swoje umiejętności w tej dziedzinie."
+        "description": "Sztuczna inteligencja to coś, co naprawdę mnie kręci. Jako swoją inżynierkę stworzyłem z zespołem aplikację do generowania banerów reklamowych, wykorzystując GPT i DALL·E od OpenAI oraz AWS Bedrock. Pasjonują mnie projekty, które łączą wykorzsytanie LLM-ów, technologii backendowych i frontendowych, bo wtedy mogę połączyć swoje pasje i tworzyć coś naprawdę niesamowitego. Aktualnie jestem studentem || stopnia infromatyki ze spoecjalizacją sztuczna inteligencja i wierzę, że studia pozwolą mi jeszcze bardziej poznać tą gałąź IT."
       },
       "devOps": {
         "name": "DevOps",
-        "description": "Mam doświadczenie w pracy z narzędziami DevOps i lubię optymalizować procesy wdrażania oprogramowania."
+        "description": "Optymalizacja procesów wdrażania oprogramowania sprawia mi ogromną satysfakcję. Uwielbiam pracować z Dockerem i tworzyć skalowalne aplikacje, które działają bez problemu w środowisku produkcyjnym. Mam doświadczenie z AWS (S3, Cognito, EC2) i fascynuje mnie potencjał, jaki niesie za sobą chmura. Chcę dalej rozwijać się w poznawaniu i wykorzystywaniu rozwiązań cloudowych, bo wierzę, że to przyszłość nowoczesnych aplikacji. Lubię, gdy wszystko działa płynnie i bez przestojów – wtedy czuję, że moja praca ma prawdziwy sens."
       }
     }
   },
     "myProjects": {
         "title": "Projekty",
         "projects": {
+          "tooltip": "Dowiedz się więcej o projekcie",
           "genAI": {
-            "title": "Generowanie banerów reklamowych z GenAI"
+            "title": "Generowanie banerów reklamowych z GenAI",
+            "link": "https://github.com/benhus8/benedykt-the-dev"
           },
           "resume": {
-            "title": "Strona CV"
+            "title": "Techfolio",
+            "link": "https://github.com/benhus8/benedykt-the-dev"
           },
           "vesselRecognition": {
-            "title": "Wykrywanie naczyń krwionośnych na siatkówce oka"
+            "title": "Wykrywanie naczyń krwionośnych na siatkówce oka",
+            "link": "https://github.com/benhus8/benedykt-the-dev"
           },
           "speedDating": {
-            "title": "Aplikacja do dopasowywania na szybkie randki"
+            "title": "Aplikacja do dopasowywania na szybkie randki",
+            "link": "https://github.com/benhus8/benedykt-the-dev"
           }
       }
     },

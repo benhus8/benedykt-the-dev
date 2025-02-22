@@ -38,17 +38,22 @@
   "myProjects": {
     "title": "My projects",
     "projects": {
+      "tooltip": "Learn more about the Project",
       "genAI": {
-        "title": "Generating Adv Banners with GenAI"
+        "title": "Generating Adv Banners with GenAI",
+        "link": "https://github.com/benhus8/benedykt-the-dev"
       },
       "resume": {
-        "title": "This website"
+        "title": "This resume website",
+        "link": "https://github.com/benhus8/benedykt-the-dev"
       },
       "vesselRecognition": {
-        "title": "Vessel recognition"
+        "title": "Vessel recognition",
+        "link": "https://github.com/benhus8/benedykt-the-dev"
       },
       "speedDating": {
-        "title": "Speed Dating matching app"
+        "title": "Speed Dating matching app",
+        "link": "https://github.com/benhus8/benedykt-the-dev"
       }
     }
   },
