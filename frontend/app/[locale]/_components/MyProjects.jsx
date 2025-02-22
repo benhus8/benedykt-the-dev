@@ -28,6 +28,8 @@ export const MyProjects = () => {
                 "postgresql",
                 "swagger",
               ]}
+              link={t("projects.genAI.link")}
+              tooltip={t("projects.tooltip")}
             />
           </div>
           <div className="md:col-span-3 mx-2 my-2">
@@ -35,6 +37,8 @@ export const MyProjects = () => {
               title={t("projects.resume.title")}
               image="ideas_projct.png"
               technologies={["nextjs", "tailwindcss", "docker"]}
+              link={t("projects.resume.link")}
+              tooltip={t("projects.tooltip")}
             />
           </div>
         </div>
@@ -44,6 +48,8 @@ export const MyProjects = () => {
               title={t("projects.vesselRecognition.title")}
               image="vessel_project.png"
               technologies={["python", "pytorch"]}
+              link={t("projects.vesselRecognition.link")}
+              tooltip={t("projects.tooltip")}
             />
           </div>
           <div className="md:col-span-3 mx-2 my-2">
@@ -57,6 +63,8 @@ export const MyProjects = () => {
                 "tailwindcss",
                 "docker",
               ]}
+              link={t("projects.speedDating.link")}
+              tooltip={t("projects.tooltip")}
             />
           </div>
         </div>
@@ -76,16 +84,20 @@ const ProjectCard = (props) => {
         <p className="font-bold text-primary-white relative w-4/5 lg:text-lg">
           {props.title}
         </p>
-        <img
-          src="/source-arrow.svg"
-          alt="Arrow"
-          className="w-[16px] h-[16px] mt-2"
-        />
+        <a href={props.link} target="_blank" rel="noopener noreferrer">
+          <Tooltip tech={props.tooltip} position="left">
+            <img
+              src="/source-arrow.svg"
+              alt="Arrow"
+              className="w-[16px] h-[16px] mt-2"
+            />
+          </Tooltip>
+        </a>
       </div>
 
       <div className="flex flex-wrap gap-2 mt-2">
         {props.technologies.map((tech, index) => (
-          <Tooltip key={index} tech={tech}>
+          <Tooltip key={index} tech={tech} position="right">
             <img
               src={`/stack/${tech}.svg`}
               alt={tech}
@@ -104,8 +116,13 @@ const ProjectCard = (props) => {
   );
 };
 
-const Tooltip = ({ tech, children }) => {
+const Tooltip = ({ tech, children, position = "right" }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const positionClass =
+    position === "left"
+      ? "-translate-x-1/2 right-1/2"
+      : "-translate-x-1/2 left-1/2";
 
   return (
     <div
@@ -120,7 +137,7 @@ const Tooltip = ({ tech, children }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 5 }}
           transition={{ duration: 0.2 }}
-          className="absolute z-50 w-32 bg-black text-white text-xs rounded-lg p-2 opacity-90 shadow-lg bottom-full mb-1 left-1/2 transform -translate-x-1/2"
+          className={`absolute z-50 bg-black text-white text-xs rounded-lg p-2 opacity-90 shadow-lg top-full mt-1 ${positionClass}`}
         >
           {tech.toUpperCase()}
         </motion.div>
