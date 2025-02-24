@@ -18,12 +18,18 @@ export const Contact = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <EmailIcon />
           <div className="flex items-center flex-col sm:flex-row text-center sm:text-left">
-            <p className="text-primary-light font-bold text-2xl">
+            <a
+              className="text-primary-light font-bold text-2xl"
+              href={`mailto:${t("email.prefix")}${t("email.suffix")}`}
+            >
               {t("email.prefix")}
-            </p>
-            <p className="text-primary-white font-bold text-lg pt-2 sm:pt-0 sm:pl-2">
+            </a>
+            <a
+              className="text-primary-white font-bold text-lg pt-2 sm:pt-0 sm:pl-2"
+              href={`mailto:${t("email.prefix")}${t("email.suffix")}`}
+            >
               {t("email.suffix")}
-            </p>
+            </a>
           </div>
         </div>
         <p className="text-primary-white font-semiBold text-lg mt-5 text-center break-words">
