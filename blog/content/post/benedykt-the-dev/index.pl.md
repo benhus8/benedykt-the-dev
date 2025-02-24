@@ -1,40 +1,39 @@
 ---
 title: Benedykt-the-Dev – Portfolio i Blog Programistyczny
-description: Strona osobista prezentująca projekty, umiejętności oraz blog
+description: Strona osobista i blog prezentujący projekty oraz umiejętności
 slug: benedykt-the-dev
-date: 2025-02-24 00:00:00+0000
+date: 2025-02-24 16:00:00+0000
 image: cover.jpg
 categories:
   - Projekt
 tags:
   - Next.js
   - Tailwind CSS
-  - Vercel
   - JavaScript
 ---
 
 ## Czym jest Benedykt-the-Dev?
 
-**Benedykt-the-Dev** to strona osobista prezentująca moje **portfolio**, **umiejętności** oraz **wpisy na blogu** związane z moimi doświadczeniami i zainteresowaniami. Do implementacji wykorzystałem **Next.js** z kilkoma mniejszymi bibliotekami, o których więcej mówię później. Blog został zbudowany na **Hugo**, co zapewnia szybkie działanie oraz świetne wsparcie dla SEO.
+**Benedykt-the-Dev** to moja **strona osobista**, na której dzielę się **portfolio**, **umiejętnościami** oraz **wpisami na blogu** o moich doświadczeniach i zainteresowaniach. Do stworzenia tego projektu użyłem **Next.js** oraz kilku mniejszych bibliotek, o których opowiem za chwilę. Blog zbudowałem na **Hugo**, co pozwala na szybkie działanie i świetną optymalizację pod kątem SEO.
 
-Skłamałbym, gdybym nie powiedział, że inspiracją do tego projektu był [Maciej](https://kaszkowiak.org/). Jego wpisy czytałem z ogromną ciekawością, co w dużej mierze zainspirowało mnie do stworzenia własnej strony.
+Nie mogę nie wspomnieć, że inspirację do tego projektu zaczerpnąłem od [Macieja](https://kaszkowiak.org/). Jego wpisy zawsze czytałem z ciekawością, co ostatecznie zmotywowało mnie do stworzenia własnej strony.
 
-Patrząc rok wstecz, raczej nie przypuszczałbym, że będę pisać wpis na bloga o mojej własnej stronie. Mam ogromną nadzieję, że ta tendencja zostanie zachowana i już za rok będę myśleć w dokładnie ten sam sposób – ale o czymś, o czym aktualnie nawet nie mam pojęcia.
+Szczerze mówiąc, rok temu nie przypuszczałbym, że będę pisał wpis na bloga o swojej własnej stronie. Liczę na to, że za rok spojrzę na to z podobną refleksją – ale tym razem w kontekście czegoś zupełnie innego, o czym teraz nawet nie mam pojęcia.
 
-## Komponenty projektu
-- **Porftolio** – Pokazanie najważniejszych projektów z przekierowaniami na bloga, etapy kariery, zainteresowania oraz kontakt.
-- **Blog** – Dzielenie się spostrzeżeniami, poradnikami i doświadczeniami z mojej kariery jako dewelopera.
+## Co znajdziesz na stronie?
+- **Portfolio** – Najważniejsze projekty z linkami do wpisów na blogu, moja ścieżka kariery, zainteresowania oraz możliwość kontaktu.
+- **Blog** – Miejsce, w którym dzielę się przemyśleniami, poradnikami i doświadczeniami z mojego życia.
 
 ## Stack technologiczny
-- **Next.js** – Framework frontendowy, który jest przyjazny SEO oraz zapewnia szybkie działanie strony dzięki renderowaniu po stronie serwera (SSR). W przyszłości pozwoli mi również na prostą implementację takich funkcji jak np. wysyłka maili.
-- **Framer Motion** – Bardzo przyjemna biblioteka do pisania animacji, było to moja pierwsza styczność z tym rozwiazaniem. Rozwiązania są intuicyjne i pozwalają ograniczyć dużo boilerplate-owego kodu.
-- **React Typist** – Biblioteka użyta do efektu pisania na klawiaturze. Lekka, prosta w użyciu, czego chcieć więcej?
-- **Tailwind CSS** – Framework CSS typu utility-first, który umożliwia tworzenie niestandardowych stylów przy zachowaniu spójności wizualnej. Naprawdę uwielbiam to rozwiązanie i cenie sobie w nim to, że mogę tworzyć style i komponenty w jednym miejscu. 
-- **Hugo** – Do stworzenia bloga wykorzystałem open-source'owy projekt Hugo. Oferuje naprawdę szybkie działanie bloga oraz świetne wsparcie dla SEO. Na pewnym etapie miałem szalony pomysł, by wszystko napisać od zera, włącznie z backendem i CMS-em, lecz finalnie postanowiłem skorzystać z gotowego rozwiązania poleconego przez [Macieja](https://kaszkowiak.org/). Zależało mi na tym, by przed początkiem marca 2025 móc już pisać wpisy na bloga, a napisanie samemu całego systemu nie dawałoby mi takiej możliwości.
+- **Next.js** – Framework frontendowy, który świetnie współpracuje z SEO oraz oferuje szybkie działanie dzięki renderowaniu po stronie serwera (SSR). W przyszłości ułatwi mi też wdrażanie nowych funkcji, np. formularza kontaktowego.
+- **Framer Motion** – Moje pierwsze doświadczenie z tą biblioteką animacji. Bardzo intuicyjne rozwiązanie, które pozwala ograniczyć zbędny kod.
+- **React Typist** – Użyłem tego narzędzia, żeby uzyskać efekt pisania na ekranie. Jest lekkie i proste w implementacji – dokładnie to, czego potrzebowałem.
+- **Tailwind CSS** – Framework CSS typu utility-first, który umożliwia pisanie spójnych i nowoczesnych stylów bez potrzeby korzystania z dodatkowych plików CSS. Uwielbiam to rozwiązanie za możliwość pisania komponentów i stylów w jednym miejscu.
+- **Hugo** – Blog oparty jest na **Hugo**, co gwarantuje szybkie ładowanie oraz dobrą optymalizację pod kątem SEO. Początkowo miałem ambitny plan, by napisać wszystko od podstaw, włącznie z backendem i CMS-em. Jednak ostatecznie postawiłem na **Hugo**, co pozwoliło mi szybciej zacząć publikować wpisy na blogu. Tutaj również inspirowałem się podejściem [Macieja](https://kaszkowiak.org/), który polecił to rozwiązanie.
 
+## Co dalej?
+Ten projekt był świetną okazją do **pokazania moich umiejętności** oraz **dzielenia się wiedzą** z zakresu web developmentu, AI i innych tematów, które mnie interesują. Planuję rozbudować stronę o sekcję dotyczącą hobby czy wykształcenia.
 
-## I co dalej..?
-Ten projekt był okazją do **zaprezentowania moich umiejętności** oraz **dzielenia się wiedzą** z zakresu web developmentu, ai i innych moich zainteresowań. W przyszłości chciałbym dodać sekcję o hobby czy wykształceniu.
-Na razie nie zapowiada się, że stanie się to w najbliższym czasie, ponieważ pisząc ten wpis, wiem, że za tydzień zaczynam **nową pracę na 3/4 etatu** oraz **studia II stopnia ze specjalnością AI**. Podobno presja to przywilej, więc tak właśnie na to patrzę. Na pewno nie będę się nudzić :).
+Jednak nie oszukujmy się – najbliższe miesiące będą dość intensywne, bo za tydzień zaczynam **nową pracę na 3/4 etatu** oraz **studia II stopnia ze specjalnością AI**. Presja? Owszem, ale podobno to przywilej – więc zamierzam to wykorzystać na maksa. Na nudę na pewno nie będę narzekać!
 
-Chcesz dowiedzieć się więcej? Sprawdź **repozytorium na [GitHubie](https://github.com/benhus8/benedykt-the-dev)**.
+Chcesz zobaczyć kod źródłowy albo dowiedzieć się więcej? Sprawdź **repozytorium na [GitHubie](https://github.com/benhus8/benedykt-the-dev)**.

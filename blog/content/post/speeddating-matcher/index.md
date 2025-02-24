@@ -2,7 +2,7 @@
 title: SpeedDatingMatcher – Event Management with Django and Next.js
 description: A system for organizing speed dating events
 slug: speeddating-matcher
-date: 2025-02-23 00:00:00+0000
+date: 2025-02-23 17:00:00+0000
 image: cover.png
 categories:
   - Project
