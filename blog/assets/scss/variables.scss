@@ -1,0 +1,170 @@
+$defaultTagBackgrounds: #425c53, #219574, #03624C, #0177b8, #FFB900;
+$defaultTagColors: #fff, #fff, #fff, #fff, #fff;
+
+/*
+*   Global style
+*/
+:root {
+  --main-top-padding: 35px;
+
+  @include respond(xl) {
+    --main-top-padding: 50px;
+  }
+
+  --body-background: #F1F7F6;
+  --body-text-color: #010d0d;
+
+  --accent-color: #2CC295;
+  --accent-color-darker: #03624C;
+  --accent-color-text: #F1F7F6;
+
+  --tag-border-radius: 4px;
+
+  --section-separation: 40px;
+
+  --scrollbar-thumb: #AACBC4;
+  --scrollbar-track: var(--body-background);
+
+  &[data-scheme="dark"] {
+    --body-background: #010d0d;
+    --body-text-color: #F1F7F6;
+
+    --accent-color: #00DF81;
+    --accent-color-darker: #03624C;
+    --accent-color-text: #010d0d;
+
+    --scrollbar-thumb: #095544;
+    --scrollbar-track: var(--body-background);
+  }
+}
+
+/**
+*   Global font family
+*/
+:root {
+  --sys-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Droid Sans", "Helvetica Neue";
+  --zh-font-family: "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+
+  --base-font-family: "Lato", var(--sys-font-family), var(--zh-font-family), sans-serif;
+  --code-font-family: Menlo, Monaco, Consolas, "Courier New", var(--zh-font-family), monospace;
+}
+
+/*
+*   Card style
+*/
+:root {
+  --card-background: #F1F7F6;
+  --card-background-selected: #AACBC4;
+
+  --card-text-color-main: #010d0d;
+  --card-text-color-secondary: #095544;
+  --card-text-color-tertiary: #03624C;
+  --card-separator-color: rgba(0, 0, 0, 0.1);
+
+  --card-border-radius: 10px;
+
+  --card-padding: 20px;
+
+  @include respond(md) {
+    --card-padding: 25px;
+  }
+
+  @include respond(xl) {
+    --card-padding: 30px;
+  }
+
+  --small-card-padding: 25px 20px;
+
+  @include respond(md) {
+    --small-card-padding: 25px;
+  }
+
+  &[data-scheme="dark"] {
+    --card-background: #032221;
+    --card-background-selected: rgba(255, 255, 255, 0.1);
+
+    --card-text-color-main: #F1F7F6;
+    --card-text-color-secondary: #AACBC4;
+    --card-text-color-tertiary: #00DF81;
+    --card-separator-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/**
+*   Article content font settings
+*/
+:root {
+  --article-font-family: var(--base-font-family);
+  --article-font-size: 1.6rem;
+
+  @include respond(md) {
+    --article-font-size: 1.7rem;
+  }
+
+  --article-line-height: 1.85;
+}
+
+/*
+*   Article content style
+*/
+:root {
+  --blockquote-border-size: 4px;
+  --blockquote-background-color: rgb(248 248 248);
+
+  --heading-border-size: 4px;
+
+  --link-background-color: 189, 195, 199;
+  --link-background-opacity: 0.5;
+  --link-background-opacity-hover: 0.7;
+
+  --pre-background-color: #272822;
+  --pre-text-color: #f8f8f2;
+
+  --code-background-color: rgba(0, 0, 0, 0.12);
+  --code-text-color: #808080;
+
+  --table-border-color: #dadada;
+  --tr-even-background-color: #efefee;
+
+  --kbd-border-color: #dadada;
+
+  &[data-scheme="dark"] {
+    --code-background-color: #272822;
+    --code-text-color: rgba(255, 255, 255, 0.9);
+
+    --table-border-color: #717171;
+    --tr-even-background-color: #545454;
+
+    --blockquote-background-color: rgb(75 75 75);
+  }
+}
+
+/*
+*   Shadow style
+*   Thanks to https://www.figma.com/community/plugin/744987207861965946/Shadow-picker
+*/
+:root {
+  --shadow-l1: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l2: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l3: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l4: 0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04),
+  0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+
+[data-scheme="light"] {
+  --pre-text-color: #272822;
+  --pre-background-color: #fafafa;
+  @import "partials/highlight/light.scss";
+}
+
+[data-scheme="dark"] {
+  --pre-text-color: #f8f8f2;
+  --pre-background-color: #010d0d;
+  @import "partials/highlight/dark.scss";
+}
+
+:root {
+  --menu-icon-separation: 40px;
+  --container-padding: 15px;
+  --widget-separation: var(--section-separation);
+}
