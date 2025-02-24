@@ -25,7 +25,7 @@ jobs:
           script: |
             cd benedykt-the-dev/frontend
             git pull origin main
-            docker build -t frontend-image:latest ./frontend
+            docker build -t frontend-image:latest .
             docker stop my-frontend-container || true
             docker rm my-frontend-container || true
             docker run -d -p 3000:3000 --name my-frontend-container frontend-image:latest
