@@ -27,4 +27,4 @@ jobs:
             git pull origin main
             cd ../../huszcza-infra
             docker compose build blog
-            docker-compose up -d blog
+            docker compose up -d blog
