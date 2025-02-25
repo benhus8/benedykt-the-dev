@@ -130,7 +130,7 @@ const CareerChapter = (props) => {
                     {tech.name}
                   </p>
                 </div>
-                <TechToolList tech={tech} />
+                <TechToolList tech={tech} t={t} />
               </>
             ))}
           </div>
@@ -145,7 +145,7 @@ const CareerChapter = (props) => {
                   {t("tools")}
                 </p>
               </div>
-              <ToolList tools={props.tools} secondary={props.secondary} />
+              <ToolList tools={props.tools} secondary={props.secondary} t={t} />
             </div>
           </div>
         )}
@@ -154,7 +154,7 @@ const CareerChapter = (props) => {
   );
 };
 
-const TechToolList = ({ tech }) => {
+const TechToolList = ({ tech, t }) => {
   const [expanded, setExpanded] = useState(false);
   const toolsToShow = expanded ? tech?.tools : tech?.tools?.slice(0, 3);
 
@@ -187,7 +187,7 @@ const TechToolList = ({ tech }) => {
           onClick={() => setExpanded(!expanded)}
           className="flex items-center text-sm text-secondary-gray mt-2 ml-12 transition-all duration-300 hover:text-secondary-lightest"
         >
-          {expanded ? "Zwiń" : "Pokaż więcej"}
+          {expanded ? t("collapse") : t("showMore")}
           <motion.div
             className="ml-1"
             animate={{ rotate: expanded ? 180 : 0 }}
@@ -201,7 +201,7 @@ const TechToolList = ({ tech }) => {
   );
 };
 
-const ToolList = ({ tools, secondary }) => {
+const ToolList = ({ tools, secondary, t }) => {
   const [expanded, setExpanded] = useState(false);
   const toolsToShow = expanded ? tools : tools?.slice(0, 3);
 
@@ -235,7 +235,7 @@ const ToolList = ({ tools, secondary }) => {
           onClick={() => setExpanded(!expanded)}
           className="flex items-center text-sm text-secondary-gray mt-2 transition-all duration-300 hover:text-primary-base"
         >
-          {expanded ? "Zwiń" : "Pokaż więcej"}
+          {expanded ? t("collapse") : t("showMore")}
           <motion.div
             className="ml-1"
             animate={{ rotate: expanded ? 180 : 0 }}
