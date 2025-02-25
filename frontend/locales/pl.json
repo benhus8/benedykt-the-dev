@@ -5,7 +5,7 @@
       "projects": "Projekty",
       "career": "Kariera",
       "contact": "Kontakt",
-      "blog": ""
+      "blog": "Blog"
     }
   },
   "me": {
@@ -41,19 +41,19 @@
           "tooltip": "Dowiedz się więcej o projekcie",
           "genAI": {
             "title": "Generowanie banerów reklamowych z GenAI",
-            "link": "https://github.com/benhus8/benedykt-the-dev"
+            "link": "https://blog.huszcza.dev/pl/p/ad-banner-generator/"
           },
           "resume": {
             "title": "Techfolio",
-            "link": "https://github.com/benhus8/benedykt-the-dev"
+            "link": "https://blog.huszcza.dev/pl/p/benedykt-the-dev/"
           },
           "vesselRecognition": {
             "title": "Wykrywanie naczyń krwionośnych na siatkówce oka",
-            "link": "https://github.com/benhus8/benedykt-the-dev"
+            "link": "https://blog.huszcza.dev/pl/p/vessel-extraction/"
           },
           "speedDating": {
             "title": "Aplikacja do organizacji eventu speed datingowego",
-            "link": "https://github.com/benhus8/benedykt-the-dev"
+            "link": "https://blog.huszcza.dev/pl/p/speeddating-matcher/"
           }
       }
     },
