@@ -27,11 +27,14 @@ ENV HUGO_BUILD_TIMEOUT=600s
 RUN hugo --gc --minify --destination /public
 
 
+
+
 FROM nginx:latest
 
 COPY --from=builder /public /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
+
 
 EXPOSE 80
 
