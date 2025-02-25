@@ -1,4 +1,4 @@
-baseurl = "https://blog.huszcza.dev"
+baseURL = "https://blog.huszcza.dev"
 languageCode = "en-us"
 title = "Benedykt Huszcza"
 
