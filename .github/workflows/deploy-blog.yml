@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'frontend/**'
+      - 'blog/**'
 
 jobs:
   deploy:
@@ -23,8 +23,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 10344
           script: |
-            cd benedykt-the-dev/frontend
+            cd benedykt-the-dev/blog 
             git pull origin main
             cd ../../huszcza-infra
-            docker compose build frontend
-            docker compose up -d frontend
+            docker compose build blog
+            docker-compose up -d blog
