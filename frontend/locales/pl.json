@@ -60,7 +60,9 @@
   "career": {
     "title": "Kariera",
     "tech": "Technologie",
-    "tools": "Narzędzia"
+    "tools": "Narzędzia",
+    "showMore": "Pokaż więcej",
+    "collapse": "Ukryj"
   },
   "contact": {
     "title": "Porozmawiajmy",
