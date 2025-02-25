@@ -10,3 +10,6 @@ disqusShortname = "Benedykt Huszcza"
 
 [pagination]
 pagerSize = 5
+
+[build]
+timeout = "600s"
