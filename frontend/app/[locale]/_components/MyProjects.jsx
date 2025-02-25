@@ -7,13 +7,13 @@ export const MyProjects = () => {
   const t = useTranslations("myProjects");
 
   return (
-    <div className="relative  min-h-[475px] z-10">
+    <div className="relative  min-h-[475px] lg:max-w-[1440px] lg:mx-auto z-10 ">
       <div className="w-full flex flex-col justify-center items-center pt-5">
         <p className="pt-5 text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl">
           {t("title")}
         </p>
       </div>
-      <div className="w-full pt-10  px-8 sm:px-12 md:px-24 lg:px-48">
+      <div className="w-full  pt-10  px-8 sm:px-12 md:px-24 lg:px-48 ">
         <div className="grid grid-cols-1 md:grid-cols-7 ">
           <div className="md:col-span-4 mx-2 my-2">
             <ProjectCard

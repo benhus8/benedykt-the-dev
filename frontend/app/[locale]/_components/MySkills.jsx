@@ -31,7 +31,7 @@ export const MySkills = () => {
 
   return (
     <div className="relative bg-black min-h-[475px] z-10 mt-10 pb-10">
-      <div className="w-full flex flex-col justify-center items-center pt-5">
+      <div className="w-full lg:max-w-[1440px] lg:mx-auto flex flex-col justify-center items-center pt-5">
         <p className="pt-5 text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl">
           {t("title")}
         </p>
@@ -39,7 +39,7 @@ export const MySkills = () => {
           {t("intro")}
         </p>
       </div>
-      <div className="w-full grid grid-cols-1 gap-1justify-center items-center mb-10">
+      <div className="w-full lg:max-w-[1440px] lg:mx-auto grid grid-cols-1 gap-1justify-center items-center mb-10">
         {skillsList.map((skill, i) => (
           <SkillRow
             key={i}

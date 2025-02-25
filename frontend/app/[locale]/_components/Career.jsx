@@ -92,7 +92,7 @@ const CareerChapter = (props) => {
   const t = props.t;
 
   return (
-    <div className="flex flex-col sm:flex-row  items-center sm:items-start text-primary-white px-4 sm:px-0">
+    <div className="lg:max-w-[1440px] lg:mx-auto flex flex-col sm:flex-row  items-center sm:items-start text-primary-white px-4 sm:px-0">
       <div>
         <div className="flex flex-row sm:flex-col justify-center items-center mt-6 sm:mt-0">
           <p className="text-4xl sm:text-2xl font-bold flex flex-col justify-end items-center ">
