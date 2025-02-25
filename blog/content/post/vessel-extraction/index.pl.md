@@ -37,7 +37,7 @@ W przypadku projektu **Vessel Extraction** KNN został użyty do:
 - **Nadmiar danych tła** – Obszary bez naczyń krwionośnych (tło) dominowały na obrazach, co powodowało, że model uczył się głównie rozpoznawać tło, a nie naczynia.
 - **Niedobór danych naczyń krwionośnych** – Piksele należące do naczyń krwionośnych stanowiły **mniej niż 10%** wszystkich danych, co powodowało, że model bardzo szybko przeuczał się.
 
-  ![Przykładowa maska, na której widać, że naczynia stanowią małą część całego obrazu](/mask.png)
+  ![Przykładowa maska, na której widać, że naczynia stanowią małą część całego obrazu](mask.png)
 
 ### Jak sobie z tym poradziłem?
 Postanowiłem zastosować **undersampling** – czyli **celowe ograniczenie liczby danych tła**, aby liczba pikseli naczyniowych i tła była bardziej zrównoważona. Brzmi prosto, ale wymagało to kilku przemyślanych kroków:
@@ -73,7 +73,7 @@ Postanowiłem zastosować **undersampling** – czyli **celowe ograniczenie licz
 - **Czułość (recall)**: **85%** – dobrze wykrywał naczynia krwionośne, ale czasami mylił je z cienkimi liniami tła.
 - **Precyzja (precision)**: **91%** – model dość skutecznie unikał fałszywych alarmów (błędnego oznaczania tła jako naczyń).
 
-![Od lewej: oryginalne zdjęcie, maska, odtworzona maska oparta na klasyfikacji](/knn_results.png)
+![Od lewej: oryginalne zdjęcie, maska, odtworzona maska oparta na klasyfikacji](knn_results.png)
 Wiem, że **efekt na pierwszy rzut oka nie powala** i można się zastanawiać, jakim cudem udało się uzyskać tak dobre **"cyferki"** (czyli dokładność). Ale tu właśnie tkwi mały szkopuł, czyli narzucone wymaganie.
 
 Chciałbym zaznaczyć, że do uczenia modelu wykorzystałem **wycinki o rozmiarze 3x3 pikseli**, ponieważ na tak małych fragmentach model łatwiej wykrywa lokalne wzorce charakterystyczne dla naczyń krwionośnych.
