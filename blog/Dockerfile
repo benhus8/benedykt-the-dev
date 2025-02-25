@@ -23,7 +23,7 @@ WORKDIR /blog
 
 
 COPY . .
-
+ENV HUGO_BUILD_TIMEOUT=600s
 RUN hugo --gc --minify --destination /public
 
 
