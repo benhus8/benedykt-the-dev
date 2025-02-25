@@ -37,7 +37,7 @@ In the case of **Vessel Extraction**, KNN was used for:
 - **Overwhelming amount of background data** – Areas without blood vessels (background) dominated the images, causing the model to learn to recognize mainly the background and not the vessels.
 - **Underrepresentation of blood vessels** – Pixels belonging to blood vessels made up **less than 10%** of all data, leading to model overfitting.
 
-  ![Example mask showing that blood vessels make up a small portion of the entire image](/mask.png)
+  ![Example mask showing that blood vessels make up a small portion of the entire image](mask.png)
 
 ### How Did I Handle It?
 I decided to use **undersampling** – intentionally **reducing the number of background samples** so that the number of vessel and background pixels was more balanced. Sounds simple, but it required a few thoughtful steps:
@@ -72,7 +72,7 @@ I decided to use **undersampling** – intentionally **reducing the number of ba
 - **Recall**: **85%** – effectively detected blood vessels but sometimes confused them with thin background lines.
 - **Precision**: **91%** – the model successfully avoided false positives (mistaking the background for vessels).
 
-![From left: original image, mask, reconstructed mask based on classification](/knn_results.png)
+![From left: original image, mask, reconstructed mask based on classification](knn_results.png)
 I know, at first glance, the **results don't look impressive**, and it's hard to believe I got such good **"numbers"** (i.e., accuracy). But here's the trick – it's all about the chosen approach.
 
 I used **3x3 pixel patches** because smaller fragments make it easier for the model to detect local patterns characteristic of blood vessels. The total image size was **512x512 pixels**, so if the classifier recognized a **3x3 patch as a vessel**, all **9 pixels** in that patch were **completely filled in white**.
