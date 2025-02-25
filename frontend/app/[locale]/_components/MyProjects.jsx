@@ -78,8 +78,14 @@ export const MyProjects = () => {
 };
 
 const ProjectCard = (props) => {
+  const handleCardClick = () => {
+    window.open(props.link, "_blank");
+  };
   return (
-    <div className="relative h-[300px] px-8 pt-5 bg-secondary-transparentCard/40 rounded-lg overflow-hidden transition-all ease-in hover:bg-[rgba(0,0,0,0.5)] hover:opacity-90">
+    <div
+      onClick={handleCardClick}
+      className="relative h-[300px] px-8 pt-5 bg-secondary-transparentCard/40 rounded-lg overflow-hidden transition-all ease-in hover:bg-[rgba(0,0,0,0.5)] hover:opacity-90 hover:scale-[1.01] hover:cursor-pointer "
+    >
       <div className="w-full flex flex-row justify-between">
         <p className="font-bold text-primary-white relative w-4/5 lg:text-lg">
           {props.title}
