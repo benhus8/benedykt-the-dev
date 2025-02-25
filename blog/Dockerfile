@@ -30,7 +30,6 @@ COPY . .
 
 RUN hugo --gc --minify --timeout 600s --destination /public
 
----
 
 FROM nginx:latest
 
