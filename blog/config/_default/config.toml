@@ -1,6 +1,6 @@
 baseURL = "https://blog.huszcza.dev"
 languageCode = "en-us"
-title = "Benedykt Huszcza"
+title = "Benedykt Huszcza | Blog"
 
 defaultContentLanguage = "en"
 
@@ -10,3 +10,6 @@ disqusShortname = "Benedykt Huszcza"
 
 [pagination]
 pagerSize = 5
+
+[build]
+timeout = "60s"
