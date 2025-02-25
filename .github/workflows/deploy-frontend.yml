@@ -25,7 +25,6 @@ jobs:
           script: |
             cd benedykt-the-dev/frontend
             git pull origin main
-            docker build -t frontend-image:latest .
-            docker stop frontend-container || true
-            docker rm frontend-container || true
-            docker run -d -p 3000:3000 --name frontend-container frontend-image:latest
+            cd ../../huszcza-infra
+            docker-compose build frontend
+            docker-compose up -d frontend
