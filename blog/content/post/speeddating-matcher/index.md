@@ -27,7 +27,7 @@ In this year's edition of the application (2025), I opted for a more civilized a
 The main task of the application was not only sending emails but also **automatically matching people** participating in the event. That is:
 if a person with number 3 wanted to contact numbers 2 and 1, then before sending the email, I needed to check if both person 2 and 1 also wanted to contact number 3. Only if there is a **mutual preference**, the email is sent. This situation is illustrated by the following graphic:
 
-![Graph showing preference matching](/persons_preferences.png)
+![Graph showing preference matching](persons_preferences.png)
 
 It is clearly visible that the email is sent only when a **cycle of length 2** is found in the graph.
 

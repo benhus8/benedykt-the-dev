@@ -117,7 +117,7 @@ Po przetestowaniu klasycznego KNN postanowiłem pójść krok dalej i zastosowa�
     - Trenowałem model przy użyciu **learning rate finder** FastAi, co pomogło dobrać optymalny współczynnik uczenia.
     - **Augmentacja danych** (rotacje, odbicia, zmiana jasności) pomogła zwiększyć różnorodność danych treningowych i poprawiła ogólną wydajność modelu.
 
-![Wyniki FastAi](/fast_ai_results.png)
+![Wyniki FastAi](fast_ai_results.png)
 
 ### Wyniki i efekty
 - **Dokładność (accuracy)**: **92%** – co jest wyraźną poprawą w porównaniu do KNN.

@@ -107,7 +107,7 @@ After testing the classic KNN approach, I decided to take it up a notch and use 
 - **Recall**: **90%** – the model effectively recognized vessels, even in challenging cases.
 - **Precision**: **94%** – very few false positives, resulting in highly accurate vessel detection.
 
-![FastAi Results](/fast_ai_results.png)
+![FastAi Results](fast_ai_results.png)
 
 ### First Step into Machine Learning
 

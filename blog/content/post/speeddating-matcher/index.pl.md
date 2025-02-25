@@ -27,7 +27,7 @@ W tegorocznej edycji (2025) postanowiłem podejść do tematu bardziej rozsądni
 Głównym celem aplikacji nie jest tylko wysyłanie maili, ale **automatyczne dopasowywanie uczestników** wydarzenia. Jak to działa?
 Jeśli uczestnik z numerem 3 chce skontaktować się z numerem 2 oraz 1, muszę sprawdzić, czy zarówno numer 2, jak i 1 również chcą kontaktu z numerem 3. Dopiero wtedy, gdy jest **wzajemna chęć kontaktu**, wysyłamy maila. Sytuację obrazuje poniższa grafika:
 
-![Graf przedstawiający dopasowanie preferencji](/persons_preferences.png)
+![Graf przedstawiający dopasowanie preferencji](persons_preferences.png)
 
 
 Aplikacja oferuje m.in.:
