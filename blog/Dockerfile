@@ -1,10 +1,7 @@
-
-FROM ubuntu:latest
-
+FROM ubuntu:latest AS builder
 
 ENV HUGO_VERSION=0.123.0
 ENV GO_VERSION=1.20.5
-
 
 RUN apt-get update && \
     apt-get install -y wget git ca-certificates curl && \
@@ -24,11 +21,23 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-
 ENV PATH="/usr/local/go/bin:${PATH}"
 
 WORKDIR /blog
 
+
 COPY . .
 
-RUN hugo --gc --minify --destination /public
+RUN hugo --gc --minify --timeout 600s --destination /public
+
+---
+
+FROM nginx:latest
+
+COPY --from=builder /public /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
