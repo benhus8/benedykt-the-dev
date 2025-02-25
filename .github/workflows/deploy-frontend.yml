@@ -1,4 +1,4 @@
-name: Deploy Frontend to Mikrus
+name: Deploy Blog
 
 on:
   push:
