@@ -88,10 +88,7 @@ Tak powstał **Backdoor** – cichy zabójca, który po dotarciu za bazę przeci
 W finalnym rozrachunku nie okazał się wystarczająco efektywny, by wprowadzić go do naszej strategii, a czas nie pozwalał nam również dokładnie przetestować jego wpływu. <br>
 Jednakże jego sposób działania był na tyle komiczny, że muszę to pokazać XD.
 
-<video width="640" height="360" controls>
-  <source src="/p/backdoor_attack.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+{{< video "/p/backdoor_attack.mp4" >}}
 
 Na nagraniu widać jak zielone backdoory gracza pierwszego skradają się na krańcu mapy, odczekują chwilę, a następnie razem atakują. Na przekątnej natomiast widać różowe statki gracza drugiego, czyli wersje ICBM naszych statków.
 
