@@ -12,7 +12,7 @@ tags:
    - GHOST
 ---
 
-W dniach **16-18.03.25** razem z zespołem mieliśmy okazję wziąć udział w hackathonie w Krakowie. Uczestniczyliśmy już w poprzedniej edycji, więc jeśli chcecie dowiedzieć się więcej o tym wydarzeniu, serdecznie zapraszam do lektury wpisu [Macieja](https://kaszkowiak.org/blog/ensemble-ai/).<br>
+W dniach **14-16.03.25** razem z zespołem mieliśmy okazję wziąć udział w hackathonie w Krakowie. Uczestniczyliśmy już w poprzedniej edycji, więc jeśli chcecie dowiedzieć się więcej o tym wydarzeniu, serdecznie zapraszam do lektury wpisu [Macieja](https://kaszkowiak.org/blog/ensemble-ai/).<br>
 W skrócie – było to nasze pierwsze starcie z tworzeniem sieci neuronowych. Co więcej, uczyliśmy się wszystkiego na bieżąco, więc wyzwanie było naprawdę spore. Mimo wszystko udało nam się zająć **12 miejsce**, co było dla nas duużym osiągnięciem!
 
 ## PROLOG - przeddzień walk
