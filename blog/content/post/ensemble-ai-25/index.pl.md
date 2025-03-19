@@ -2,7 +2,7 @@
 title: EnsembleAI 2025
 description: Dowiedz się jak radzi sobie rakieta ICBM w kosmosie!
 slug: ensemble-ai-2025
-date: 2025-03-18 16:00:00+0000
+date: 2025-03-18   16:00:00+0000
 image: cover.png
 categories:
    - Hackathon
@@ -80,7 +80,7 @@ Wiedzieliśmy, że zmasowany atak bez zasobów szybko się skończy, więc potrz
 **Explorer** korzystał z pathfindingu, ale... nie udało nam się stworzyć idealnego algorytmu szukania ścieżki, więc zdarzało się, że się blokował. W finalnej wersji, jeśli utknął, zmieniał się w **rakietę**, dodatkowo zmieniając standardowy wektor ataku naszej strategii (standardowym wektorem była główna przekątna mapy).
 Btw. Jak widzę nagłą przemianę explorera w rakietę to mam przed oczami ten obraz:
 
-![Mapa z oznaczeniami głównych obiektów](anakin.gif)
+![](anakin.gif)
 
 ### Backdoor - cichy zabójca
 Analizując naszą taktykę, zauważyliśmy, że jest wrażliwa na ataki z granic mapy. Idąc tym tropem, doszliśmy do wniosku, że przeciwnicy też mogą nie zabezpieczać się wystarczająco.<br>
