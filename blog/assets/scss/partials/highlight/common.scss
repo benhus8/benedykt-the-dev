@@ -426,3 +426,35 @@
 /* TextWhitespace */
 .chroma .w {
 }
+
+.article-content blockquote {
+    background-color: rgba($keyword-color, 0.1);
+
+    border-left: 5px solid $keyword-color;
+
+    color: $text-color;
+
+    padding: 18px 25px 18px 30px;
+    margin: 2em 0;
+    border-radius: 8px;
+    font-style: italic;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    transition: all 0.3s ease;
+
+    a {
+        color: $name-color;
+        text-decoration: none;
+        border-bottom: 1px dashed $name-color;
+
+        &:hover {
+            color: adjust-color($name-color, $lightness: 10%);
+            border-bottom-color: adjust-color($name-color, $lightness: 10%);
+        }
+    }
+
+    &:hover {
+        background-color: rgba($keyword-color, 0.15);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+}
