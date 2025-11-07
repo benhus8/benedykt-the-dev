@@ -60,20 +60,21 @@ Niemniej jednak nadal bym je zrobił, tylko w innej kolejności.
 Ja po przerobieniu egzaminów od TD (Tutorials Dojo) wróciłem ponownie do egzaminów Maareka (od momentu, kiedy je robiłem, minęły około 2 miesiące, wiecie, urlop i takie sprawy...) i na drugim podejściu uzyskałem kolejno: **81%, 86% i 81%**. Podczas kolejnego podejścia do robienia tych egzaminów robiłem kompleksowe notatki, zarówno z pytań, w których popełniłem błędy, jak i również tych poprawnych, bo czasem czujemy odpowiedź, ale nie jesteśmy pewni - ją też warto przeanalizować, zrozumieć i uzyskać pewność w wyborze.
 
 Po powyższym zapisałem się na egzamin i do egzaminu przez te kilka dni czytałem tylko pełną prezentację Maareka oraz własne notatki. Na egzaminie miałem dodatkowe 30 minut akomodacji ze względu na to, że nie jestem native'em i nie powiem, dosyć się przydało. Podczas pierwszego obiegu po pytaniach nie marnowałem dużo czasu i zaznaczałem taką odpowiedź, jaką czułem i rozumiałem najbardziej, ale dzięki temu udało mi się w czasie zrobić 2 takie przebiegi. Drugi już na spokojnie, analizując mocno każde pytanie, co pozwoliło mi przemyśleć odpowiedzi i finalnie zmienić 7-8 z nich, bo odkryłem kilka słów-kluczy zarówno w odpowiedziach, jak i pytaniach. I tak oto ok. 11h po egzaminie dostałem wiadomość, że zdałem z wynikiem 818 i jestem z niego całkiem dumny (tak samo jak z odznaki, którą otrzymałem od AWS-a)
-{{< figure src="badge.png" alt="AWS badge" width="150" >}}
 
-> Sam egzamin podsumowałbym jednym słowem: **tricky**. Wiele odpowiedzi wydaje się poprawnych, ale ma jedno słówko, które totalnie zmienia ich sens. Tak samo było z pytaniami. A więc polecam zdekomponować sobie w głowie pytania na składowe, dowiedzieć się, jakie są dokładnie wymagania, co chcemy osiągnąć i na czym się skupić.
+![](badge_s.png)
+
+Sam egzamin podsumowałbym jednym słowem: **tricky**. Wiele odpowiedzi wydaje się poprawnych, ale ma jedno słówko, które totalnie zmienia ich sens. Tak samo było z pytaniami. A więc polecam zdekomponować sobie w głowie pytania na składowe, dowiedzieć się, jakie są dokładnie wymagania, co chcemy osiągnąć i na czym się skupić.
 
 ## LLM-y w procesie uczenia
 
 Myślę, że warto też wspomnieć, jak wykorzystywałem AI podczas uczenia. Na wcześniej wspomnianym reddicie jest na ten temat mnóstwo wątków, a jak to się mówi "rabini są niezgodni".
 
-> Jak miałbym w jednym zdaniu podsumować, jak używałem AI, byłoby to słowo: **Dlaczego?**
+> Jak miałbym skrócić, jak używałem AI, byłoby to po prostu słowo: **Dlaczego?**
 
 Jeśli w testach było jakieś wytłumaczenie, ale czułem, że to za mało, to właśnie z tym pytaniem szedłem do Gemini albo ChataGPT. Na początku jeszcze sprawdzałem, czy odpowiedzi zgadzają się z dokumentacją AWSa, ale po jakimś czasie przestałem, bo odpowiedzi były raz za razem poprawne.
 Uważam, że super jest wykorzystywać te narzędzia właśnie w ten sposób czyli do obrazowania, lepszego opisywania i wyjaśniania. Do pokazywania przypadków użycia albo dawania prostych przykładów.
 
-> Co ważne, **ani razu nie użyłem LLM-ów, żeby dały mi poprawną odpowiedź na pytanie**. Wolałem sam zaznaczyć najbardziej logiczny wybór (jeśli nawet był zły) i dopiero *później* poprosić AI o wyjaśnienie. I taki sposób u mnie zadziałał rewelacyjnie.
+Co ważne, **ani razu nie użyłem LLM-ów, żeby dały mi poprawną odpowiedź na pytanie**. Wolałem sam zaznaczyć najbardziej logiczny wybór (jeśli nawet był zły) i dopiero *później* poprosić AI o wyjaśnienie. I taki sposób u mnie zadziałał rewelacyjnie.
 
 **Polecam Benedykt Huszcza**
 
