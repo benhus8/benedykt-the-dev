@@ -33,8 +33,7 @@ W czerwcu po zakończeniu sesji (bez poprawek) uświadomiłem sobie, że nie mam
 
 No i w lipcu wiadomo jak to wakacje… aa, mam Was ;) W lipcu naprawdę zacząłem przygotowania, a jak już mowa o przygotowaniach, to kończę z formą mojego kochanego pamiętniczka i przechodzę do bardziej merytorycznego tonu, by każdy, kto przyszedł tu po „mięcho”, czyli jak zdać egzamin MLA-C01, wiedział, jak mi się to udało.
 
-![Te zdjęcia AI robią się coraz lepsze...](plan.png)
-
+![Muza zawsze w moim życiu grała ważną rolę i powiem szczerze żaden utwór nie daje mi takiego nastroju do nauki jak Gospel w wykonaniu March Fourth Marching Band. Jeśli z czymś wam się kojarzy ta nuta to podpowiem - Mike Wazowsky. Nie? Ehh jak można nie znać tak szeroko znanej kinematografii? Chodzi o "Uniwersytet Potworny", a kawałek ukazuje się w momencie gdy Mike uczy się właśnie do potwornej sesji. Czy ta grafika nie przypomina kadru gdy właśnie "Gospel" jest odgrywany? Mi bez dwóch zdań tak!](plan.png)
 
 ## Jak uczyłem się do egzaminu?
 
@@ -48,7 +47,7 @@ Po wykładach wziąłem kolejny kurs od Stephane'a Maareka - Praktyczne egzaminy
 
 Podobał mi się ten format i mimo że był z początku dosyć trudny, tak był znacznie lepszy dla mnie niż słuchanie suchych wykładów (aczkolwiek nadal polecam to zrobić). Rekomenduję też zwrócić uwagę na czysto Machine Learningowe aspekty: regularyzacja, overfitting, metryki czy nawet kwantyzacja lub fine-tuning, taki jak LoRa.
 
-![Tak właśnie sobie wyobrażam społeczność AWSCertifications na Reddicie - setki, jeśli nie tysiące, pasjonatów z całego świata](reddit.png)
+![](reddit.png)
 
 Po przerobieniu testów nadal nie czułem się pewnie, a że uczenie się na błędach okazało się u mnie efektywne, postanowiłem poszukać kolejnych testów. I tutaj wchodzi Tutorials Dojo - fajne odświeżenie, ale testy znacznie prostsze niż na realnym egzaminie oraz testy Maareka. Było kilka ciekawych i nietuzinkowych pytań, ale uważam, że warto je zrobić w celu eksploracji wiedzy i poznania kolejnych przypadków użycia serwisów, niż dla realnego przygotowania do pytań na oryginalnym egzaminie. Niemniej jednak nadal bym je zrobił, tylko w innej kolejności: Wykłady Maareka, Pytania Tutorials Dojo i na końcu, jako finałowy boss, Egzaminy Maareka.
 
@@ -57,6 +56,18 @@ Ja po przerobieniu egzaminów od TD (Tutorials Dojo) wróciłem ponownie do egza
 Po powyższym zapisałem się na egzamin i do egzaminu przez te kilka dni czytałem tylko pełną prezentację Maareka oraz własne notatki. Na egzaminie miałem dodatkowe 30 minut akomodacji ze względu na to, że nie jestem native'em i nie powiem, dosyć się przydało. Podczas pierwszego obiegu po pytaniach nie marnowałem dużo czasu i zaznaczałem taką odpowiedź, jaką czułem i rozumiałem najbardziej, ale dzięki temu udało mi się w czasie zrobić 2 takie przebiegi. Drugi  już na spokojnie, analizując mocno każde pytanie, co pozwoliło mi przemyśleć odpowiedzi i finalnie zmienić 7-8 z nich, bo odkryłem kilka słów-kluczy zarówno w odpowiedziach, jak i pytaniach. I tak oto ok. 11h po egzaminie dostałem wiadomość, że zdałem z wynikiem 818 i jestem z niego całkiem dumny (tak samo jak z odznaki, którą otrzymałem od AWS-a)
 {{< figure src="badge.png" alt="AWS badge" width="150" >}}
 Sam egzamin podsumowałbym jednym słowem: tricky. Wiele odpowiedzi wydaje się poprawnych, ale ma jedno słówko, które totalnie zmienia ich sens. Tak samo było z pytaniami. A więc polecam zdekomponować sobie w głowie pytania na składowe, dowiedzieć się, jakie są dokładnie wymagania, co chcemy osiągnąć i na czym się skupić.
+
+## LLM-y w procesie uczenia
+
+Myślę, że warto też wspomnieć, jak wykorzystywałem AI podczas uczenia. Na wcześniej wspomnianym reddicie jest na ten temat mnóstwo wątków, a jak to się mówi "rabini są niezgodni".
+
+Jak miałbym w jednym zdaniu podsumować, jak używałem AI, byłoby to słowo: **Dlaczego?**
+Jeśli w testach było jakieś wytłumaczenie, ale czułem, że to za mało, to właśnie z tym pytaniem szedłem do Gemini albo ChataGPT. Na początku jeszcze sprawdzałem, czy odpowiedzi zgadzają się z dokumentacją AWSa, ale po jakimś czasie przestałem, bo odpowiedzi były raz za razem poprawne.
+Uważam, że super jest wykorzystywać te narzędzia właśnie w ten sposób czyli do obrazowania, lepszego opisywania i wyjaśniania. Do pokazywania przypadków użycia albo dawania prostych przykładów.
+
+Co ważne, **ani razu nie użyłem LLM-ów, żeby dały mi poprawną odpowiedź na pytanie**. Wolałem sam zaznaczyć najbardziej logiczny wybór (jeśli nawet był zły) i dopiero *później* poprosić AI o wyjaśnienie. I taki sposób u mnie zadziałał rewelacyjnie.
+
+**Polecam Benedykt Huszcza**
 
 ## Co teraz?
 
