@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 const FooterItem = ({ text, targetId, bold, toTop, link }) => {
   const handleClick = () => {
@@ -21,9 +22,8 @@ const FooterItem = ({ text, targetId, bold, toTop, link }) => {
   return (
     <span
       onClick={handleClick}
-      className={`cursor-pointer text-lg text-primary-white hover:text-primary-light transition-all duration-300 whitespace-nowrap ${
-        bold ? "font-semibold" : ""
-      }`}
+      className={`cursor-pointer text-lg text-primary-white hover:text-primary-light transition-all duration-300 whitespace-nowrap ${bold ? "font-semibold" : ""
+        }`}
     >
       {text}
     </span>
@@ -32,6 +32,7 @@ const FooterItem = ({ text, targetId, bold, toTop, link }) => {
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const pathname = usePathname();
 
   return (
     <footer className="flex flex-col items-center justify-center bg-black text-white text-center py-6 px-4">
@@ -70,7 +71,7 @@ export default function Footer() {
         <FooterItem
           text={t("menu.blog")}
           link={
-            window.location.pathname.includes("/pl")
+            pathname.includes("/pl")
               ? "https://blog.huszcza.dev/pl"
               : "https://blog.huszcza.dev"
           }

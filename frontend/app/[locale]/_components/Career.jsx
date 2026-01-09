@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -20,6 +20,7 @@ export const Career = () => {
           <CareerChapter
             key={i}
             id={i}
+            isCurrent={i === 0}
             year={chapter.year}
             month={chapter.month}
             technologies={chapter.technologies}
@@ -36,6 +37,31 @@ export const Career = () => {
   );
 };
 export const chapters = [
+  {
+    color: "primary-white",
+    secondary: "gray-500",
+    year: "2025",
+    month: "03",
+    position: "Junior Software Engineer",
+    company: "Software Mind",
+    technologies: [
+      { name: "Typescript", tools: ["React"] },
+      { name: "Java", tools: ["SpringBoot", "JOOQ"] },
+      { name: "Python", tools: ["Chainlit", "Langchain", "Pydantic"] },
+      { name: "Cloud", tools: ["Azure OpenAI ", "Azure Search Service"] },
+    ],
+    tools: ["Jenkins", "Octopus Deploy", "Jira", "Bitbucket"],
+  },
+  {
+    color: "primary-blue",
+    secondary: "primary-darkerBlue",
+    year: "2023",
+    month: "07",
+    position: "Fullstack Developer",
+    company: "Prognosis z.o.o",
+    technologies: [{ name: "Typescript", tools: ["React", "TanstackQuery"] }],
+    tools: ["WebStorm"],
+  },
   {
     color: "primary-light",
     secondary: "secondary-lightest",
@@ -63,29 +89,6 @@ export const chapters = [
       "Traefik",
     ],
   },
-  {
-    color: "primary-blue",
-    secondary: "primary-darkerBlue",
-    year: "2023",
-    month: "07",
-    position: "Fullstack Developer",
-    company: "Prognosis z.o.o",
-    technologies: [{ name: "Typescript", tools: ["React", "TanstackQuery"] }],
-    tools: ["WebStorm"],
-  },
-  {
-    color: "primary-white",
-    secondary: "gray-500",
-    year: "2025",
-    month: "03",
-    position: "Junior Software Engineer",
-    company: "Software Mind",
-    technologies: [
-      { name: "Typescript", tools: ["React"] },
-      { name: "Java", tools: ["SpringBoot"] },
-    ],
-    tools: [],
-  },
 ];
 
 const CareerChapter = (props) => {
@@ -106,7 +109,24 @@ const CareerChapter = (props) => {
         <hr
           className={`border-t border-${props.color} w-full h-[1.5px] mt-8`}
         />
-        <p className="font-semiBold text-2xl">{props.position}</p>
+        <div className="flex flex-row items-center gap-4">
+          <p className="font-semiBold text-2xl">{props.position}</p>
+          {props.isCurrent && (
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className={`flex items-center justify-center ml-2`}
+            >
+              <div className={`h-[1px] w-8 bg-${props.color}/40 mr-3`} />
+              <span
+                className={`text-[10px] font-light tracking-[0.25em] uppercase text-${props.color}/90`}
+              >
+                {t("current")}
+              </span>
+            </motion.div>
+          )}
+        </div>
         <p className={` text-lg text-${props.secondary}`}>{props.company}</p>
       </div>
       {/*mapping section*/}
@@ -121,7 +141,7 @@ const CareerChapter = (props) => {
             </div>
 
             {props?.technologies?.map((tech) => (
-              <>
+              <Fragment key={tech.name}>
                 <div className="flex flex-row ml-1.5">
                   <div className="w-[1px] h-[28px] bg-secondary-grayLight "></div>
                   <p
@@ -131,7 +151,7 @@ const CareerChapter = (props) => {
                   </p>
                 </div>
                 <TechToolList tech={tech} t={t} />
-              </>
+              </Fragment>
             ))}
           </div>
         </div>

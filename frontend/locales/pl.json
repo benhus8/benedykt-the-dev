@@ -35,34 +35,35 @@
       }
     }
   },
-    "myProjects": {
-        "title": "Projekty",
-        "projects": {
-          "tooltip": "Dowiedz się więcej o projekcie",
-          "genAI": {
-            "title": "Generowanie banerów reklamowych z GenAI",
-            "link": "https://blog.huszcza.dev/pl/p/ad-banner-generator/"
-          },
-          "resume": {
-            "title": "Techfolio",
-            "link": "https://blog.huszcza.dev/pl/p/benedykt-the-dev/"
-          },
-          "vesselRecognition": {
-            "title": "Wykrywanie naczyń krwionośnych na siatkówce oka",
-            "link": "https://blog.huszcza.dev/pl/p/vessel-extraction/"
-          },
-          "speedDating": {
-            "title": "Aplikacja do organizacji eventu speed datingowego",
-            "link": "https://blog.huszcza.dev/pl/p/speeddating-matcher/"
-          }
+  "myProjects": {
+    "title": "Projekty",
+    "projects": {
+      "tooltip": "Dowiedz się więcej o projekcie",
+      "genAI": {
+        "title": "Generowanie banerów reklamowych z GenAI",
+        "link": "https://blog.huszcza.dev/pl/p/ad-banner-generator/"
+      },
+      "resume": {
+        "title": "Techfolio",
+        "link": "https://blog.huszcza.dev/pl/p/benedykt-the-dev/"
+      },
+      "vesselRecognition": {
+        "title": "Wykrywanie naczyń krwionośnych na siatkówce oka",
+        "link": "https://blog.huszcza.dev/pl/p/vessel-extraction/"
+      },
+      "speedDating": {
+        "title": "Aplikacja do organizacji eventu speed datingowego",
+        "link": "https://blog.huszcza.dev/pl/p/speeddating-matcher/"
       }
-    },
+    }
+  },
   "career": {
     "title": "Kariera",
     "tech": "Technologie",
     "tools": "Narzędzia",
     "showMore": "Pokaż więcej",
-    "collapse": "Ukryj"
+    "collapse": "Ukryj",
+    "current": "Obecnie"
   },
   "contact": {
     "title": "Porozmawiajmy",

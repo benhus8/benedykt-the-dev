@@ -62,7 +62,8 @@
     "tech": "Technologies",
     "tools": "Tools",
     "showMore": "Read more",
-    "collapse": "Hide"
+    "collapse": "Hide",
+    "current": "Current"
   },
   "contact": {
     "title": "Let's Talk",
