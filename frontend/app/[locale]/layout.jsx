@@ -7,7 +7,8 @@ import NotFoundPage from "@/app/[locale]/not-found";
 export const metadata = {
   title: "Benedykt Huszcza",
   description:
-    "Portfolio of a Full-Stack Developer with a passion for backend, AI, and modern web technologies. Discover my projects and experience.",
+    "Portfolio of a Software Engineer with a passion for backend, AI, and modern web technologies. Discover my projects and experience.",
+  robots: "index, follow",
 };
 
 export function NotFound() {
@@ -15,7 +16,7 @@ export function NotFound() {
 }
 
 export default async function RootLayout({ children, params }) {
-  const locale = params?.locale || "en";
+  const { locale } = await params;
 
   let messages;
   try {
