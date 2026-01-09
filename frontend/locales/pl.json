@@ -19,15 +19,15 @@
     "skills": {
       "backend": {
         "name": "Backend",
-        "description": "Uwielbiam backend – to moja pasja i to tutaj czuję się jak ryba w wodzie. W pracy do implementacji aplikacji serwerowych i serwisów  korzystałem głównie z Javy i Pythona. Tworzyłem mikroserwisy przy użyciu takich framerworków jak Spring Boot czy FastAPI, a do integracji usług miałem okazję korzystać z systemów kolejkowania np. RabbitMQ. Zawsze staram się pisać kod, który nie tylko działa, ale jest też SOLIDny, przemyślany i czysty."
+        "description": "Uwielbiam backend – to moja pasja i to tutaj czuję się jak ryba w wodzie. W pracy do implementacji aplikacji serwerowych i serwisów  korzystałem głównie z Javy i Pythona. Tworzyłem mikroserwisy przy użyciu takich frameworków jak Spring Boot czy FastAPI, a do integracji usług miałem okazję korzystać z systemów kolejkowania np. RabbitMQ. Zawsze staram się pisać kod, który nie tylko działa, ale jest też SOLIDny, przemyślany i czysty."
       },
       "frontend": {
         "name": "Frontend",
-        "description": "Choć backend to mój żywioł, miałem okazję pracować z Reactem i Next.js i naprawdę to polubiłem. Lubię eksperymentować z server-side renderingiem i nowymi technologiami w ekosystemie Reacta. Tworzenie nowoczesnych interfejsów to dla mnie pasjonujące wyzwanie, a optymalizacja wydajności frontendu lub dodanie niesamowitego widoku daje mi ogromną daje satysfakcję. W swoich indywidualnych projektach eksperymentuję z projektowaniem UI, korzystając z Figmy. To właśnie dzięki niej powstał design tej strony, którą właśnie oglądasz."
+        "description": "Choć backend to mój żywioł, miałem okazję pracować z Reactem i Next.js i naprawdę to polubiłem. Lubię eksperymentować z server-side renderingiem i nowymi technologiami w ekosystemie Reacta. Tworzenie nowoczesnych interfejsów to dla mnie pasjonujące wyzwanie, a optymalizacja wydajności frontendu lub dodanie niesamowitego widoku daje mi ogromną satysfakcję. W swoich indywidualnych projektach eksperymentuję z projektowaniem UI, korzystając z Figmy. To właśnie dzięki niej powstał design tej strony, którą właśnie oglądasz."
       },
       "ai": {
         "name": "AI",
-        "description": "Sztuczna inteligencja to coś, co naprawdę mnie kręci. Jako swoją inżynierkę stworzyłem z zespołem aplikację do generowania banerów reklamowych, wykorzystując GPT i DALL·E od OpenAI oraz AWS Bedrock. Pasjonują mnie projekty, które łączą wykorzsytanie LLM-ów, technologii backendowych i frontendowych, bo wtedy mogę połączyć swoje pasje i tworzyć coś naprawdę niesamowitego. Aktualnie jestem studentem || stopnia infromatyki ze spoecjalizacją sztuczna inteligencja i wierzę, że studia pozwolą mi jeszcze bardziej poznać tą gałąź IT."
+        "description": "Sztuczna inteligencja to coś, co naprawdę mnie kręci. Jako swoją inżynierkę stworzyłem z zespołem aplikację do generowania banerów reklamowych, wykorzystując GPT i DALL·E od OpenAI oraz AWS Bedrock. Pasjonują mnie projekty, które łączą wykorzystanie LLM-ów, technologii backendowych i frontendowych, bo wtedy mogę połączyć swoje pasje i tworzyć coś naprawdę niesamowitego. Aktualnie jestem studentem II stopnia informatyki ze specjalizacją sztuczna inteligencja i wierzę, że studia pozwolą mi jeszcze bardziej poznać tę gałąź IT."
       },
       "devOps": {
         "name": "DevOps",
