@@ -1,155 +1,135 @@
 "use client";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
 
 export const MyProjects = () => {
   const t = useTranslations("myProjects");
 
-  return (
-    <div className="relative  min-h-[475px] lg:max-w-[1440px] lg:mx-auto z-10 ">
-      <div className="w-full flex flex-col justify-center items-center pt-5">
-        <p className="pt-5 text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl">
-          {t("title")}
-        </p>
-      </div>
-      <div className="w-full  pt-10  px-8 sm:px-12 md:px-24 lg:px-48 ">
-        <div className="grid grid-cols-1 md:grid-cols-7 ">
-          <div className="md:col-span-4 mx-2 my-2">
-            <ProjectCard
-              title={t("projects.genAI.title")}
-              image="gen_ai_project.png"
-              technologies={[
-                "python",
-                "fastapi",
-                "react",
-                "docker",
-                "aws",
-                "postgresql",
-                "swagger",
-              ]}
-              link={t("projects.genAI.link")}
-              tooltip={t("projects.tooltip")}
-            />
-          </div>
-          <div className="md:col-span-3 mx-2 my-2">
-            <ProjectCard
-              title={t("projects.resume.title")}
-              image="ideas_projct.png"
-              technologies={["nextjs", "tailwindcss", "docker"]}
-              link={t("projects.resume.link")}
-              tooltip={t("projects.tooltip")}
-            />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-5 mt-5">
-          <div className="md:col-span-2 mx-2 my-2">
-            <ProjectCard
-              title={t("projects.vesselRecognition.title")}
-              image="vessel_project.png"
-              technologies={["python", "pytorch"]}
-              link={t("projects.vesselRecognition.link")}
-              tooltip={t("projects.tooltip")}
-            />
-          </div>
-          <div className="md:col-span-3 mx-2 my-2">
-            <ProjectCard
-              title={t("projects.speedDating.title")}
-              image="speed_dating_project.png"
-              technologies={[
-                "python",
-                "django",
-                "nextjs",
-                "tailwindcss",
-                "docker",
-              ]}
-              link={t("projects.speedDating.link")}
-              tooltip={t("projects.tooltip")}
-            />
-          </div>
-        </div>
-      </div>
-      {/* GLOW */}
-      <div className="absolute inset-0 flex items-center justify-center -z-10 mt-[250px]">
-        <div className="w-80 h-52 bg-green-500 rounded-full blur-2xl opacity-20"></div>
-      </div>
-    </div>
-  );
-};
-
-const ProjectCard = (props) => {
-  const handleCardClick = () => {
-    window.open(props.link, "_blank");
-  };
-  return (
-    <div
-      onClick={handleCardClick}
-      className="relative h-[300px] px-8 pt-5 bg-secondary-transparentCard/40 rounded-lg overflow-hidden transition-all ease-in hover:bg-[rgba(0,0,0,0.5)] hover:opacity-90 hover:scale-[1.01] hover:cursor-pointer "
-    >
-      <div className="w-full flex flex-row justify-between">
-        <p className="font-bold text-primary-white relative w-4/5 lg:text-lg">
-          {props.title}
-        </p>
-        <a href={props.link} target="_blank" rel="noopener noreferrer">
-          <Tooltip tech={props.tooltip} position="left">
-            <img
-              src="/source-arrow.svg"
-              alt="Arrow"
-              className="w-[16px] h-[16px] mt-2"
-            />
-          </Tooltip>
-        </a>
-      </div>
-
-      <div className="flex flex-wrap gap-2 mt-2">
-        {props.technologies.map((tech, index) => (
-          <Tooltip key={index} tech={tech} position="right">
-            <img
-              src={`/stack/${tech}.svg`}
-              alt={tech}
-              className="w-[20px] h-[20px] transition-transform hover:scale-110"
-            />
-          </Tooltip>
-        ))}
-      </div>
-
-      <img
-        src={`/images/${props.image}`}
-        alt="Glow"
-        className="w-full rounded-b-lg mt-3 rounded-sm"
-      />
-    </div>
-  );
-};
-
-const Tooltip = ({ tech, children, position = "right" }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const positionClass =
-    position === "left"
-      ? "-translate-x-1/2 right-1/2"
-      : "-translate-x-1/2 left-1/2";
+  const projects = [
+    {
+      id: "genAI",
+      image: "/images/gen_ai_project.png",
+      technologies: ["Python", "FastAPI", "React", "Docker", "AWS", "PostgreSQL"],
+      colSpan: "md:col-span-2"
+    },
+    {
+      id: "resume",
+      image: "/images/ideas_projct.png",
+      technologies: ["Next.js", "TailwindCSS", "Docker"],
+      colSpan: "md:col-span-1"
+    },
+    {
+      id: "vesselRecognition",
+      image: "/images/vessel_project.png",
+      technologies: ["Python", "PyTorch"],
+      colSpan: "md:col-span-1"
+    },
+    {
+      id: "speedDating",
+      image: "/images/speed_dating_project.png",
+      technologies: ["Python", "Django", "Next.js", "Docker"],
+      colSpan: "md:col-span-2"
+    },
+  ];
 
   return (
-    <div
-      className="relative flex items-center"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {children}
-      {isHovered && (
+    <section className="relative w-full py-24 px-4 md:px-8 bg-primary-darkest overflow-hidden">
+      {/* Decorative Background */}
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary-dark/20 rounded-full blur-[120px] -translate-x-1/2" />
+
+      <div className="container mx-auto relative z-10 max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 5 }}
-          transition={{ duration: 0.2 }}
-          className={`absolute z-50 bg-black text-white text-xs rounded-lg p-2 opacity-90 shadow-lg top-full mt-1 ${positionClass}`}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20 space-y-4 text-center md:text-left"
         >
-          {tech.toUpperCase()}
+          <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
+            <span className="text-primary-white">{t("selected")}</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-base">
+              {t("title")}
+            </span>
+          </h2>
         </motion.div>
-      )}
-    </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} t={t} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default ProjectCard;
+const ProjectCard = ({ project, index, t }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className={`group relative h-[400px] rounded-3xl overflow-hidden bg-secondary-darkest/50 border border-primary-white/10 ${project.colSpan}`}
+    >
+      {/* Image with zoom effect */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={project.image}
+          alt={t(`projects.${project.id}.title`)}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-darkest via-primary-darkest/50 to-transparent" />
+      </div>
+
+      {/* Content */}
+      <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
+
+        {/* Floating Arrow Icon */}
+        <a
+          href={t(`projects.${project.id}.link`)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute top-8 right-8 w-12 h-12 bg-primary-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-primary-white/20 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-primary-light hover:border-primary-light hover:text-black cursor-pointer"
+        >
+          <ArrowUpRight className="text-current w-6 h-6" />
+        </a>
+
+        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 className="text-3xl font-bold text-primary-white mb-3 leading-tight">
+            {t(`projects.${project.id}.title`)}
+          </h3>
+
+          {/* Tech Stack Tags */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 text-xs font-semibold text-primary-light bg-primary-light/10 border border-primary-light/20 rounded-full backdrop-blur-sm"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Action Button */}
+          <a
+            href={t(`projects.${project.id}.link`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-primary-white font-medium group/link"
+          >
+            <span className="border-b border-primary-light/0 group-hover/link:border-primary-light transition-all duration-300">
+              {t("viewProject")}
+            </span>
+            <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  );
+};

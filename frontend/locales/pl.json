@@ -1,7 +1,7 @@
 {
   "menu": {
     "items": {
-      "skills": "Umiejętności",
+      "skills": "Tech Stack",
       "projects": "Projekty",
       "career": "Kariera",
       "contact": "Kontakt",
@@ -14,7 +14,8 @@
     "name": "Benedykt"
   },
   "mySkills": {
-    "title": "Umiejętności",
+    "prefix": "Tech",
+    "title": "Stack",
     "intro": "Jestem pasjonatem technologii i uwielbiam eksperymentować z nowymi rozwiązaniami. Inwestuję swój wolny czas w rozwijanie wiedzy o IT, bo wierzę, że nieustanne doskonalenie umiejętności jest kluczem do sukcesu w tej dynamicznej branży. Fascynuje mnie tworzenie nowoczesnych aplikacji oraz odkrywanie możliwości, jakie daje programowanie i sztuczna inteligencja. Oto niektóre z obszarów, które najbardziej mnie inspirują i w których stale się rozwijam.",
     "skills": {
       "backend": {
@@ -37,6 +38,8 @@
   },
   "myProjects": {
     "title": "Projekty",
+    "selected": "Wybrane",
+    "viewProject": "Zobacz projekt",
     "projects": {
       "tooltip": "Dowiedz się więcej o projekcie",
       "genAI": {
@@ -58,6 +61,7 @@
     }
   },
   "career": {
+    "prefix": "Moja",
     "title": "Kariera",
     "tech": "Technologie",
     "tools": "Narzędzia",
@@ -67,7 +71,7 @@
   },
   "contact": {
     "title": "Porozmawiajmy",
-    "subtitle": "Masz pytania lub chcesz porozmawiać o współpracy? Napisz do mnie – z przyjemnością odpowiem na Twoją wiadomość.",
+    "subtitle": "Masz pytania lub chcesz porozmawiać o współpracy? Napisz do mnie! Z przyjemnością odpowiem na Twoją wiadomość.",
     "email": {
       "prefix": "benedykt.huszcza",
       "suffix": "@gmail.com"
@@ -83,7 +87,7 @@
     },
     "brand": "benedykt.huszcza.dev",
     "menu": {
-      "skills": "Umiejętności",
+      "skills": "Tech Stack",
       "projects": "Projekty",
       "career": "Kariera",
       "contact": "Kontakt",

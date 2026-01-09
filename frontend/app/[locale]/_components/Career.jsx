@@ -1,288 +1,250 @@
 "use client";
-
 import { useTranslations } from "next-intl";
-import { useState, Fragment } from "react";
-import { ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
+import { Briefcase, Calendar, Building2, Code2, Wrench, ChevronRight } from "lucide-react";
 
 export const Career = () => {
   const t = useTranslations("career");
-  return (
-    <div className="relative w-full bg-black min-h-[475px] z-10 mt-10">
-      <div className="w-full flex flex-col justify-center items-center pt-5">
-        <p className="pt-5 text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl">
-          {t("title")}
-        </p>
-      </div>
 
-      <div className="w-full px-4 sm:px-8 md:px-32 lg:px-64 pb-10">
-        {chapters.map((chapter, i) => (
-          <CareerChapter
-            key={i}
-            id={i}
-            isCurrent={i === 0}
-            year={chapter.year}
-            month={chapter.month}
-            technologies={chapter.technologies}
-            tools={chapter.tools}
-            position={chapter.position}
-            company={chapter.company}
-            color={chapter.color}
-            secondary={chapter.secondary}
-            t={t}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-export const chapters = [
-  {
-    color: "primary-white",
-    secondary: "gray-500",
-    year: "2025",
-    month: "03",
-    position: "Junior Software Engineer",
-    company: "Software Mind",
-    technologies: [
-      { name: "Typescript", tools: ["React"] },
-      { name: "Java", tools: ["SpringBoot", "JOOQ"] },
-      { name: "Python", tools: ["Chainlit", "Langchain", "Pydantic"] },
-      { name: "Cloud", tools: ["Azure OpenAI ", "Azure Search Service"] },
-    ],
-    tools: ["Jenkins", "Octopus Deploy", "Jira", "Bitbucket"],
-  },
-  {
-    color: "primary-blue",
-    secondary: "primary-darkerBlue",
-    year: "2023",
-    month: "07",
-    position: "Fullstack Developer",
-    company: "Prognosis z.o.o",
-    technologies: [{ name: "Typescript", tools: ["React", "TanstackQuery"] }],
-    tools: ["WebStorm"],
-  },
-  {
-    color: "primary-light",
-    secondary: "secondary-lightest",
-    year: "2022",
-    month: "07",
-    position: "Backend Developer",
-    company: "Prognosis z.o.o",
-    technologies: [
-      {
-        name: "Java",
-        tools: ["SpringBoot", "Hibernate", "JPA", "Scheduler", "Feign"],
-      },
-      {
-        name: "Python",
-        tools: ["FastAPI", "Alembic", "Pydantic", "Dotenv"],
-      },
-      { name: "PostreSQL", tools: [] },
-    ],
-    tools: [
-      "IntelliJ IDEA",
-      "Docker",
-      "RabbitMQ",
-      "Keycloak",
-      "Consul",
-      "Traefik",
-    ],
-  },
-];
+  // Data structure kept from original, but we might want to move this to a separate file or keep here if small
+  const chapters = [
+    {
+      id: "current",
+      year: "2025",
+      month: "03",
+      position: "Junior Software Engineer",
+      company: "Software Mind",
+      technologies: [
+        { name: "Typescript", tools: ["React"] },
+        { name: "Java", tools: ["SpringBoot", "JOOQ"] },
+        { name: "Python", tools: ["Chainlit", "Langchain", "Pydantic"] },
+        { name: "Cloud", tools: ["Azure OpenAI ", "Azure Search Service"] },
+      ],
+      tools: ["Jenkins", "Octopus Deploy", "Jira", "Bitbucket"],
+    },
+    {
+      id: "prev1",
+      year: "2023",
+      month: "07",
+      position: "Fullstack Developer",
+      company: "Prognosis z.o.o",
+      technologies: [{ name: "Typescript", tools: ["React", "TanstackQuery"] }],
+      tools: ["WebStorm"],
+    },
+    {
+      id: "prev2",
+      year: "2022",
+      month: "07",
+      position: "Backend Developer",
+      company: "Prognosis z.o.o",
+      technologies: [
+        { name: "Java", tools: ["SpringBoot", "Hibernate", "JPA", "Scheduler", "Feign"] },
+        { name: "Python", tools: ["FastAPI", "Alembic", "Pydantic", "Dotenv"] },
+        { name: "PostgreSQL", tools: [] },
+      ],
+      tools: ["IntelliJ IDEA", "Docker", "RabbitMQ", "Keycloak", "Consul", "Traefik"],
+    },
+  ];
 
-const CareerChapter = (props) => {
-  const t = props.t;
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 90%", "end 50%"],
+  });
 
   return (
-    <div className="lg:max-w-[1440px] lg:mx-auto flex flex-col sm:flex-row  items-center sm:items-start text-primary-white px-4 sm:px-0">
-      <div>
-        <div className="flex flex-row sm:flex-col justify-center items-center mt-6 sm:mt-0">
-          <p className="text-4xl sm:text-2xl font-bold flex flex-col justify-end items-center ">
-            {props.year}
-          </p>
-          <span className="sm:hidden text-4xl font-semiBold">{`\u00A0/\u00A0`}</span>
-          <p className="text-4xl sm:text-7xl font-bold">{props.month}</p>
-        </div>
-      </div>
-      <div className="w-full md:ml-4 lg:ml-8 h-full">
-        <hr
-          className={`border-t border-${props.color} w-full h-[1.5px] mt-8`}
-        />
-        <div className="flex flex-row items-center gap-4">
-          <p className="font-semiBold text-2xl">{props.position}</p>
-          {props.isCurrent && (
+    <section ref={containerRef} className="relative w-full py-16 px-4 md:px-8 bg-primary-darkest overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary-light/10 rounded-full blur-[100px] translate-y-1/2 translate-x-1/2" />
+
+      <div className="container mx-auto relative z-10 max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 text-center"
+        >
+          <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
+            <span className="text-primary-white">{t("prefix")}</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-base">
+              {t("title")}
+            </span>
+          </h2>
+        </motion.div>
+
+        <div className="relative">
+          {/* Vertical Timeline Line */}
+          <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[2px] bg-primary-white/10 -translate-x-1/2 md:-translate-x-px">
             <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className={`flex items-center justify-center ml-2`}
-            >
-              <div className={`h-[1px] w-8 bg-${props.color}/40 mr-3`} />
-              <span
-                className={`text-[10px] font-light tracking-[0.25em] uppercase text-${props.color}/90`}
-              >
-                {t("current")}
-              </span>
-            </motion.div>
-          )}
-        </div>
-        <p className={` text-lg text-${props.secondary}`}>{props.company}</p>
-      </div>
-      {/*mapping section*/}
-      <div className="flex flex-col">
-        <div className="flex flex-row mt-3">
-          <div className="h-full">
-            <div className="flex flex-row">
-              <BlinkingLight color={props.color} />
-              <p className="text-xl font-semiBold text-primary-white ml-2">
-                {t("tech")}
-              </p>
-            </div>
+              style={{ scaleY: scrollYProgress, transformOrigin: "top" }}
+              className="absolute inset-0 w-full bg-gradient-to-b from-primary-light via-primary-base to-primary-dark w-full"
+            />
+          </div>
 
-            {props?.technologies?.map((tech) => (
-              <Fragment key={tech.name}>
-                <div className="flex flex-row ml-1.5">
-                  <div className="w-[1px] h-[28px] bg-secondary-grayLight "></div>
-                  <p
-                    className={`text-md font-semiBold text-${props.secondary} ml-4`}
-                  >
-                    {tech.name}
-                  </p>
-                </div>
-                <TechToolList tech={tech} t={t} />
-              </Fragment>
+          <div className="space-y-8 md:space-y-16">
+            {chapters.map((chapter, index) => (
+              <TimelineItem key={index} chapter={chapter} index={index} t={t} />
             ))}
           </div>
         </div>
-
-        {props.tools.length > 0 && (
-          <div className="flex flex-row">
-            <div className="h-full">
-              <div className="flex flex-row">
-                <BlinkingLight color={props.color} />
-                <p className="text-xl font-semiBold text-primary-white ml-2">
-                  {t("tools")}
-                </p>
-              </div>
-              <ToolList tools={props.tools} secondary={props.secondary} t={t} />
-            </div>
-          </div>
-        )}
       </div>
-    </div>
+    </section>
   );
 };
 
-const TechToolList = ({ tech, t }) => {
-  const [expanded, setExpanded] = useState(false);
-  const toolsToShow = expanded ? tech?.tools : tech?.tools?.slice(0, 3);
-
-  return (
-    <div>
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: "auto", opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="overflow-hidden"
-      >
-        {toolsToShow?.map((tool, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.05 }}
-            className="flex flex-row ml-1.5 text-sm"
-          >
-            <div className="w-[1px] h-[24px] bg-secondary-grayLight"></div>
-            <div className="w-[0.5px] h-[24px] bg-secondary-lightest ml-10"></div>
-            <p className="text-gray-400 ml-2">{tool}</p>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {tech?.tools?.length > 3 && (
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="flex items-center text-sm text-secondary-gray mt-2 ml-12 transition-all duration-300 hover:text-secondary-lightest"
-        >
-          {expanded ? t("collapse") : t("showMore")}
-          <motion.div
-            className="ml-1"
-            animate={{ rotate: expanded ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ChevronDown className="w-4 h-4" />
-          </motion.div>
-        </button>
-      )}
-    </div>
-  );
-};
-
-const ToolList = ({ tools, secondary, t }) => {
-  const [expanded, setExpanded] = useState(false);
-  const toolsToShow = expanded ? tools : tools?.slice(0, 3);
-
-  return (
-    <div>
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: "auto", opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="overflow-hidden"
-      >
-        {toolsToShow?.map((tool, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.05 }}
-            className="flex flex-row ml-1.5"
-          >
-            <div className="w-[1px] h-[28px] bg-secondary-grayLight"></div>
-            <p className={`text-sm font-semiBold text-${secondary} ml-4`}>
-              {tool}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {tools?.length > 3 && (
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="flex items-center text-sm text-secondary-gray mt-2 transition-all duration-300 hover:text-primary-base"
-        >
-          {expanded ? t("collapse") : t("showMore")}
-          <motion.div
-            className="ml-1"
-            animate={{ rotate: expanded ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ChevronDown className="w-4 h-4" />
-          </motion.div>
-        </button>
-      )}
-    </div>
-  );
-};
-
-const BlinkingLight = ({ color }) => {
-  const randomDelay = Math.random() * (20 - 10) + 10;
+const TimelineItem = ({ chapter, index, t }) => {
+  const isEven = index % 2 === 0;
+  const [expandedTechIndex, setExpandedTechIndex] = useState(null);
 
   return (
     <motion.div
-      className={`w-3.5 h-3.5 bg-${color} rounded-full relative shadow-[0_0_10px_4px] shadow-${color} mt-3`}
-      animate={{ opacity: [1, 0.2, 1] }}
-      transition={{
-        duration: 1,
-        repeat: Infinity,
-        repeatType: "mirror",
-        repeatDelay: randomDelay,
-        ease: "easeInOut",
-      }}
-    ></motion.div>
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className={`relative flex flex-col md:flex-row gap-8 md:gap-0 ${isEven ? 'md:flex-row-reverse' : ''}`}
+    >
+      {/* Timeline Node */}
+      <div className="absolute left-[20px] md:left-1/2 top-0 w-10 h-10 rounded-full bg-primary-darkest border-4 border-primary-dark flex items-center justify-center z-20 -translate-x-1/2 shadow-[0_0_20px_rgba(0,223,129,0.3)]">
+        <div className="w-3 h-3 bg-primary-light rounded-full animate-pulse" />
+      </div>
+
+      {/* Content Spacer for layout balance */}
+      <div className="hidden md:block w-1/2" />
+
+      {/* Card Content */}
+      <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}>
+        <div className="relative group">
+          {/* Glassmorphic Card */}
+          <div className="absolute inset-0 bg-secondary-darkest/40 backdrop-blur-xl rounded-2xl -z-10 border border-primary-white/5 group-hover:border-primary-light/30 transition-all duration-300 transform group-hover:-translate-y-1" />
+
+          <div className="p-6 md:p-8">
+            {/* Header */}
+            <div className={`flex flex-col gap-2 mb-6 ${isEven ? 'md:items-end' : 'md:items-start'}`}>
+              <div className="inline-flex items-center gap-2 text-primary-light font-bold bg-primary-light/10 px-3 py-1 rounded-full text-sm border border-primary-light/20">
+                <Calendar className="w-4 h-4" />
+                <span>{chapter.month}.{chapter.year}</span>
+                {index === 0 && (
+                  <>
+                    <span className="w-1 h-1 rounded-full bg-current" />
+                    <span>{t("current")}</span>
+                  </>
+                )}
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-primary-white mt-2 mb-1">
+                {chapter.position}
+              </h3>
+              <div className="flex items-center gap-2 text-secondary-grayLight text-lg">
+                <Building2 className="w-4 h-4" />
+                <span>{chapter.company}</span>
+              </div>
+            </div>
+
+            {/* Technologies Section */}
+            <div className="space-y-4">
+              <div className={`flex items-center gap-2 text-primary-white/80 font-semibold mb-2 ${isEven ? 'md:justify-end' : ''}`}>
+                <Code2 className="w-4 h-4 text-primary-light" />
+                <span>{t("tech")}</span>
+              </div>
+              <div className={`flex flex-wrap gap-2 ${isEven ? 'md:justify-end' : ''}`}>
+                {chapter.technologies.map((tech, i) => (
+                  <TechItem
+                    key={i}
+                    tech={tech}
+                    isExpanded={expandedTechIndex === i}
+                    onToggle={() => setExpandedTechIndex(expandedTechIndex === i ? null : i)}
+                  />
+                ))}
+              </div>
+
+              {/* Tools Section */}
+              {chapter.tools && chapter.tools.length > 0 && (
+                <>
+                  <div className={`flex items-center gap-2 text-primary-white/80 font-semibold mb-2 mt-4 ${isEven ? 'md:justify-end' : ''}`}>
+                    <Wrench className="w-4 h-4 text-primary-light" />
+                    <span>{t("tools")}</span>
+                  </div>
+                  <div className={`flex flex-wrap gap-2 ${isEven ? 'md:justify-end' : ''}`}>
+                    {chapter.tools.map((tool, i) => (
+                      <span key={i} className="px-3 py-1 text-xs md:text-sm text-secondary-gray bg-transparent border border-secondary-gray/20 rounded-lg hover:border-primary-light/30 hover:text-primary-light transition-colors">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const TechItem = ({ tech, isExpanded, onToggle }) => {
+  const hasTools = tech.tools && tech.tools.length > 0;
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside (optional enhancement)
+  // useEffect(...) logic could be added here
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => hasTools && onToggle()}
+        className={`group flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-medium rounded-full border transition-all duration-300 relative overflow-hidden ${isExpanded
+          ? 'bg-primary-light/10 border-primary-light text-primary-light shadow-[0_0_15px_rgba(0,223,129,0.2)]'
+          : 'bg-primary-white/5 border-primary-white/10 text-secondary-lightest hover:bg-primary-white/10 hover:border-primary-white/30 hover:text-primary-white'
+          } ${!hasTools ? 'cursor-default' : 'cursor-pointer'}`}
+      >
+        <span className="relative z-10">{tech.name}</span>
+        {hasTools && (
+          <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-300 relative z-10 ${isExpanded ? 'rotate-90' : ''}`} />
+        )}
+
+        {/* Button Hover Glow */}
+        {!isExpanded && <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-white/5 to-transparent -translate-x-full group-hover:animate-shimmer" />}
+      </button>
+
+      {/* Expanded Tools */}
+      <AnimatePresence>
+        {isExpanded && hasTools && (
+          <motion.div
+            ref={dropdownRef}
+            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="absolute top-full left-0 mt-3 z-30 min-w-[180px]"
+          >
+            <div className="bg-[#0a0a0a]/90 backdrop-blur-2xl border border-primary-white/10 rounded-2xl p-2 shadow-2xl relative overflow-hidden">
+              {/* Subtle Grid Background */}
+              <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.05] pointer-events-none" />
+
+              {/* Inner Glow */}
+              <div className="absolute -top-10 -right-10 w-20 h-20 bg-primary-light/20 blur-xl rounded-full pointer-events-none" />
+
+              <div className="relative z-10 flex flex-col gap-1">
+                {tech.tools.map((tool, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="px-3 py-2 text-sm text-secondary-grayLight hover:text-primary-white hover:bg-primary-white/5 rounded-lg transition-colors cursor-default flex items-center gap-2 group/tool"
+                  >
+                    <div className="w-1 h-1 rounded-full bg-primary-light/40 group-hover/tool:bg-primary-light transition-colors" />
+                    {tool}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };

@@ -1,7 +1,7 @@
 {
   "menu": {
     "items": {
-      "skills": "Skills",
+      "skills": "Tech Stack",
       "projects": "Projects",
       "career": "Career",
       "contact": "Contact",
@@ -14,7 +14,8 @@
     "name": "Benedykt"
   },
   "mySkills": {
-    "title": "Skills",
+    "prefix": "Tech",
+    "title": "Stack",
     "intro": "I am passionate about technology and love experimenting with new solutions. I invest my free time in expanding my IT knowledge because I believe continuous skill improvement is key to success in this dynamic industry. I am fascinated by creating modern applications and exploring the possibilities offered by programming and artificial intelligence. Here are some of the areas that inspire me the most and in which I constantly develop myself.",
     "skills": {
       "backend": {
@@ -37,6 +38,8 @@
   },
   "myProjects": {
     "title": "Projects",
+    "selected": "Selected",
+    "viewProject": "View Project",
     "projects": {
       "tooltip": "Learn more about the project",
       "genAI": {
@@ -58,6 +61,7 @@
     }
   },
   "career": {
+    "prefix": "My",
     "title": "Career",
     "tech": "Technologies",
     "tools": "Tools",

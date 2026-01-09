@@ -34,7 +34,7 @@ export default function IntroSection() {
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="absolute -top-[20%] -left-[10%] w-[500px] h-[500px] bg-primary-dark rounded-full mix-blend-screen filter blur-[80px] opacity-30"
+          className="absolute -top-[20%] -left-[10%] w-[250px] h-[250px] lg:w-[500px] lg:h-[500px] bg-primary-dark rounded-full mix-blend-screen filter blur-[80px] opacity-30"
         />
         <motion.div
           animate={{
@@ -47,7 +47,7 @@ export default function IntroSection() {
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="absolute top-[20%] -right-[10%] w-[400px] h-[400px] bg-primary-blue rounded-full mix-blend-screen filter blur-[80px] opacity-20"
+          className="absolute top-[20%] -right-[10%] w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] bg-primary-blue rounded-full mix-blend-screen filter blur-[80px] opacity-20"
         />
         <motion.div
           animate={{
@@ -59,7 +59,7 @@ export default function IntroSection() {
             repeat: Infinity,
             repeatType: "reverse"
           }}
-          className="absolute bottom-[-10%] left-[20%] w-[600px] h-[300px] bg-primary-base rounded-full mix-blend-screen filter blur-[100px] opacity-10"
+          className="absolute bottom-[-10%] left-[20%] w-[300px] h-[150px] lg:w-[600px] lg:h-[300px] bg-primary-base rounded-full mix-blend-screen filter blur-[100px] opacity-10"
         />
       </div>
 

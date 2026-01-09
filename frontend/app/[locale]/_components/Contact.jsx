@@ -2,92 +2,136 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Copy, Check, Linkedin, ArrowRight, Github } from "lucide-react";
 
 export const Contact = () => {
   const t = useTranslations("contact");
-
-  return (
-    <div className="relative bg-primary-darkest min-h-[350px] z-10 overflow-hidden px-4 py-10">
-      <div className="w-full flex flex-col justify-center items-center py-5 mt-5 mb-10">
-        <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-white font-bold text-4xl text-center">
-          {t("title")}
-        </p>
-        <p className="text-white text-lg font-semiBold px-4 sm:px-32 text-center break-words mt-2 mb-5">
-          {t("subtitle")}
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <EmailIcon />
-          <div className="flex items-center flex-col sm:flex-row text-center sm:text-left">
-            <a
-              className="text-primary-light font-bold text-2xl"
-              href={`mailto:${t("email.prefix")}${t("email.suffix")}`}
-            >
-              {t("email.prefix")}
-            </a>
-            <a
-              className="text-primary-white font-bold text-lg pt-2 sm:pt-0 sm:pl-2"
-              href={`mailto:${t("email.prefix")}${t("email.suffix")}`}
-            >
-              {t("email.suffix")}
-            </a>
-          </div>
-        </div>
-        <p className="text-primary-white font-semiBold text-lg mt-5 text-center break-words">
-          {t("socialMedia")}
-        </p>
-        <button
-          className="w-32 h-10 bg-gradient-to-r from-primary-light to-primary-white text-black font-bold text-lg rounded-lg px-4 mt-5 transition-transform duration-300 ease-out hover:scale-105"
-          onClick={() =>
-            window.open(
-              "https://www.linkedin.com/in/benedykt-huszcza-478b69289/",
-              "_blank",
-            )
-          }
-        >
-          {t("button")}
-        </button>
-      </div>
-
-      {/* GLOW */}
-      <div className="absolute inset-0 flex items-center justify-center -z-10 mt-[50px]">
-        <div className="w-80 h-80 bg-green-500 rounded-full blur-3xl opacity-15"></div>
-      </div>
-    </div>
-  );
-};
-
-const EmailIcon = () => {
-  const t = useTranslations("contact");
   const [isCopied, setIsCopied] = useState(false);
+  const email = "benedykt.huszcza@gmail.com";
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText("benedykt.huszcza@gmail.com");
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
 
   return (
-    <div className="relative">
-      <img
-        src="/email_icon.svg"
-        alt="Email"
-        className="w-[45px] h-[45px] mt-2 cursor-pointer transition-transform duration-300 hover:scale-110"
-        onClick={copyToClipboard}
-      />
+    <section className="relative w-full py-24 px-4 md:px-8 bg-primary-darkest overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-primary-light/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2" />
 
-      <AnimatePresence>
-        {isCopied && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="absolute top-[-50px] left-1/2 transform -translate-x-1/2 bg-black text-white text-sm rounded-lg py-2 px-4 shadow-md"
-          >
-            {t("copied")}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+      <div className="container mx-auto relative z-10 max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative group rounded-3xl p-1"
+        >
+          {/* Gradient Border */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-light/50 via-primary-base/50 to-primary-light/50 rounded-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 blur-sm" />
+
+          {/* Card Content */}
+          <div className="relative bg-[#050505]/80 backdrop-blur-2xl rounded-[22px] p-8 md:p-16 text-center border border-white/5 overflow-hidden shadow-2xl">
+            {/* Subtle Texture */}
+            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+
+            {/* Internal Glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-gradient-to-b from-primary-light/5 to-transparent blur-[60px] opacity-60" />
+
+            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight relative z-10">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-white via-primary-light to-primary-white bg-300% animate-gradient">
+                {t("title")}
+              </span>
+            </h2>
+
+            <p className="text-secondary-grayLight text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed relative z-10">
+              {t("subtitle")}
+            </p>
+
+            {/* Email Copy Box */}
+            <div className="relative max-w-lg mx-auto mb-12 group/email">
+              <div
+                onClick={handleCopy}
+                className="flex items-center justify-between gap-4 p-4 md:p-5 rounded-2xl bg-black/40 border border-primary-white/10 hover:border-primary-light/30 transition-all duration-300 cursor-pointer shadow-lg"
+              >
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-10 h-10 rounded-full bg-primary-light/10 flex items-center justify-center text-primary-light">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <span className="text-lg md:text-xl text-primary-white font-mono truncate">
+                    {email}
+                  </span>
+                </div>
+
+                <div className="relative">
+                  <AnimatePresence mode='wait'>
+                    {isCopied ? (
+                      <motion.div
+                        key="check"
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0, opacity: 0 }}
+                        className="text-primary-light"
+                      >
+                        <Check className="w-6 h-6" />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="copy"
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0, opacity: 0 }}
+                        className="text-secondary-gray group-hover/email:text-primary-white transition-colors"
+                      >
+                        <Copy className="w-6 h-6" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+
+              <AnimatePresence>
+                {isCopied && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute -top-12 left-1/2 -translate-x-1/2 bg-primary-light text-black font-bold text-sm py-1 px-3 rounded-full shadow-lg"
+                  >
+                    {t("copied")}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Social Actions */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
+              <a
+                href="https://www.linkedin.com/in/benedykt-huszcza-478b69289/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary-light text-black font-bold text-lg flex items-center justify-center gap-2 hover:bg-primary-white transition-colors duration-300 shadow-[0_0_20px_rgba(0,223,129,0.3)] hover:shadow-[0_0_30px_rgba(0,223,129,0.5)]"
+              >
+                <Linkedin className="w-5 h-5" />
+                <span>LinkedIn</span>
+                <ArrowRight className="w-5 h-5" />
+              </a>
+
+              <a
+                href="https://github.com/benhus8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary-white/5 border border-primary-white/10 text-primary-white font-bold text-lg flex items-center justify-center gap-2 hover:bg-primary-white/10 transition-colors duration-300"
+              >
+                <Github className="w-5 h-5" />
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
