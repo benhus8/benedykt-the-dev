@@ -40,7 +40,7 @@ export const Contact = () => {
             {/* Internal Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-gradient-to-b from-primary-light/5 to-transparent blur-[60px] opacity-60" />
 
-            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight relative z-10">
+            <h2 className="text-3xl md:text-6xl font-black mb-6 tracking-tight relative z-10">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-white via-primary-light to-primary-white bg-300% animate-gradient">
                 {t("title")}
               </span>

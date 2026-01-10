@@ -48,7 +48,7 @@ export const MyProjects = () => {
           transition={{ duration: 0.6 }}
           className="mb-20 space-y-4 text-center md:text-left"
         >
-          <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-7xl font-black mb-6 tracking-tight">
             <span className="text-primary-white">{t("selected")}</span>{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary-base">
               {t("title")}

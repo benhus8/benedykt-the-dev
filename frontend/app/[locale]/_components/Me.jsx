@@ -84,7 +84,7 @@ export default function IntroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-primary-white tracking-tight"
+              className="text-4xl md:text-7xl lg:text-8xl font-black text-primary-white tracking-tight"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-white via-primary-light to-primary-base">
                 {t("name")}
@@ -94,9 +94,9 @@ export default function IntroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="h-10 md:h-12 lg:h-14 flex items-center justify-center lg:justify-start"
+              className="min-h-[2.5rem] md:min-h-[3rem] lg:min-h-[3.5rem] flex items-center justify-center lg:justify-start"
             >
-              <span className="text-2xl md:text-4xl font-bold text-primary-light font-mono">
+              <span className="text-lg sm:text-2xl md:text-4xl font-bold text-primary-light font-mono whitespace-nowrap">
                 &gt; <Typewriter
                   words={[
                     "Software Engineer",
