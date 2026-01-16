@@ -9,6 +9,9 @@ export const metadata = {
   description:
     "Portfolio of a Software Engineer with a passion for backend, AI, and modern web technologies. Discover my projects and experience.",
   robots: "index, follow",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export function NotFound() {
