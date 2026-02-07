@@ -14,7 +14,7 @@ tags:
 
 ## Nuty a kod, czyli jak 13 lat kształcenia muzycznego sprawiło, że jestem lepszym devem i nie tylko
 
-Ostatnio uświadomiłem sobie, że coraz częściej nachodzi mnie myśli, że największą stopą zwrotu jakiej doświadczam, jest tytułowe 13 lat szkoły muzycznej. Co więcej, niesamowite jest to, jak ten zainwestowany czas ma wpływ na prawie **KAŻDĄ** dziedzinę mojego życia. Jednakże na start może słowo o tym, jak te kilkanaście lat wyglądało.
+Ostatnio uświadomiłem sobie, że coraz częściej nachodzi mnie myśl, że największą stopą zwrotu jakiej doświadczam, jest tytułowe 13 lat szkoły muzycznej. Co więcej, niesamowite jest to, jak ten zainwestowany czas ma wpływ na prawie **KAŻDĄ** dziedzinę mojego życia. Jednakże na start może słowo o tym, jak te kilkanaście lat wyglądało.
 
 ## 13 lat w suwalskiej „muzycznej”, czyli mój fundament
 
