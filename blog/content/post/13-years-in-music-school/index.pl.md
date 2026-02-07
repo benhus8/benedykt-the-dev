@@ -18,7 +18,7 @@ Ostatnio uświadomiłem sobie, że coraz częściej nachodzi mnie myśli, że na
 
 ## 13 lat w suwalskiej „muzycznej”, czyli mój fundament
 
-Na samym wstępie chciałbym oznajmić, że miałem to szczęście mieć przez ten czas styczność z najlepszym dydaktykiem oraz... przyjacielem. Mój nauczyciel trąbki, Pan Paweł Misiukiewicz, przez ponad dekadę wpajał we mnie nie tylko to, że powinienem znać liczbę krzyżyków i bemoli w każdej gamie (o zgrozo! D:), ale również jak być zdeterminowanym, odpowiedzialnym i na swój sposób dojrzałym znacznie wcześniej, niż wymagały tego wiek i okoliczności poza szkołą.
+Na samym wstępie chciałbym oznajmić, że szczęśliwie przez cały czas swojej nauki miałem styczność z najlepszym dydaktykiem oraz... przyjacielem, z którym mam kontakt do dziś. Nuczyciel trąbki, Pan Paweł Misiukiewicz, przez ponad dekadę wpajał we mnie nie tylko to, że powinienem znać liczbę krzyżyków i bemoli w każdej gamie (o zgrozo! D:), ale również jak być zdeterminowanym, odpowiedzialnym i na swój sposób dojrzałym znacznie wcześniej, niż wymagały tego wiek i okoliczności poza szkołą.
 
 Nie dość, że nauczyciel wymagał ode mnie wyżej wymienionych cech, to skłamałbym, mówiąc, że tylko to było wyzwaniem. Grającym "drugie skrzypce" nauczycielem była sama **trąbka**. Uważam, że jest to najbardziej uniwersalny, pięknie brzmiący instrument i nie wymieniłbym go na żaden inny (jest najlepszy wiadomo), ale... na swój sposób niewdzięczny. Kiedyś to przeklinałem, ale dziś widzę, że te wszystkie korzyści to efekt 'brute force’, który ten instrument na mnie po prostu wymusił.
 
