@@ -1,6 +1,6 @@
 ---
 title: "Notes vs. Code: How 13 Years of Musical Education Made Me a Better Dev and More"
-slug: how-music-affect-my-life
+slug: music-vs-it
 date: 2026-02-07 10:00:00+0000
 image: cover.png
 categories:
@@ -12,7 +12,7 @@ tags:
   - IT
 ---
 
-## Notes vs. Code: How 13 Years of Musical Education Made Me a Better Dev (and More)
+## Notes vs. Code: How 13 Years of Musical Education Made Me a Better Dev and More
 
 Lately, I’ve realized more and more that the greatest return on investment (ROI) I experience daily is my 13 years of primary and secondary music school. What’s even more incredible is how that invested time influences almost **EVERY** area of my life. But first, let me tell you a bit about what those dozen or so years actually looked like.
 
@@ -20,13 +20,14 @@ Lately, I’ve realized more and more that the greatest return on investment (RO
 
 At the very beginning, I want to say that I was lucky enough to work with the best educator and... friend for all those years. My trumpet teacher, Mr. Paweł Misiukiewicz, spent over a decade instilling in me not just the knowledge of every sharp and flat in every scale (the horror! D:), but also how to be determined, responsible, and mature in a way that far exceeded my age and the circumstances outside of school.
 
-Besides demanding those traits, I’d be lying if I said he was the only challenge. The one playing "second fiddle" as a teacher was the **trumpet** itself. In my opinion, it’s the most versatile, beautiful-sounding instrument, and I wouldn’t trade it for any other (it's the best, obviously), but... it is ungrateful in its own way. I used to curse it, but today I reap many benefits that required immense work—benefits that the instrument forced upon me.
+Besides demanding those traits, I’d be lying if I said he was the only challenge. The one playing "second fiddle" as a teacher was the **trumpet** itself. In my opinion, it’s the most versatile, beautiful-sounding instrument, and I wouldn’t trade it for any other (it's the best, obviously), but... it is ungrateful in its own way. I used to curse it, but today I see that all these benefits are the result of 'brute force' that this instrument simply forced upon me.
 
-Firstly, when playing the trumpet, you are playing with a small but very real muscle, so consistency is perhaps the most important thing (technical aspects aside). It always annoyed me that pianists might practice longer statistically, but if they took a week off during the summer, it was no tragedy. The trumpet? 3 days off == 10 days of getting back into shape—that was the formula Mr. Paweł gave me, and it’s actually true. Plus or minus: however long you break, you have to put in triple the work to get back to the same spot.
+Firstly, when playing the trumpet, you play with your lips—which means a small but very real muscle—so consistency is perhaps the most important thing (technical aspects aside). It always annoyed me that pianists might practice longer statistically, but if they took a week off during the summer, it was no tragedy. The trumpet? 3 days off == 10 days of getting back into shape—that was the formula Mr. Paweł gave me, and it’s actually true.
 
 ## Consistency: 3 Days Off == 10 Days of Recovery
 
-And so emerges the first trait I practiced for 13 years and try to train today, even though I spend much less time with the trumpet. **Consistency**—perhaps the best thing those years gave me. When I set a goal, doing it regularly is no problem at all; it’s hardcoded into me like Linux in a typical Redditor. I don't need to explain that whether it's studies, work, the gym, or **ANYTHING**, life requires consistency. That’s how I’ve achieved things completely unrelated to music—like regular gym workouts, polishing a language, or consistent reading. I know someone might think: "Buddy, plenty of people work out without needing a decade of music school XD." I agree, but I’m talking about the naturalness of it—the fact that it feels ordinary and, I dare say, simple.
+And so emerges the first trait I practiced for 13 years and try to train today, even though I spend much less time with the trumpet – **Consistency**. 
+When I set a goal, working toward it step-by-step is no problem at all; it’s hardcoded into me like Arch Linux in a typical Redditor. I don't need to explain that whether it's studies, work, the gym, or **ANYTHING**, life requires consistency. That’s how I’ve achieved things completely unrelated to music—like regular gym workouts, polishing a language, or consistent reading. I know someone might think: "Buddy, plenty of people work out without needing a decade of music school XD." I agree, but I’m talking about the naturalness of it—the fact that it feels ordinary and, I dare say, relatively simple.
 
 The next trait of the trumpet is also closely linked to the first. We can already see a pattern: the trumpet requires time and consistency, and therefore, excellent **planning**. If I had to name something I like about myself, it’s that I’m a really good planner, because for 13 years, this was a daily reality—a requirement to move forward.
 
@@ -36,7 +37,7 @@ Exams in music school often consist of a specific program. It looks different fo
 
 This second exam was more about "making music." That’s a broad term, but I mean performing a piece in a way that is correct, objectively beautiful, and true to the composer's intentions. Add to that syncing up with the accompaniment, which required teamwork rather than just individual effort like the first type.
 
-I’ve sketched out the requirements—you can see it’s no walk in the park. An exam means many hours spent practicing solo with sheet music or with the accompanist. And then there were the regular exams, various concerts with the orchestra, and more (I had the chance to play in different ensembles, the school orchestra, the city band, and many side projects, like caroling with Suwałki’s pro volleyball players: $link).
+I’ve sketched out the requirements—you can see it’s no walk in the park. An exam means many hours spent practicing solo with sheet music or with the accompanist. And then there were the regular exams, various concerts with the orchestra, and more (I had the chance to play in different ensembles, the school orchestra, the city band, and many side projects, like [caroling with Suwałki’s pro volleyball players](https://www.youtube.com/watch?v=yp-jA8FukJ0)).
 
 For every event, there was a deadline and organized rehearsals. For each one, you had to prepare bit by bit, focusing on what was working the least at that moment. Every etude, every piece—literally everything that passed "through my fingers"—had a purpose: whether it was technical drills or those two specific lines I struggled with most. The process was simple: I always had to divide the material to finish with a buffer, and during execution, identify what was going worst and focus on those parts.
 
@@ -66,7 +67,8 @@ Finally, let me add the biggest challenge that crowned my history in music schoo
 
 I remember the final year very well. I was already in my first year of Computer Science, traveling every two weeks from Poznań to Suwałki to rehearse with Mr. Paweł. We practiced mostly the diploma pieces, and I loved it because the rehearsals were in a large concert hall, and we focused mostly on "making music"—making the performance as good as I was capable of. And I think I nailed that concert. Why "I think"? Because the stress was so high I remember very little of it, but I know one thing: I delivered. I didn't let down my teacher, my family, and most importantly, myself. I graduated with the highest grade (celujący), and in my head, it stands as one of my greatest life achievements. Every time I face a major, stressful event, I remind myself of this: through sheer work and hundreds of hours, I delivered something much heavier and bigger. So why wouldn't I handle this now?
 
-![The best accompanist ever <3](pani_danuta.jpg)![The trumpet crew one last time...](trebacze.jpg)![Mr. Paweł also made sure that a trumpeter didn't just play well, but looked the part too!](dyplom1.png)
+![The best accompanist ever <3](pani_danuta.jpg) ![The trumpet crew one last time...](trebacze.jpg)![Mr. Paweł also made sure that a trumpeter didn't just play well, but looked the part too](dyplom1.png)
+
 
 And that’s how I’ll end this lengthy post. I didn't write about the obvious things like ensemble playing, as that feels natural—the whole orchestra is in sync often down to milliseconds and hertz. I also didn't write about how much I appreciate music thanks to the school, its craftsmanship, and the emotions it evokes in me. How the sight of an orchestra sometimes truly grabs my heart.
 
@@ -81,12 +83,14 @@ I’ve never had the chance to share my thoughts on school, music, and this whol
 
 And as they say: _last but not least_ – thank you to my **parents**. They are the ones who pushed me into the 1st degree, drove me hundreds of miles to lessons, waited patiently, and took the news when I screwed something up. But I thank them even more for **NOT PUSHING** me into the 2nd degree. I feel that was the most important part -> it was My decision (with a capital "M"), and that sense of agency gave me the greatest boost of empowerment.
 
-I look back at this time with sentiment, and I won't lie—I try to stay involved in the artistic sphere in my free time, whether through theater or playing "Centennial Horizon" for myself again, because I feel it is a huge and inseparable part of who I am.
+I look back at this time with sentiment, and I won't lie—I try to stay involved in the artistic sphere in my free time, whether it's theater or playing "Centennial Horizon" for myself again, because I feel it is a huge and inseparable part of who I am.
 
-I don't have a recording of my own performance, but if anyone is interested and would like to hear my repertoire, I encourage you to embark on this absorbing journey:
+I don't have a recording of my own performance, but if anyone is interested and would like to hear my repertoire, I encourage you to embark on this absorbing journey: 
 {{< spotify "7586qI3jNTpSqTEF7EgM4u" >}}
 {{< spotify "5xyxQXq2vWfE4AuT3RbFey" >}}
 {{< spotify "2o1QLY8UsGPqZJR99LLuJu" >}}
 {{< spotify "4y2VfpBc0s4k0oZhAdtxPv" >}}
+
+
 
 Thanks for reading this post. Maybe you’ll start learning an instrument, or encourage someone who’s considering it? Until next time!
