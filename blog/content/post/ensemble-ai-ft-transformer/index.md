@@ -5,14 +5,14 @@ slug: ensemble-ai-2026
 date: 2026-04-07   16:00:00+0000
 image: cover.jpeg
 categories:
-	- Hackathon
+   - Hackathon
 tags:
-	- ensembleAI
-	- PW
-	- GHOST
-	- AI
-	- Transformers
-	- Hackathon
+   - ensembleAI
+   - PW
+   - GHOST
+   - AI
+   - Transformers
+   - Hackathon
 ---
 
 To be honest, I put off writing this post for a long time, and I mostly blame the fatigue that is closely tied to hackathons. Still, after almost a month, during a long trip from Suwalki to Poznan, I decided to write a few words about the task I spent the most time on during this edition of EnsembleAI, and the one that eventually got us into the top 4 and gave us a shot at the podium.
