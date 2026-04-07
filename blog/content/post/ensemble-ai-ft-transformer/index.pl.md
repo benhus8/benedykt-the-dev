@@ -1,6 +1,6 @@
 ---
-title: EnsembleAI 2026
-description: Transformery rządzą!!!
+title: Transformery na wycince drzew - EnsembleAI 2026
+description: Jak Transformer wciągnął 65 milionów wierszy i zajął 1 miejsce na 45 drużyn
 slug: ensemble-ai-2026
 date: 2026-04-07   16:00:00+0000
 image: cover.jpeg
@@ -34,7 +34,9 @@ Jak mówimy o uczeniu maszynowym i predykcjach, to wstyd nie zacząć od opisu d
 Oraz zbiór:
 - Test: Lipiec 2025 – Październik 2025
 
-Na tym ostatnim zbiorze wykonywaliśmy predykcje przy każdym submission, **jednakże ich finalna ocena była brana pod uwagę po ostatnim przesłaniu wyników po zakończeniu hackathonu!** A więc trenując model, żaden zespół nie był pewien, jak jego model finalnie generalizuje na danych, których zupełnie nie widział, a ich specyfika również mogła być zgoła inna, ponieważ okresy letnie charakteryzują się zupełnie inną pracą pomp ciepła niż te w okresie jesienno-zimowym. Taki problem możemy ładnie nazwać ekstrapolacją.
+Na tym ostatnim zbiorze wykonywaliśmy predykcje przy każdym submission, ale tutaj pojawia się haczyk, który decydował o wszystkim. To był mechanizm znany z Kaggle: Public vs Private Leaderboard. Zbiór Test był niby jawny i każdy je miał, ale... brakowało w nim naszego „y”. Nie było więc mowy o douczeniu modelu czy sprawdzeniu wyniku na własną rękę.
+
+Przez całe 24h walczyliśmy „po omacku”, widząc na tablicy wyniki tylko dla małego wycinka tych danych. Jednak te punkty nie miały  takiego znaczenia w końcowej klasyfikacji! Finalna ocena, która decydowała o podium, została przeliczona na pozostałej, całkowicie zatajonej części zbioru Test, której wyników nikt nie znał do samego końca. To sprawiło, że ostatnie minuty hackathonu to była czysta loteria emocjonalna, bo specyfika lata mogła być zgoła inna niż okresu jesienno-zimowego, na którym głównie trenowaliśmy.
 
 Słowem podsumowania: ostatecznie w danych mieliśmy ok. 600 różnych sensorów, które nadsyłały nam logi w odstępach 5-minutowych w przedstawionych powyżej okresach, co dawało nam ok. 65 milionów wierszy (10.42 GB!) do analizy.
 
@@ -55,51 +57,13 @@ Na samym starcie wiadomo, trzeba przyjrzeć się blisko danym oraz rozkładom i 
 
 ![Instrukcja z sekcją o DoS](dos.png)
 
-W tamtym momencie pomyślałem, że trzeba od tego zacząć, w końcu każdy team pewnie to zrobi, prawda? Prawda?? No finalnie okazało się, że nie :D i kto wie, może to nam dało te kilka punktów więcej?
+W tamtym momencie pomyślałem, że trzeba od tego zacząć i dodać do każdego z sensorów informację, do jakiego dystrybutora energii należy. W końcu każdy team pewnie to zrobi, prawda? Prawda?? No finalnie okazało się, że nie :D i kto wie, może to nam dało te kilka punktów więcej?
 
 W danych mieliśmy takie informacje jak szerokość oraz długość geograficzna każdego sensora, a więc na tej podstawie postanowiłem zlokalizować każde urządzenie w konkretnym województwie, odpytując API GeoPy. Okazało się, że dane zostały chyba zanonimizowane albo były w nich błędy, bo niektóre lokalizacje były niepoprawnie umiejscowione oraz GeoPy nie mogło znaleźć odpowiedniego miejsca. W takich wypadkach użyliśmy algorytmu KNN do znalezienia najbliższego sensora, który jest poprawnie umiejscowiony oraz ma operatora. Później stworzona mapa przypisywała każde województwo do jednego z dystrybutorów energii takich jak PGE, Enea lub Tauron i tak oto mieliśmy pierwszy ciekawy feature.
 Kolejnym ważnym aspektem była agregacja danych. Było ich naprawdę mnóstwo, co mogło przytłoczyć niejeden model, więc decyzja padła na agregację godzinową. Wydawało się to zmniejszać całkiem znacznie zbiór danych, eliminować szum z zapisów prowadzonych co 5 minut, dawać przestrzeń na wykrycie schematów, a także być wartościową jednostką predykcyjną.
-Ogólnie problem był dosyć ciekawy, bo na początku wydawało mi się i tak też z początku podchodziłem do tego zadania, jak do predykcji szeregów czasowych. Jednak po głębszym zastanowieniu, tak naprawdę mamy tu najzwyklejszy problem regresji. Wiadomo, interwały są prowadzone co 5 minut, ale predykcja to predykcja MIESIĘCZNA! A więc to dosyć mocne zaokrąglenie, a jakby to powiedział mój profesor z politechniki: musimy ewidentnie użyć jak najbardziej precyzyjnej siekiery do tej predykcji, a nie skalpela. Co więcej, w miarę uniwersalnej siekiery, która będzie umiała powiązać ważne cechy jesienią, po czym zaaplikować je i wyciągnąć z nich wnioski również latem.
 
-W trakcie tych 24 godzin dużo testowałem z różnymi featureami, nieraz pytając LLMa, czy może on ma jakieś ciekawe pomysły. W sumie wylistuję tu to, co udało się dodać i co finalnie zostało wykorzystane do ostatecznego nauczenia naszego Transformera (lekki spoiler XD):
 
-- **deviceType**, czyli typ urządzenia, który pomaga modelowi uchwycić różnice w charakterystyce pracy.
-    
-- **x3** to dodatkowa cecha kategoryczna z danych wejściowych, która wnosi informację o typie krzywej grzewczej.
-    
-- **operator**, a mianowicie nazwa operatora dostawcy, pozwalająca modelowi uwzględnić różnice wynikające z warunków eksploatacji oraz polityk działania.
-    
-- **voivodeship** to województwo, czyli kontekst geograficzny wpływający między innymi na klimat oraz sezonowość zachowania systemu.
-    
-- **device_operator_combo**, czyli połączenie urządzenia oraz operatora, które pozwala łapać interakcje specyficzne dla konkretnej pary.
-    
-- **t1_mean-t13_mean** oznacza średnią wartość sygnału t1-t13 w oknie czasu opisującą jego typowy poziom.
-
-- **t8_max** wyznacza maksymalną wartość t8 opisującą skrajne piki oraz epizody wysokiego obciążenia.
-    
-- **t8_std** to odchylenie standardowe t8 mierzące zmienność sygnału.
-    
-- **t7_max** oznacza maksimum t7, które wskazuje na chwilowe ekstremalne stany systemu.
-    
-- **t4_min** to minimum t4 przydatne do wykrywania głębokich spadków.
-    
-- **delta_load** jest zmianą obciążenia między punktami czasowymi pokazującą dynamikę pracy układu.
-    
-- **delta_source** wyznacza zmianę po stronie źródła, która może odzwierciedlać przełączenia lub skoki warunków zasilania.
-    
-- **cwu_demand** to zapotrzebowanie na CWU, czyli sygnał popytu wpływający bezpośrednio na pracę systemu.
-    
-- **delta_temp_out_in** oznacza różnicę temperatury wyjścia oraz wejścia opisującą transfer energii a także efektywność procesu.
-    
-- **cwu_spike** jest flagą nagłego wzrostu zapotrzebowania CWU pomocną przy modelowaniu krótkich i gwałtownych zdarzeń.
-    
-- **hour_sin** to sinus z godziny doby, który koduje cykliczność czasu bez sztucznego przeskoku między godziną 23:00 a 00:00.
-    
-- **hour_cos** stanowi cosinus z godziny doby uzupełniający powyższy sinus i pozwalający modelowi odtworzyć pełną fazę dobową.
-    
-- **month_sin** jest sinusem z miesiąca reprezentującym sezonowość roczną w sposób ciągły.
-    
-- **month_cos** to cosinus z miesiąca, który razem z sinusem miesiąca domyka cykliczną reprezentację pór roku.
+Ogólnie problem był dosyć ciekawy, bo na początku wydawało mi się i tak też z początku podchodziłem do tego zadania, jak do predykcji szeregów czasowych. Jednak po głębszym zastanowieniu, tak naprawdę mamy tu **najzwyklejszy problem regresji**. Wiadomo, interwały są prowadzone co 5 minut, ale predykcja to predykcja MIESIĘCZNA! A więc to dosyć mocne zaokrąglenie, a jakby to powiedział mój profesor z politechniki: musimy ewidentnie użyć jak najbardziej precyzyjnej siekiery do tej predykcji, a nie skalpela. Co więcej, w miarę uniwersalnej siekiery, która będzie umiała powiązać ważne cechy jesienią, po czym zaaplikować je i wyciągnąć z nich wnioski również latem.
 
 ## **Pierwsze podejście** 
 Jako pierwsze podejście zdecydowałem się na CatBoosta. Było trochę cech kategorycznych oraz liczbowych, więc postanowiłem, że drzewa boostingowe mogą się całkiem dobrze odnaleźć w tym świecie. Także na start na pełnej wleciał CatBoost z następującymi hiperparametrami (wtedy jeszcze bez strojenia):
@@ -161,6 +125,48 @@ I to by było na tyle, w takim pewnie trochę obszernym skrócie, jak to wszystk
 
 ##  Zastosowanie FTTransformera w naszym zadaniu
 
+###  Ostateczny Feature Engineering 
+W trakcie tych 24 godzin dużo testowałem z różnymi feature'ami, nieraz pytając LLMa, czy może on ma jakieś ciekawe pomysły. W sumie wylistuję tu to, co udało się dodać i co finalnie zostało wykorzystane do ostatecznego nauczenia naszego Transformera, ale też część z tych feature'ów została oczywiście użyta do wytrenowania CatBoosta.
+- **deviceType**, czyli typ urządzenia, który pomaga modelowi uchwycić różnice w charakterystyce pracy.
+    
+- **x3** to dodatkowa cecha kategoryczna z danych wejściowych, która wnosi informację o typie krzywej grzewczej.
+    
+- **operator**, a mianowicie nazwa operatora dostawcy, pozwalająca modelowi uwzględnić różnice wynikające z warunków eksploatacji oraz polityk działania.
+    
+- **voivodeship** to województwo, czyli kontekst geograficzny wpływający między innymi na klimat oraz sezonowość zachowania systemu.
+    
+- **device_operator_combo**, czyli połączenie urządzenia oraz operatora, które pozwala łapać interakcje specyficzne dla konkretnej pary.
+    
+- **t1_mean-t13_mean** oznacza średnią wartość sygnału t1-t13 w oknie czasu opisującą jego typowy poziom.
+
+- **t8_max** wyznacza maksymalną wartość t8 opisującą skrajne piki oraz epizody wysokiego obciążenia.
+    
+- **t8_std** to odchylenie standardowe t8 mierzące zmienność sygnału.
+    
+- **t7_max** oznacza maksimum t7, które wskazuje na chwilowe ekstremalne stany systemu.
+    
+- **t4_min** to minimum t4 przydatne do wykrywania głębokich spadków.
+    
+- **delta_load** jest zmianą obciążenia między punktami czasowymi pokazującą dynamikę pracy układu.
+    
+- **delta_source** wyznacza zmianę po stronie źródła, która może odzwierciedlać przełączenia lub skoki warunków zasilania.
+    
+- **cwu_demand** to zapotrzebowanie na CWU, czyli sygnał popytu wpływający bezpośrednio na pracę systemu.
+    
+- **delta_temp_out_in** oznacza różnicę temperatury wyjścia oraz wejścia opisującą transfer energii a także efektywność procesu.
+    
+- **cwu_spike** jest flagą nagłego wzrostu zapotrzebowania CWU pomocną przy modelowaniu krótkich i gwałtownych zdarzeń.
+    
+- **hour_sin** to sinus z godziny doby, który koduje cykliczność czasu bez sztucznego przeskoku między godziną 23:00 a 00:00.
+    
+- **hour_cos** stanowi cosinus z godziny doby uzupełniający powyższy sinus i pozwalający modelowi odtworzyć pełną fazę dobową.
+    
+- **month_sin** jest sinusem z miesiąca reprezentującym sezonowość roczną w sposób ciągły.
+    
+- **month_cos** to cosinus z miesiąca, który razem z sinusem miesiąca domyka cykliczną reprezentację pór roku.
+
+
+### Co pod maską? Sieć, głowica i hiperparametry
 Teoria teorią, ale teraz pora przejść do tego, jak my te właśnie Transformerowe klocki zaadaptowaliśmy do naszego datasetu.
 
 A więc teoretycznie mówiłem, że liczby są prosto wymnażane przez wektor wag. Jednakże my poszliśmy o krok dalej, a co za tym idzie każda cecha numeryczna była przetwarzana jeszcze przed samym wejściem do Transformera przez małą sieć neuronową, a mianowicie MLP (Multi Layer Perceptron):
