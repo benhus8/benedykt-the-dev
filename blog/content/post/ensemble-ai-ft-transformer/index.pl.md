@@ -123,7 +123,6 @@ Po tym nastąpiła salwa kolejnych faz inżynierii cech, błądzenia i eksplorac
 ## **Autoboty do boju**
 Kiedy porzuciliśmy nasze piękne drzewko? Po pierwsze wtedy, gdy naprawdę poczułem, że kolejne zmiany, próby oraz feature engineering nic nie zmieniają albo zmieniają na tyle mało, że nie jesteśmy w stanie skoczyć wyżej w rankingu. Po drugie: kiedy drużyna Transformers nam nakopała, a tym samym, można powiedzieć, nas natchnęła...
 Po krótkim researchu postanowiłem wyciągnąć naprawdę, ale to naprawdę ciężkie działa, a mianowicie Feature Tokenizer Transformer. Jest to, można powiedzieć, w miarę świeża architektura, która zdobywa ostatnio coraz większą popularność podczas kagglowych zawodów.
-![Schemat FT-Transformera ze źródła](Post hackathon -reviewed-3.png)
 
 ### Ogólny zamysł i sposób działania Feature Tokenizer Transformera
 
