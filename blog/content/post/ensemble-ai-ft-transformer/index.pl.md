@@ -124,6 +124,8 @@ Po tym nastąpiła salwa kolejnych faz inżynierii cech, błądzenia i eksplorac
 Kiedy porzuciliśmy nasze piękne drzewko? Po pierwsze wtedy, gdy naprawdę poczułem, że kolejne zmiany, próby oraz feature engineering nic nie zmieniają albo zmieniają na tyle mało, że nie jesteśmy w stanie skoczyć wyżej w rankingu. Po drugie: kiedy drużyna Transformers nam nakopała, a tym samym, można powiedzieć, nas natchnęła...
 Po krótkim researchu postanowiłem wyciągnąć naprawdę, ale to naprawdę ciężkie działa, a mianowicie Feature Tokenizer Transformer. Jest to, można powiedzieć, w miarę świeża architektura, która zdobywa ostatnio coraz większą popularność podczas kagglowych zawodów.
 
+![](ja_i_transformer.png)
+
 ### Ogólny zamysł i sposób działania Feature Tokenizer Transformera
 
 Zawarty poniżej opis opiera się na pracy, która właśnie [FT-Transformera wprowadziła](https://arxiv.org/abs/2106.11959). Oczywiście obrazki również pochodzą z tego samego źródła.
@@ -143,17 +145,17 @@ I właśnie za to odpowiada nasz komponent Feature Tokenizer. Jest on taką pere
 
 >_One-hot encoding_ to zmiana reprezentacji danej wartości kategorycznej na ciąg binarny. Brzmi to dziwnie, ale jest naprawdę proste. Przykład: mamy cechę "Kolor" w datasecie motocykli. W naszym datasecie mamy dwa kolory – czerwony i czarny. Wrzucając to w wektor, możemy to zrobić tak: `[Czerwony, Czarny]`, a więc na pierwszym miejscu mamy wartość czerwony, a na drugim wartość czarny. Reprezentacja _one-hot encoding_ to tak jakby zapalanie lampek, więc jeśli mielibyśmy przedstawić, że motocykl jest czerwony, to byłoby to tak: `[1,0]`, a czarny to `[0,1]`. Z kolei jakikolwiek inny kolor niż czerwony lub czarny (na przykład zielone Kawasaki) dostałby same zera: `[0,0]`.
 
-Tak oto wszystkie wartości naszych cech są połączone za pomocą konkatenacji w wielką macierz $T$. Następnie na samą górę doklejany jest losowo zainicjowany wektor `[CLS]` o takiej samej długości. Dalej cała ta macierz jest przetwarzana i podana do naszego Transformera, tak więc $T$ reprezentuje nam tak jakby jeden wiersz w naszej tabeli (oczywiście wliczając w to ten dodatkowy wektor `[CLS]`). Na dole zdjątko, jak to się prezentuje:
+Tak oto wszystkie wartości naszych cech są połączone za pomocą konkatenacji w wielką macierz **_T_**. Następnie na samą górę doklejany jest losowo zainicjowany wektor `[CLS]` o takiej samej długości. Dalej cała ta macierz jest przetwarzana i podana do naszego Transformera, tak więc **_T_** reprezentuje nam tak jakby jeden wiersz w naszej tabeli (oczywiście wliczając w to ten dodatkowy wektor `[CLS]`). Na dole zdjątko, jak to się prezentuje:
 
 ![Architektura FT-Transformera](arch_ft_transformer.png)
 
 Ale po co ten `[CLS]`? CLS to skrót od _Classification_, a głównym zadaniem tego wektora jest zbieranie informacji podczas przejścia przez całą sieć ze wszystkich warstw.
 
-Dalej, jak widać, nasz wektor $T$ z przetworzonymi cechami ląduje w Transformerze, przechodzi normalizację i następnie idzie do unitu _Multi-Head Self-Attention_. Dzięki tej warstwie model może wyłonić kontekst, jaki jest potrzebny do osiągnięcia wyniku najbardziej zbliżonego do ideału, a w naszym przypadku kontekst to inne kolumny tabeli, czyli wartości z macierzy $T$. I właśnie ten kontekst, między innymi, składuje nam wektor `[CLS]`.
+Dalej, jak widać, nasz wektor **_T_** z przetworzonymi cechami ląduje w Transformerze, przechodzi normalizację i następnie idzie do unitu _Multi-Head Self-Attention_. Dzięki tej warstwie model może wyłonić kontekst, jaki jest potrzebny do osiągnięcia wyniku najbardziej zbliżonego do ideału, a w naszym przypadku kontekst to inne kolumny tabeli, czyli wartości z macierzy **_T_**. I właśnie ten kontekst, między innymi, składuje nam wektor `[CLS]`.
 
 A dlaczego ta uwaga jest **„Multi-Head”** ? Podobnie jak w modelach językowych jeden _"head"_ może wyłapywać z tekstu gramatykę, a inna emocje, tak tutaj każda z głów szuka w naszym wierszu danych zupełnie innego kontekstu. Dzięki temu w tym samym czasie jedna „głowa” może śledzić tylko twarde zależności geograficzne (np. zużycia do województwa/operatora), inna szuka ukrytych powiązań technicznych (model pompy vs zużycie), a nasz token `[CLS]` dostaje na końcu pełny, wielowymiarowy obraz sytuacji zamiast jednej, uśrednionej papki.
 
-Na samym zaś końcu wyrzucamy wszystkie inne wiersze z macierzy $T$ prócz naszego `[CLS]`, który zawiera takie meritum czyli całą informację potrzebną do dalszego przetwarzania (w naszym zadaniu do przewidzenia konkretnego zużycia) i dalej idzie to prosto do klasyfikacji/regresji.
+Na samym zaś końcu wyrzucamy wszystkie inne wiersze z macierzy **_T_** prócz naszego `[CLS]`, który zawiera takie meritum czyli całą informację potrzebną do dalszego przetwarzania (w naszym zadaniu do przewidzenia konkretnego zużycia) i dalej idzie to prosto do klasyfikacji/regresji.
 
 I to by było na tyle, w takim pewnie trochę obszernym skrócie, jak to wszystko działa pod maską.
 
