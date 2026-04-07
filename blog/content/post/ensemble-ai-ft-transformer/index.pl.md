@@ -202,7 +202,7 @@ Niemniej jednak trzeba oddać honory innym drużynom, które były tuż pod nami
 
 ## To co... za rok?
 Kolejny EnsembleAI i kolejny raz świetnie się na nim bawiłem. Wielkie dzięki dla organizatorów za tak świetny event oraz dla mojej drużyny DNS, czyli Drużyny Nieobecnego Szymona, w składzie:
-- [Jakub Hudziak](linkedin.com/in/jhudziak?originalSubdomain=pl)
+- [Jakub Hudziak](https://www.linkedin.com/in/jhudziak/)
 - [Jakub Binkowski](https://www.linkedin.com/in/jakub-binkowski-80136825b/)
 - [Maciej Kaszkowiak](https://www.linkedin.com/in/maciej-kaszkowiak/)
 - [Maciej Mazur](https://www.linkedin.com/in/maciej-mazur-90064b2b4/)
