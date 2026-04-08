@@ -15,7 +15,12 @@ tags:
    - Hackathon
 ---
 
-Powiem szczerze, że długo zbierałem się do napisania tego wpisu i najbardziej winię za to chyba zmęczenie, które jest z hackathonami dosyć mocno powiązane. Niemniej jednak po upływie prawie miesiąca, podczas długiej podróży z Suwałk do Poznania, postanowiłem napisać kilka słów o zadaniu, nad którym miałem okazję popracować najwięcej podczas tej edycji EnsembleAI, a które finalnie dało nam wejście do top 4 i sposobność do zawalczenia o podium!
+## Prolog
+Przyznaję bez bicia, długo zbierałem się do napisania tego wpisu. Zmęczenie po hackathonach potrafi dać w kość, a opisanie tego, co udało nam się osiągnąć podczas tych 24 godzin, to nie lada wyzwanie, bo prób oraz wielorakich podejść było mnóstwo. Jednakże teraz, patrząc przez okno pociągu jadącego z Suwałk do Poznania, czuję, że wena przejmuje nade mną kontrolę, zupełnie jak aktualizacja Windowsa w randomowy wtorek o 12:40.
+
+Wyobraź sobie tabelę mającą 65 milionów wierszy. Wiem, że to zadanie jest dosyć trudne, dlatego śpieszę z pomocą. 65 milionów wierszy zapisanych czcionką Times New Roman to około 1 300 000 (estymacja by Gemini) stron A4.
+
+Co więcej, wyobraź sobie, że czytasz sobie te 1 300 000 stron A4, a następnie masz na ich podstawie przewidzieć zużycie energii. No nie jest to najłatwiejsze zadanie, dlatego właśnie, jak dobrze wiemy, do tego typu wyzwań pierwsze co wyciągniemy, to drzewa decyzyjne. My również tak zrobiliśmy na początku! Jednak po kilku godzinach postanowiliśmy zrobić coś kompletnie innego i użyliśmy modelu, który z założenia miał służyć do czegoś zupełnie odwrotnego, a dopiero w ostatnim czasie jest adaptowany do wielu innych dziedzin. Chodźcie dzieci, jeśli chcecie zobaczyć regresyjnych drzew las, a później opowiem Wam, jak ten jeden szalony eksperyment przyniósł nam **1. miejsce na 45 drużyn w tym zadaniu** i dlaczego czasami warto wyrzucić bezpieczną instrukcję przez okno. 
 
 ## **Krótki wstęp o formule hackathonu EnsembleAI**
 Aby zrozumieć, jakie emocje towarzyszyły mi oraz mojemu zespołowi podczas tej zażartej walki, musimy zacząć od opisu formuły hackathonu, bo jest ona co najmniej nietypowa i zapewnia strzały dopaminy mocniejsze niż Reelsy z Instagrama.
@@ -200,7 +205,7 @@ Kilka słów o tym, jak w ogóle podeszliśmy do uczenia naszego modelu. Starali
 Warto jeszcze wspomnieć, że sam Transformer uczył się przeskalowanej wartości mean average x2 za pomocą StandardScalera. Sieci neuronowe lubią ogólnie właśnie znormalizowane wartości, więc pewnie to też mogło dołożyć swoją cegiełkę do stabilniejszego i bardziej efektywnego uczenia naszego FTTransformera. Przed samym zapisaniem przewidzianej wartości do pliku wynikowego była ona w odpowiedni sposób przeskalowana do docelowych wartości.
 
 ![Wynik końcowy na leaderboardzie](leaderboard_task_3.png)
-##  Podsumowanie
+##  Epilog
 
 A więc tak, czemu to mogło zadziałać, a nawet teraz już można powiedzieć, że **zadziałało**? Cóż, wiadomo, że ciężko powiedzieć coś na 100%, bo jednak tak duże oraz złożone sieci neuronowe to taka czarna skrzynka. Na pewno każda z wymienionych praktyk wpłynęła po trochu. Jednak gdybym miał już coś wytypować, co mogło mieć większy wpływ, to położyłbym nacisk na ten sławetny mechanizm _Multi-Head Self-Attention_.
 Głównym problemem oraz wyzwaniem w tych danych było wyciągnięcie uniwersalnej wiedzy z miesięcy jesienno-zimowych, kiedy pompa ciepła zazwyczaj działa na pełnych obrotach i przeniesienie jej na letnie zużycie, kiedy to wykorzystanie pomp jest znacznie mniejsze. W FT-Transformerze mechanizm kontekstu mógł modelować, jak mocno dane cechy mają wpływ na wynik oraz jak bardzo konkretne atrybuty powinny być brane pod uwagę w szczególnych przypadkach. Dodatkowo jeszcze nasz nieliniowy MLP, który przetwarzał nasze wartości numeryczne, też mógł wzbogacić te cechy i nadać im konkretny wpływ na wynik. Jak wiemy, Transformery nieźle generalizują i wydaje mi się, że to właśnie ta cecha zagrała pierwsze skrzypce w tym zadaniu. 

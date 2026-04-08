@@ -15,7 +15,12 @@ tags:
    - Hackathon
 ---
 
-To be honest, I put off writing this post for a long time, and I mostly blame the fatigue that is closely tied to hackathons. Still, after almost a month, during a long trip from Suwalki to Poznan, I decided to write a few words about the task I spent the most time on during this edition of EnsembleAI, and the one that eventually got us into the top 4 and gave us a shot at the podium.
+## Prologue
+No excuses, I delayed writing this post for a long time. Post-hackathon fatigue can hit hard, and describing what we achieved during those 24 hours is not easy, because there were tons of attempts and many different approaches. But now, looking through the train window on the way from Suwalki to Poznan, I feel the creative flow taking over, just like a random Windows update on a Tuesday at 12:40.
+
+Imagine a table with 65 million rows. I know that is hard to picture, so here is a shortcut: 65 million rows in Times New Roman is roughly 1,300,000 A4 pages.
+
+Now imagine reading all 1,300,000 pages and then being asked to predict energy consumption from them. Not exactly easy, so as we all know, the first thing you would usually pull out for this kind of problem is decision trees. We did the same at first. But after a few hours, we decided to do something completely different and used a model that was originally built for almost the opposite kind of task, and only recently started being adapted to many other domains. Come along if you want to see a forest of regression trees first, and then I will tell you how that one crazy experiment gave us **1st place out of 45 teams in this task**, and why sometimes it is worth throwing the safe instruction manual out the window.
 
 ## **A short intro to the EnsembleAI hackathon format**
 To understand the emotions my team and I felt during this intense battle, we need to start with the format itself, because it is at least unusual and delivers dopamine hits stronger than Instagram Reels.
@@ -200,7 +205,7 @@ A few words on training strategy. We tried to be efficient, so we would not wast
 The Transformer learned a scaled version of mean average x2 using StandardScaler. Neural networks generally like normalized targets, so this likely improved stability and convergence. Before writing outputs to submission, predictions were inverse-scaled back to target units.
 
 ![Final leaderboard result](leaderboard_task_3.png)
-##  Summary
+##  Epilogue
 
 So why did this work, and now we can safely say it **did** work? It is hard to be 100% certain, because large neural models are black boxes. Most likely each practice contributed a bit. But if I had to pick one stronger factor, I would highlight _Multi-Head Self-Attention_.
 The core challenge was extracting transferable knowledge from autumn-winter months, when heat pumps run hard, and carrying it into summer, where usage is much lower. In FT-Transformer, context modeling could learn how strongly features influence outputs and when specific attributes should matter more. Our nonlinear MLP for numerical values likely enriched those representations too. Transformers tend to generalize well, and I believe that played first violin here.
