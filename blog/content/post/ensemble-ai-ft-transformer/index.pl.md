@@ -112,7 +112,7 @@ I właśnie za to odpowiada nasz komponent Feature Tokenizer. Jest on taką pere
 - **Cechy kategoryczne:** I tutaj działa to dosyć podobnie jak przetwarzanie słów w NLP. Każda wartość cechy na początku jest transformowana do reprezentacji _one-hot encoding_, a następnie jest wymnażana przez macierz wag. Tak w skrócie matematycznie działa to po prostu jak wybieranie konkretnego wiersza z tej macierzy plus wiadomo bias.
     
 
->_One-hot encoding_ to zmiana reprezentacji danej wartości kategorycznej na ciąg binarny. Brzmi to dziwnie, ale jest naprawdę proste. Przykład: mamy cechę "Kolor" w datasecie motocykli. W naszym datasecie mamy dwa kolory – czerwony i czarny. Wrzucając to w wektor, możemy to zrobić tak: `[Czerwony, Czarny]`, a więc na pierwszym miejscu mamy wartość czerwony, a na drugim wartość czarny. Reprezentacja _one-hot encoding_ to tak jakby zapalanie lampek, więc jeśli mielibyśmy przedstawić, że motocykl jest czerwony, to byłoby to tak: `[1,0]`, a czarny to `[0,1]`. Z kolei jakikolwiek inny kolor niż czerwony lub czarny (na przykład zielone Kawasaki) dostałby same zera: `[0,0]`.
+>_One-hot encoding_ to zmiana reprezentacji danej wartości kategorycznej na ciąg binarny. Brzmi to dziwnie, ale jest naprawdę proste. Przykład: mamy cechę "Kolor" w datasecie motocykli. W naszym datasecie mamy dwa kolory – czerwony i czarny. Wrzucając to w wektor, możemy to zrobić tak: `[Czerwony, Czarny]`, a więc na pierwszym miejscu mamy wartość czerwony, a na drugim wartość czarny. Reprezentacja _one-hot encoding_ to tak jakby zapalanie lampek, więc jeśli mielibyśmy przedstawić, że motocykl jest czerwony, to byłoby to tak: `[1,0]`, a czarny to `[0,1]`.
 
 Tak oto wszystkie wartości naszych cech są połączone za pomocą konkatenacji w wielką macierz **_T_**. Następnie na samą górę doklejany jest losowo zainicjowany wektor `[CLS]` o takiej samej długości. Dalej cała ta macierz jest przetwarzana i podana do naszego Transformera, tak więc **_T_** reprezentuje nam tak jakby jeden wiersz w naszej tabeli (oczywiście wliczając w to ten dodatkowy wektor `[CLS]`). Na dole zdjątko, jak to się prezentuje:
 
@@ -174,7 +174,7 @@ W trakcie tych 24 godzin dużo testowałem z różnymi feature'ami, nieraz pytaj
 ### Co pod maską? Sieć, głowica i hiperparametry
 Teoria teorią, ale teraz pora przejść do tego, jak my te właśnie Transformerowe klocki zaadaptowaliśmy do naszego datasetu.
 
-A więc teoretycznie mówiłem, że liczby są prosto wymnażane przez wektor wag. Jednakże my poszliśmy o krok dalej, a co za tym idzie każda cecha numeryczna była przetwarzana jeszcze przed samym wejściem do Transformera przez małą sieć neuronową, a mianowicie MLP (Multi Layer Perceptron):
+Teoretycznie wspominałem, że liczby są prosto wymnażane przez wektor wag. Jednakże my poszliśmy o krok dalej, a co za tym idzie każda cecha numeryczna była przetwarzana jeszcze przed samym wejściem do Transformera przez małą sieć neuronową, a mianowicie MLP (Multi Layer Perceptron):
 ```
 nn.Sequential( nn.Linear(1, embed_dim // 2), nn.ReLU(), nn.Linear(embed_dim // 2, embed_dim), )
 ```
@@ -207,7 +207,10 @@ Warto jeszcze wspomnieć, że sam Transformer uczył się przeskalowanej wartoś
 ![Wynik końcowy na leaderboardzie](leaderboard_task_3.png)
 ##  Epilog
 
-A więc tak, czemu to mogło zadziałać, a nawet teraz już można powiedzieć, że **zadziałało**? Cóż, wiadomo, że ciężko powiedzieć coś na 100%, bo jednak tak duże oraz złożone sieci neuronowe to taka czarna skrzynka. Na pewno każda z wymienionych praktyk wpłynęła po trochu. Jednak gdybym miał już coś wytypować, co mogło mieć większy wpływ, to położyłbym nacisk na ten sławetny mechanizm _Multi-Head Self-Attention_.
+Zatem, czemu to mogło zadziałać, a nawet teraz już można powiedzieć, że **zadziałało**? 
+Po pierwsze, zderzyliśmy się z brutalną prawdą o drzewach decyzyjnych: nie są stworzone do problemów ekstrapolacji. Każde drzewo tworzy sztywne podziały, których uczy się w trakcie treningu. Ale co, jeśli latem model zobaczy wartości zupełnie spoza zbioru treningowego? No właśnie drzewo rozkłada ręce. Z tym problemem znacznie lepiej radzą sobie architektury typu Transformer, które uczą się ciągłych relacji i nie są ograniczone sztywnymi ramami z przeszłości.
+
+Po drugie cóż, wiadomo, że ciężko powiedzieć coś na 100%, bo jednak tak duże oraz złożone sieci neuronowe to taka czarna skrzynka. Na pewno każda z wymienionych wcześniej praktyk kształtowała po trochu końcowy wynik. Jednak gdybym miał już coś wytypować, co mogło mieć większy wpływ, to położyłbym nacisk na ten sławetny mechanizm _Multi-Head Self-Attention_.
 Głównym problemem oraz wyzwaniem w tych danych było wyciągnięcie uniwersalnej wiedzy z miesięcy jesienno-zimowych, kiedy pompa ciepła zazwyczaj działa na pełnych obrotach i przeniesienie jej na letnie zużycie, kiedy to wykorzystanie pomp jest znacznie mniejsze. W FT-Transformerze mechanizm kontekstu mógł modelować, jak mocno dane cechy mają wpływ na wynik oraz jak bardzo konkretne atrybuty powinny być brane pod uwagę w szczególnych przypadkach. Dodatkowo jeszcze nasz nieliniowy MLP, który przetwarzał nasze wartości numeryczne, też mógł wzbogacić te cechy i nadać im konkretny wpływ na wynik. Jak wiemy, Transformery nieźle generalizują i wydaje mi się, że to właśnie ta cecha zagrała pierwsze skrzypce w tym zadaniu. 
 Niemniej jednak trzeba oddać honory innym drużynom, które były tuż pod nami. Mimo iż druga drużyna miała wynik gorszy od naszego (o ponad 50%), to chyba jako jedyni wyciągnęliśmy tak ciężkie działo jak Transformer do tego zadania. Inne drużyny korzystały z drzew regresyjnych takich jak LightGBM i biorąc pod uwagę różnicę w skomplikowaniu naszej oraz ich architektury, to wykonali oni naprawdę świetną robotę. Niemniej jednak to nam udało się wyjść na prowadzenie i z naszego rozwiązania możemy być dumni!
 
