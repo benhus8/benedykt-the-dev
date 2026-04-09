@@ -1,6 +1,6 @@
 ---
 title: Transformers Cutting Down Trees - EnsembleAI 2026
-description: How a Transformer swallowed 65 million rows and took 1st place out of 45 teams
+description: How a Transformer swallowed 64 million rows and took 1st place out of 45 teams
 slug: ensemble-ai-2026
 date: 2026-04-07   16:00:00+0000
 image: cover.jpeg
@@ -20,7 +20,7 @@ No excuses, I took a long time to write this post. Post-hackathon fatigue can hi
 
 Writing flow aside, the reality we had to face on site was way less poetic.
 
-Imagine a table with 65 million rows. I know that is hard to picture, so here is some help: 65 million rows in Times New Roman is about 1,300,000 A4 pages.
+Imagine a table with 64 million rows. I know that is hard to picture, so here is some help: 64 million rows in Times New Roman is about 1,300,000 A4 pages.
 
 Now imagine reading those 1,300,000 pages and then predicting energy consumption from them. Not exactly easy. So as we all know, for this kind of challenge the first thing we usually reach for is decision trees. We did the same at first. But after a few hours we decided to do something completely different and used a model that was originally designed for almost the opposite kind of task, and only recently started being adapted to many other domains. Come along if you want to see a forest of regression trees first, and then I will tell you how that one crazy experiment brought us **1st place out of 45 teams in this task**, and why sometimes it is worth throwing the safe instruction manual out the window.
 
@@ -69,7 +69,7 @@ In practice, the evaluation looked like this:
    </table>
 </div>
 
-In short: in the end we had around 600 sensors sending logs every 5 minutes in the periods above, which gave us around 65 million rows (10.42 GB!) to analyze.
+In short: in the end we had around 600 sensors sending logs every 5 minutes in the periods above, which gave us around 64 million rows (10.42 GB!) to analyze.
 
 ## **Goal**
 Short and simple: the prediction target was not instantaneous power, but the monthly average value of the grid load indicator (x2) for each device. So we moved from high-resolution data (readings every 5 minutes) to monthly aggregates. Below is the exact formula from the task description:

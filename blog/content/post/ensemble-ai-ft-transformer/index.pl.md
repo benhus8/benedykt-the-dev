@@ -1,6 +1,6 @@
 ---
 title: Transformery na wycince drzew - EnsembleAI 2026
-description: Jak Transformer wciągnął 65 milionów wierszy i zajął 1 miejsce na 45 drużyn
+description: Jak Transformer wciągnął 64 miliony wierszy i zajął 1 miejsce na 45 drużyn
 slug: ensemble-ai-2026
 date: 2026-04-07   16:00:00+0000
 image: cover.jpeg
@@ -18,7 +18,7 @@ tags:
 ## Prolog
 Przyznaję bez bicia, trochę zbierałem się do napisania tego wpisu. Zmęczenie po hackathonach potrafi dać w kość, a opisanie tego, co udało nam się osiągnąć podczas tych 24 godzin, to nie lada wyzwanie, bo prób oraz wielorakich podejść było mnóstwo. Jednakże teraz, patrząc przez okno pociągu jadącego z Suwałk do Poznania, czuję, że wena przejmuje nade mną kontrolę, zupełnie jak aktualizacja Windowsa w randomowy wtorek o 12:40.
 
-Wena weną, ale rzeczywistość, z którą musieliśmy się zmierzyć na miejscu, była zdecydowanie mniej poetycka. Wyobraź sobie tabelę mającą 65 milionów wierszy. Wiem, że to zadanie jest dosyć trudne, dlatego śpieszę z pomocą. 65 milionów wierszy zapisanych czcionką Times New Roman (font size 12) to około 1 300 000 stron A4 (estymacja by Gemini).
+Wena weną, ale rzeczywistość, z którą musieliśmy się zmierzyć na miejscu, była zdecydowanie mniej poetycka. Wyobraź sobie tabelę mającą 64 miliony wierszy. Wiem, że to zadanie jest dosyć trudne, dlatego śpieszę z pomocą. 64 miliony wierszy zapisanych czcionką Times New Roman (font size 12) to około 1 300 000 stron A4 (estymacja by Gemini).
 
 Co więcej, wyobraź sobie, że czytasz te 1 300 000 stron A4, a następnie masz na ich podstawie przewidzieć obciążenie sieci elektrycznej dla jakiegoś urządzenia. Zgadza się - nie jest to najłatwiejsze zadanie, dlatego, jak dobrze wiemy, do tego typu wyzwań pierwsze co wyciągniemy, to drzewa decyzyjne. My również tak zrobiliśmy na początku! Jednak po kilku godzinach postanowiliśmy zrobić coś kompletnie innego i użyliśmy architektury, która z założenia miała służyć do przetwarzania tekstu, a w ostatnim czasie jest adaptowana do wielu innych dziedzin. Nie przedłużając, opowiem Wam, jak ten eksperyment przyniósł nam **1. miejsce na 45 drużyn** i dlaczego czasami warto wyrzucić bezpieczną instrukcję przez okno. 
 
@@ -68,7 +68,7 @@ W praktyce ocenianie wyglądało tak:
   </table>
 </div>
 
-Ostatecznie w danych mieliśmy ok. 600 różnych sensorów, które nadsyłały nam logi w odstępach 5-minutowych w przedstawionych powyżej okresach, co dawało nam ok. 65 milionów wierszy (10.42 GB!) do analizy.
+Ostatecznie w danych mieliśmy ok. 600 różnych sensorów, które nadsyłały nam logi w odstępach 5-minutowych w przedstawionych powyżej okresach, co dawało nam ok. 64 miliony wierszy (10.42 GB!) do analizy.
 
 ## **Cel** 
 Krótko i na temat: celem predykcji nie była chwilowa moc, a średnia miesięczna wartość wskaźnika obciążenia sieci (x2) dla każdego urządzenia. Przechodziliśmy więc z danych o wysokiej rozdzielczości (odczyty co 5 minut) na poziom agregatów miesięcznych. Na dole wrzucam dokładny i piękny wzór zawarty w opisie zadania:
