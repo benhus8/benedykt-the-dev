@@ -1,0 +1,40 @@
+{{ if and .IsPage (eq .Section "post") }}
+<div id="reading-progress" aria-hidden="true">
+  <span id="reading-progress__bar"></span>
+</div>
+
+<script>
+  (() => {
+    const bar = document.getElementById("reading-progress__bar");
+    const article = document.querySelector(".article-content");
+
+    if (!bar || !article) {
+      return;
+    }
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const getArticleTop = () => window.scrollY + article.getBoundingClientRect().top;
+
+    const updateProgress = () => {
+      const articleTop = getArticleTop();
+      const scrollable = article.offsetHeight - window.innerHeight;
+
+      let progress = 0;
+
+      if (scrollable <= 0) {
+        progress = window.scrollY > articleTop ? 100 : 0;
+      } else {
+        progress = ((window.scrollY - articleTop) / scrollable) * 100;
+      }
+
+      bar.style.width = `${clamp(progress, 0, 100)}%`;
+    };
+
+    updateProgress();
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
+{{ end }}

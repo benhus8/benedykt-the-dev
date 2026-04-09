@@ -18,6 +18,8 @@ tags:
 ## Prologue
 No excuses, I took a long time to write this post. Post-hackathon fatigue can hit hard, and describing what we managed to achieve during those 24 hours is no small challenge, because there were many attempts and many different approaches. But now, looking through the train window on my way from Suwalki to Poznan, I can feel the writing flow taking over, just like a Windows update on a random Tuesday at 12:40.
 
+Writing flow aside, the reality we had to face on site was way less poetic.
+
 Imagine a table with 65 million rows. I know that is hard to picture, so here is some help: 65 million rows in Times New Roman is about 1,300,000 A4 pages.
 
 Now imagine reading those 1,300,000 pages and then predicting energy consumption from them. Not exactly easy. So as we all know, for this kind of challenge the first thing we usually reach for is decision trees. We did the same at first. But after a few hours we decided to do something completely different and used a model that was originally designed for almost the opposite kind of task, and only recently started being adapted to many other domains. Come along if you want to see a forest of regression trees first, and then I will tell you how that one crazy experiment brought us **1st place out of 45 teams in this task**, and why sometimes it is worth throwing the safe instruction manual out the window.
@@ -34,25 +36,55 @@ The task was defined by one of the hackathon partners, Euros Energy, which also 
 ## **The data we got**
 When we talk about machine learning and prediction, it would be a shame not to start with the data, so let us do exactly that. Each team had access to 3 main datasets:
 
-- Train: October 2024 - April 2025
-- Validation: May 2025 - June 2025
-And also:
-- Test: July 2025 - October 2025
+- **Train**: October 2024 - April 2025
+- **Validation**: May 2025 - June 2025
+- **Test**: July 2025 - October 2025
 
 We made predictions on that last dataset for every submission, but here comes the twist that decided everything. It was the familiar Kaggle mechanism: Public vs Private Leaderboard. The Test set was technically available to everyone, but... it did not include our "y" target. So there was no way to retrain on it or verify results on our own.
 
 For the full 24 hours, we were fighting "in the dark," seeing results only for a small slice of the data on the board. But those points did not carry the final weight in the overall ranking. The final score deciding the podium was computed on the remaining, fully hidden part of Test, and nobody knew those results until the very end. That made the last minutes of the hackathon pure emotional lottery, because summer behavior could be very different from the autumn-winter period we mostly trained on.
+
+In practice, the evaluation looked like this:
+<div style="border-left: 4px solid #59ff00; padding: 15px 5px; margin: 20px 0;">
+   <table style="width: 100%; border-collapse: collapse; font-family: sans-serif; font-size: 1.4rem;">
+      <thead>
+         <tr style="border-bottom: 2px solid #555;">
+            <th style="text-align: left; padding: 10px;">Score</th>
+            <th style="text-align: left; padding: 10px;">Months used</th>
+            <th style="text-align: left; padding: 10px;">Weights</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 12px 10px;"><strong>Leaderboard (visible)</strong></td>
+            <td style="padding: 12px 10px;">Validation only (May - Jun 2025)</td>
+            <td style="padding: 12px 10px; color: #bbffd8;">-</td>
+         </tr>
+         <tr>
+            <td style="padding: 12px 10px;"><strong>Final score</strong></td>
+            <td style="padding: 12px 10px;">Validation + Test (May - Oct 2025)</td>
+            <td style="padding: 12px 10px;"><strong>2/6 valid</strong> + <strong>4/6 test</strong></td>
+         </tr>
+      </tbody>
+   </table>
+</div>
 
 In short: in the end we had around 600 sensors sending logs every 5 minutes in the periods above, which gave us around 65 million rows (10.42 GB!) to analyze.
 
 ## **Goal**
 Short and simple: the prediction target was not instantaneous power, but the monthly average value of the grid load indicator (x2) for each device. So we moved from high-resolution data (readings every 5 minutes) to monthly aggregates. Below is the exact formula from the task description:
 
-![Prediction target formula](prediction_target_hck.png)
+> For each device **d** and forecast month **m**, we needed to predict the **average x2 value** across all 5-minute readings in that month:
+>
+> <p align="center" style="font-size: 1.8rem; padding: 10px 10px 10px 4px; background: rgba(0,0,0,0.05); border-radius: 8px;">
+>   <b>target<sub>d,m</sub> = (1 / N<sub>d,m</sub>) * &sum; x<sub>2</sub><sup>(d,m,i)</sup></b>
+> </p>
 
 And the metric on both the _live_ and final leaderboard was MAE:
 
-![MAE as the evaluation metric](mae.png)
+> <p align="center" style="font-size: 1.8rem; padding: 10px 10px 10px 4px; background: rgba(0,0,0,0.05); border-radius: 8px;">
+>   <b>MAE = (1 / n) * &sum; | y<sub>i</sub> - ŷ<sub>i</sub> |</b>
+> </p>
 
 So, time to describe our efforts and the road that took us straight to 3rd place in the whole hackathon.
 
@@ -62,9 +94,9 @@ At the start, of course, we had to inspect the data and distributions closely, a
 
 ![Instruction section about DoS](dos.png)
 
-At that point I thought we should start from there and add information to each sensor about which energy distributor it belongs to. Surely every team would do that, right? Right?? Well, in the end it turned out they did not :D and who knows, maybe that gave us those extra points.
+At that point I thought we should start there and add information for each sensor about which energy distributor it belongs to. Surely every team would do that, right? Right?? Well, in the end it turned out they did not :D and who knows, maybe that gave us those extra points.
 
-The data included latitude and longitude for every sensor, so based on that I decided to locate each device in a specific voivodeship by querying the GeoPy API. It turned out the data was probably anonymized or contained errors, because some locations were incorrect and GeoPy could not find the right place. In those cases, we used KNN to find the nearest sensor that was correctly located and had an assigned operator. Then a mapping assigned each voivodeship to one of the distributors such as PGE, Enea, or Tauron, and that gave us our first interesting feature.
+The data included latitude and longitude for every sensor, so based on that I decided to locate each device in a specific voivodeship by querying the GeoPy API. It turned out the data was probably anonymized or contained errors, because some locations were incorrect and GeoPy could not find the right place. In those cases, we used KNN to find the nearest sensor with valid coordinates. Then a mapping assigned each voivodeship to one of the distributors such as PGE, Enea, or Tauron, and that gave us our first interesting feature.
 Another important aspect was data aggregation. There was a lot of data, enough to overwhelm many models, so we chose hourly aggregation. It seemed to significantly reduce dataset size, remove noise from 5-minute logs, create room for pattern detection, and still remain a useful prediction unit.
 
 
@@ -90,7 +122,7 @@ And as they say: boom. It hit hard, because our first model got 0.0074 MAE. 0.00
 Then came a barrage of feature-engineering rounds, exploration, and trial-and-error. In the end, while fighting other teams that reached similar results and eventually overtook us, our last CatBoost step was Optuna to squeeze as much as possible out of it. We got MAE = 0.0044. Every model iteration was a real battle, and I still think getting that value from a tree model alone was a strong result. Especially because, slight spoiler, Transformer is a much heavier architecture, so it is hard to compare the two directly since they sit at opposite ends of efficiency and compute requirements. Still, I consider that result really good given our knowledge and skills.
 
 ## **Autobots, roll out**
-When did we abandon our beautiful tree? First, when I felt that further changes, attempts, and feature engineering were no longer moving the needle, or moved it too little to climb higher. Second, when the Transformers team beat us and, in a way, inspired us.
+When did we abandon our beautiful tree? First, when I felt that further changes, attempts, and feature engineering were no longer moving the needle, or moved it too little to climb higher. Second, when a team literally called "Transformers" beat us and, in a way, inspired us.
 After a short research phase, I decided to bring truly heavy artillery: Feature Tokenizer Transformer. It is a relatively fresh architecture that has recently become more and more popular in Kaggle competitions.
 
 ![](ja_i_transformer.png)
